@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;0,900;1,400;1,700&display=swap');
+/*--------------------------------------------------------------------------------------------------------------*/
+/*Estilos globales*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+/*--------------------------------------------------------------------------------------------------------------*/
+/*Variables css*/
+:root {
+    /*Variables de colores*/
+    --colorPrincipal: linear-gradient(180deg, #071A5C, #061446);
+    --colorSegundario: linear-gradient(180deg, #71CA6D, #387a3b);
+    --colorTerceario: #D7A310;
+    /*Variables de fuentes*/
+    --titulo1: 'Roboto', sans-serif; font-weight: 900;
+    --titulo2: 'Roboto', sans-serif; font-weight: 700;
+    --titulo3: 'Roboto', sans-serif; font-weight: 700;
+    --titulo4: 'Roboto', sans-serif; font-weight: 700; 
+    --parrafo: 'Roboto', sans-serif; font-weight: 400;
+}
+a {
+    font-family: var(--titulo4);
+}
+/*Pantalla de carga*/
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 9999;
+    
+}
+#loader {
+    border: 8px solid #D7A310;
+    border-top: 8px solid #cfbe89;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s ease-in-out infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -30px;
+    margin-left: -30px;
+}
+.flor1{
+    max-width: 400px;
+    max-height: 200px;
+    position: absolute;
+    z-index: 1;
+    
+    
+}
+.flor2{
+    max-width: 500px;
+    max-height: 300px;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+}
+/*-----------------------------------------------------------------------------------------*/
+/*navbar*/
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: var(--colorPrincipal);
+    height: 10vh;
+    padding: 10px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin-right: 10px;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    padding-left: 30px;
+}
+.nav-item a:hover {
+    color: #eec54a;
+    transition: 0.2s ease-in-out;
+}
+.nav-item:active{
+    transform: scale(1.1);
+}
+
+.menu-toggle {
+    cursor: pointer;
+    color: #fff;
+    display: none;
+}
+
+.menu-toggle.active + .menu {
+    display: block;
+}
+.abrir, .cerrar {
+    display: none;
+}
+#ocultar{
+    display: none;
+}
+/* Establecer ancho y alto de la imagen */
+.logo img {
+    height: 60px;
+    margin-right: 30px;
+}
+
+/* Botón "Matrícula" */
+.matricula {
+    background-color: #034725;
+    color: #fff;
+    padding: 5px 25px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    border-radius: 50px;
+}
+.matricula:hover {
+    background: var(--colorSegundario);
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+    
+}
+.login-button:hover {
+    background: var(--colorPrincipal);
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+    
+}
+/*--------------------------------------------------------------------------------------------------------------*/
+/*Login*/
+.login-section {
+    width: 100%;
+    height: 85.9vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--colorSegundario);
+}
+
+.login-content {
+    display: flex;
+    width: 450px;
+    height: 450px;
+    background: rgba(9, 49, 70, 0.37);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 12);
+    border-radius: 60px;
+}
+
+.login-image {
+    width: 55%;
+    height: 100%; /* Ancho de la imagen del lado derecho */
+    text-align: center; /* Centrar la imagen horizontalmente */
+}
+
+.login-image img {
+    height: 100%;
+    width: auto;
+}
+
+.login-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 30px;
+    height: 90%; /* Aumenta la altura del formulario */
+}
+
+
+.login-form img {
+    width: 100%;
+    max-height: 200px; /* Aumenta la altura de la imagen */
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+    padding-left: 10%;
+}
+
+.form-group label {
+    font-size: 20px;
+    font-family: var(--parrafo);
+}
+
+.form-group input {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+    padding: 10px;
+    width: 90%;
+    border-radius: 35px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    box-shadow: -5px 5px 25px 10px rgba(0, 0, 0, 0.25);
+    color: #fff;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.login-button{
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    width: 40%;
+    margin: 5px;
+    font-size: 20px;
+    box-shadow: -5px 5px 25px 10px rgba(0, 0, 0, 0.25);
+    background: rgba(3, 71, 37, 1);
+    color: #fff;
+}
+input:focus{
+    outline:none;
+    background-color: rgba(3, 71, 37, 0.555);
+    transition: 0.5s;
+}
+
+input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #ffffffab;
+    font-family: var(--parrafo);
+}
+
+
+/* Estilo para el footer */
+hr {
+    background: var(--colorPrincipal);
+    width: 100%;
+    height: 4.1vh;
+    border: none;
+}
+
+/*--------------------------------------------------------------------------------------------------------------*/
+
+/* Menu de hamburguesa */
+.menu-toggle {
+    cursor: pointer;
+    color: #fff;
+    display: none;
+}
+
+.menu-toggle.active + .menu {
+    display: block;
+}
+
+/*--------------------------------------------------------------------------------------------------------------*/
+
+/*Responsive*/
+@media screen and (max-width: 768px) {
+    .abrir , .cerrar {
+        display: block; 
+        font-size: 24px; 
+        color: #fff; 
+        cursor: pointer; 
+        padding-left: 40%;
+    }
+    #ocultar {
+        display: block;
+    }
+    #mostrar {
+        display: none;
+    }
+    .nav{
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: 1rem;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        padding: 2rem;
+        background-color: #06051A;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .nav.visible{
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .menu{
+        flex-direction: column;
+        align-items: end;
+    }
+    .menu, .matricula{
+        display: block;
+    }
+    /* Estilos para pantallas más pequeñas */
+    .login-section {
+        padding: 50px; /* Cambia el espaciado izquierdo */
+        flex-direction: column; /* Cambia la dirección de flexión */
+    }
+
+    .login-content {
+        width: 110%; /* Ajusta el ancho del contenido */
+        height: auto; /* Ajusta la altura automáticamente */
+        margin-top: 50px;
+        border-radius: 30px;
+    }
+
+    .login-image {
+        display: none;
+    }
+
+    .login-form {
+        padding: 0; /* Añade espaciado alrededor del formulario */
+        max-width: 100%; /* Ajusta la altura automáticamente */
+    }
+
+    .login-form img {
+        max-width: 100%;
+        max-height: 100%; /* Limita la altura de la imagen */
+        border-top-right-radius: 30px;
+        border-top-left-radius: 30px;
+    }
+
+    .form-group label {
+        padding: 0px;
+        font-size: 16px; /* Reduce el tamaño de la fuente de la etiqueta */
+    }
+
+    .form-group input {
+        font-size: 16px; /* Reduce el tamaño de la fuente del input */
+    }
+
+    .button-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Cambia la dirección de flexión para apilar los botones */
+    }
+
+    .login-button,
+    .return-button {
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 35px; /* Igualar el radio del borde al de los campos de entrada */
+        width: 85%; /* Hacer que el ancho sea igual al de los campos de entrada */
+        margin: 5px;
+        font-size: 16px; /* Ajusta el tamaño de fuente a tu preferencia */
+        box-shadow: -5px 5px 25px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Ajusta el tamaño de los iconos aquí */
+    .form-group i {
+        font-size: 20px;
+        padding-left: 10px; /* Reduce el tamaño de los iconos */
+    }
+}

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datos del padre</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../css/formularios.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="TecChetos" lang="es" content="Equipo de Desarrollo TeChetos">
+  <meta name="keywords"
+    content="educación, innovación, aprendizaje, videojuego educativo, Lengua y Literatura, gramática, ortografía, José de la Cruz Mena">
+  <meta name="description"
+    content="Sitio web oficial del Colegio José de la Cruz Mena. Explora nuestra institución educativa, conoce nuestro equipo docente, programas académicos y eventos. Brindamos educación de calidad y fomentamos el crecimiento integral de nuestros estudiantes.">
+  <meta name="copyright"
+    content="Copyright © 2023, TecChetos. Todos los derechos reservados. Última actualización: 28 de Octubre de 2023.">
+  <meta http-equiv="Cache-Control" content="max-age=31536000">
+  <meta http-equiv="Expires" content="max-age=31536000">
+  <link rel="icon" href="../src/imagenes/icon.webp" type="png/img">
+</head>
+
+<body>
+  <div id="preloader">
+    <div id="loader"></div>
+  </div>
+  <nav>
+    <!--Contenedor del logo-->
+    <div class="logo">
+      <a href="../index.html"><img src="../src/imagenes/imagen1.webp" alt=""></a>
+    </div>
+    <i class="bi bi-list abrir" id="abrir"></i><!--Icono menu-->
+    <div class="nav" id="nav">
+      <i class="bi bi-x cerrar" id="cerrar"></i><!--Icono cerrar-->
+      <ul class="menu"><!--Contenedor menu-->
+        <li class="nav-item"><a href="formulario_1.html">Matricula</a></li>
+        <li class="nav-item"><a href="listado.html">Estudiantes</a></li>
+        <!--Boton cerrar-->
+        <button class="matricula" id="ocultar" onclick="window.location.href='login.html';">Cerrar</button>
+      </ul>
+    </div>
+    <!--Boton cerrar-->
+    <button class="matricula" id="mostrar" onclick="window.location.href='login.html';">Cerrar</button>
+  </nav>
+
+  <main>
+    <section class="seccion-1">
+      <h2>Centro Escolar Publico José de la Cruz Mena</h2>
+    </section>
+
+    <section class="seccion-2">
+      <ul class="nav-links">
+        <li><a href="formulario_1.html">Datos personales del estudiante</a></li>
+        <li><a class="selected" href="formulario_2.html">Datos personales del tutor</a></li>
+        <li><a href="formulario_3.html">Datos de las matricula</a></li>
+      </ul>
+    </section>
+
+    <section class="seccion-3">
+      <form action="" class="formulario-2">
+        <div>
+          <h2 class="titulo">II. Datos Personales del tutor</h2>
+          <hr />
+        </div>
+
+        <div class="inputs-group">
+
+          <div class="cajas-texto">
+            <input type="text" placeholder="Nombres" />
+            <i class="bi bi-person-fill icon"></i>
+          </div>
+
+          <div class="cajas-texto">
+            <input type="text" placeholder="Apellidos" />
+            <i class="bi bi-person-fill icon"></i>
+          </div>
+
+          <div class="cajas-texto">
+            <input type="text" placeholder="Cédula" />
+            <i class="bi bi-person-vcard icon"></i>
+          </div>
+
+          <div class="cajas-texto">
+            <input type="text" placeholder="Teléfono celular" />
+            <i class="bi bi-telephone-fill icon"></i>
+          </div>
+
+          <div class="cajas-texto">
+            <select>
+              <option value="" disabled selected>Área</option>
+              <option value="Urbana">Urbana</option>
+              <option value="Rural">Rural</option>
+            </select>
+            <i class="bi bi-people-fill icon"></i>
+          </div>
+
+          <div class="cajas-texto">
+            <select>
+              <option value="" disabled selected>Municipio de Nacimiento</option>
+              <optgroup label="Región Autónoma del Atlántico Norte">
+                <option value="Puerto Cabezas">Puerto Cabezas</option>
+                <option value="Bilwi">Bilwi</option>
+                <option value="Waspam">Waspam</option>
+                <option value="Rosita">Rosita</option>
+                <option value="Prinzapolka">Prinzapolka</option>
+                <option value="Mulukukú">Mulukukú</option>
+                <option value="Siuna">Siuna</option>
+              </optgroup>
+
+              <optgroup label="Región Autónoma del Atlántico Sur">
+                <option value="Bluefields">Bluefields</option>
+                <option value="Corn Island">Corn Island</option>
+                <option value="Laguna de Perlas">Laguna de Perlas</option>
+                <option value="El Tortuguero">El Tortuguero</option>
+                <option value="San Juan del Norte">San Juan del Norte</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Boaco">
+                <option value="Boaco">Boaco</option>
+                <option value="Santa Lucía">Santa Lucía</option>
+                <option value="Camoapa">Camoapa</option>
+                <option value="San José de los Remates">San José de los Remates</option>
+                <option value="San Lorenzo">San Lorenzo</option>
+                <option value="Teustepe">Teustepe</option>
+                <option value="Cusmapa">Cusmapa</option>
+                <option value="San Francisco del Norte">San Francisco del Norte</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Carazo">
+                <option value="Jinotepe">Jinotepe</option>
+                <option value="Diriamba">Diriamba</option>
+                <option value="Dolores">Dolores</option>
+                <option value="La Paz de Carazo">La Paz de Carazo</option>
+                <option value="Santa Teresa">Santa Teresa</option>
+                <option value="San Marcos">San Marcos</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Chinandega">
+                <option value="Chinandega">Chinandega</option>
+                <option value="El Viejo">El Viejo</option>
+                <option value="San Rafael del Sur">San Rafael del Sur</option>
+                <option value="Corinto">Corinto</option>
+                <option value="Villanueva">Villanueva</option>
+                <option value="Chichigalpa">Chichigalpa</option>
+                <option value="San Juan del Sur">San Juan del Sur</option>
+                <option value="Somotillo">Somotillo</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Chontales">
+                <option value="Juigalpa">Juigalpa</option>
+                <option value="Santo Tomás">Santo Tomás</option>
+                <option value="Comalapa">Comalapa</option>
+                <option value="Villanueva">Villanueva</option>
+                <option value="San Carlos">San Carlos</option>
+                <option value="La Libertad">La Libertad</option>
+                <option value="El Coral">El Coral</option>
+                <option value="San Pedro de Lóvago">San Pedro de Lóvago</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Estelí">
+                <option value="Estelí">Estelí</option>
+                <option value="Condega">Condega</option>
+                <option value="Pueblo Nuevo">Pueblo Nuevo</option>
+                <option value="San Juan de Limay">San Juan de Limay</option>
+                <option value="La Trinidad">La Trinidad</option>
+                <option value="San Francisco del Norte">San Francisco del Norte</option>
+                <option value="La Cruz de Río Grande">La Cruz de Río Grande</option>
+                <option value="San Nicolás">San Nicolás</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Granada">
+                <option value="Granada">Granada</option>
+                <option value="Diriomo">Diriomo</option>
+                <option value="Catarina">Catarina</option>
+                <option value="Masaya">Masaya</option>
+                <option value="Nandaime">Nandaime</option>
+                <option value="Niquinohomo">Niquinohomo</option>
+                <option value="El Crucero">El Crucero</option>
+                <option value="Tisma">Tisma</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Jinotega">
+                <option value="Jinotega">Jinotega</option>
+                <option value="Matagalpa">Matagalpa</option>
+                <option value="San José de Bocay">San José de Bocay</option>
+                <option value="San Ramón">San Ramón</option>
+                <option value="El Cúa">El Cúa</option>
+                <option value="Sébaco">Sébaco</option>
+                <option value="Wiwilí">Wiwilí</option>
+                <option value="Dipilto">Dipilto</option>
+              </optgroup>
+
+              <optgroup label="Departamento de León">
+                <option value="León">León</option>
+                <option value="Chinandega">Chinandega</option>
+                <option value="El Sauce">El Sauce</option>
+                <option value="Nagarote">Nagarote</option>
+                <option value="La Paz Centro">La Paz Centro</option>
+                <option value="Quezalguaque">Quezalguaque</option>
+                <option value="Ticuantepe">Ticuantepe</option>
+                <option value="San Marcos">San Marcos</option>
+                <option value="Tipitapa">Tipitapa</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Madriz">
+                <option value="Somoto">Somoto</option>
+                <option value="San Dionisio">San Dionisio</option>
+                <option value="Las Sabanas">Las Sabanas</option>
+                <option value="Telpaneca">Telpaneca</option>
+                <option value="Ciudad Darío">Ciudad Darío</option>
+                <option value="Palacagüina">Palacagüina</option>
+                <option value="San Lucas">San Lucas</option>
+                <option value="Totogalpa">Totogalpa</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Managua">
+                <option value="Managua">Managua</option>
+                <option value="Tipitapa">Tipitapa</option>
+                <option value="Ciudad Sandino">Ciudad Sandino</option>
+                <option value="El Crucero">El Crucero</option>
+                <option value="San Rafael del Sur">San Rafael del Sur</option>
+                <option value="Villa El Carmen">Villa El Carmen</option>
+                <option value="Mateare">Mateare</option>
+                <option value="Ticuantepe">Ticuantepe</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Masaya">
+                <option value="Masaya">Masaya</option>
+                <option value="Masatepe">Masatepe</option>
+                <option value="Nindirí">Nindirí</option>
+                <option value="Tisma">Tisma</option>
+                <option value="Catarina">Catarina</option>
+                <option value="Niquinohomo">Niquinohomo</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Matagalpa">
+                <option value="Matagalpa">Matagalpa</option>
+                <option value="San Rafael del Norte">San Rafael del Norte</option>
+                <option value="San Ramón">San Ramón</option>
+                <option value="Jinotega">Jinotega</option>
+                <option value="Estelí">Estelí</option>
+                <option value="Sébaco">Sébaco</option>
+                <option value="La Trinidad">La Trinidad</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Río San Juan">
+                <option value="San Carlos">San Carlos</option>
+                <option value="San Juan del Norte">San Juan del Norte</option>
+                <option value="San Miguelito">San Miguelito</option>
+                <option value="Morrito">Morrito</option>
+                <option value="El Almendro">El Almendro</option>
+                <option value="San Juan de Nicaragua">San Juan de Nicaragua</option>
+                <option value="El Tortuguero">El Tortuguero</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Rivas">
+                <option value="Rivas">Rivas</option>
+                <option value="Belén">Belén</option>
+                <option value="San Juan del Sur">San Juan del Sur</option>
+                <option value="Tola">Tola</option>
+                <option value="San Francisco Libre">San Francisco Libre</option>
+                <option value="La Cruz del Río Grande">La Cruz del Río Grande</option>
+                <option value="San Juan de Nicaragua">San Juan de Nicaragua</option>
+                <option value="Buenos Aires">Buenos Aires</option>
+              </optgroup>
+            </select>
+            <i class="bi bi-geo-alt-fill icon"></i>
+          </div>
+
+          <div class="cajas-texto">
+            <select>
+              <option value="" disabled selected>Municipio Domiciliar</option>
+              <optgroup label="Región Autónoma del Atlántico Norte">
+                <option value="Puerto Cabezas">Puerto Cabezas</option>
+                <option value="Bilwi">Bilwi</option>
+                <option value="Waspam">Waspam</option>
+                <option value="Rosita">Rosita</option>
+                <option value="Prinzapolka">Prinzapolka</option>
+                <option value="Mulukukú">Mulukukú</option>
+                <option value="Siuna">Siuna</option>
+              </optgroup>
+
+              <optgroup label="Región Autónoma del Atlántico Sur">
+                <option value="Bluefields">Bluefields</option>
+                <option value="Corn Island">Corn Island</option>
+                <option value="Laguna de Perlas">Laguna de Perlas</option>
+                <option value="El Tortuguero">El Tortuguero</option>
+                <option value="San Juan del Norte">San Juan del Norte</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Boaco">
+                <option value="Boaco">Boaco</option>
+                <option value="Santa Lucía">Santa Lucía</option>
+                <option value="Camoapa">Camoapa</option>
+                <option value="San José de los Remates">San José de los Remates</option>
+                <option value="San Lorenzo">San Lorenzo</option>
+                <option value="Teustepe">Teustepe</option>
+                <option value="Cusmapa">Cusmapa</option>
+                <option value="San Francisco del Norte">San Francisco del Norte</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Carazo">
+                <option value="Jinotepe">Jinotepe</option>
+                <option value="Diriamba">Diriamba</option>
+                <option value="Dolores">Dolores</option>
+                <option value="La Paz de Carazo">La Paz de Carazo</option>
+                <option value="Santa Teresa">Santa Teresa</option>
+                <option value="San Marcos">San Marcos</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Chinandega">
+                <option value="Chinandega">Chinandega</option>
+                <option value="El Viejo">El Viejo</option>
+                <option value="San Rafael del Sur">San Rafael del Sur</option>
+                <option value="Corinto">Corinto</option>
+                <option value="Villanueva">Villanueva</option>
+                <option value="Chichigalpa">Chichigalpa</option>
+                <option value="San Juan del Sur">San Juan del Sur</option>
+                <option value="Somotillo">Somotillo</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Chontales">
+                <option value="Juigalpa">Juigalpa</option>
+                <option value="Santo Tomás">Santo Tomás</option>
+                <option value="Comalapa">Comalapa</option>
+                <option value="Villanueva">Villanueva</option>
+                <option value="San Carlos">San Carlos</option>
+                <option value="La Libertad">La Libertad</option>
+                <option value="El Coral">El Coral</option>
+                <option value="San Pedro de Lóvago">San Pedro de Lóvago</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Estelí">
+                <option value="Estelí">Estelí</option>
+                <option value="Condega">Condega</option>
+                <option value="Pueblo Nuevo">Pueblo Nuevo</option>
+                <option value="San Juan de Limay">San Juan de Limay</option>
+                <option value="La Trinidad">La Trinidad</option>
+                <option value="San Francisco del Norte">San Francisco del Norte</option>
+                <option value="La Cruz de Río Grande">La Cruz de Río Grande</option>
+                <option value="San Nicolás">San Nicolás</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Granada">
+                <option value="Granada">Granada</option>
+                <option value="Diriomo">Diriomo</option>
+                <option value="Catarina">Catarina</option>
+                <option value="Masaya">Masaya</option>
+                <option value="Nandaime">Nandaime</option>
+                <option value="Niquinohomo">Niquinohomo</option>
+                <option value="El Crucero">El Crucero</option>
+                <option value="Tisma">Tisma</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Jinotega">
+                <option value="Jinotega">Jinotega</option>
+                <option value="Matagalpa">Matagalpa</option>
+                <option value="San José de Bocay">San José de Bocay</option>
+                <option value="San Ramón">San Ramón</option>
+                <option value="El Cúa">El Cúa</option>
+                <option value="Sébaco">Sébaco</option>
+                <option value="Wiwilí">Wiwilí</option>
+                <option value="Dipilto">Dipilto</option>
+              </optgroup>
+
+              <optgroup label="Departamento de León">
+                <option value="León">León</option>
+                <option value="Chinandega">Chinandega</option>
+                <option value="El Sauce">El Sauce</option>
+                <option value="Nagarote">Nagarote</option>
+                <option value="La Paz Centro">La Paz Centro</option>
+                <option value="Quezalguaque">Quezalguaque</option>
+                <option value="Ticuantepe">Ticuantepe</option>
+                <option value="San Marcos">San Marcos</option>
+                <option value="Tipitapa">Tipitapa</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Madriz">
+                <option value="Somoto">Somoto</option>
+                <option value="San Dionisio">San Dionisio</option>
+                <option value="Las Sabanas">Las Sabanas</option>
+                <option value="Telpaneca">Telpaneca</option>
+                <option value="Ciudad Darío">Ciudad Darío</option>
+                <option value="Palacagüina">Palacagüina</option>
+                <option value="San Lucas">San Lucas</option>
+                <option value="Totogalpa">Totogalpa</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Managua">
+                <option value="Managua">Managua</option>
+                <option value="Tipitapa">Tipitapa</option>
+                <option value="Ciudad Sandino">Ciudad Sandino</option>
+                <option value="El Crucero">El Crucero</option>
+                <option value="San Rafael del Sur">San Rafael del Sur</option>
+                <option value="Villa El Carmen">Villa El Carmen</option>
+                <option value="Mateare">Mateare</option>
+                <option value="Ticuantepe">Ticuantepe</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Masaya">
+                <option value="Masaya">Masaya</option>
+                <option value="Masatepe">Masatepe</option>
+                <option value="Nindirí">Nindirí</option>
+                <option value="Tisma">Tisma</option>
+                <option value="Catarina">Catarina</option>
+                <option value="Niquinohomo">Niquinohomo</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Matagalpa">
+                <option value="Matagalpa">Matagalpa</option>
+                <option value="San Rafael del Norte">San Rafael del Norte</option>
+                <option value="San Ramón">San Ramón</option>
+                <option value="Jinotega">Jinotega</option>
+                <option value="Estelí">Estelí</option>
+                <option value="Sébaco">Sébaco</option>
+                <option value="La Trinidad">La Trinidad</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Río San Juan">
+                <option value="San Carlos">San Carlos</option>
+                <option value="San Juan del Norte">San Juan del Norte</option>
+                <option value="San Miguelito">San Miguelito</option>
+                <option value="Morrito">Morrito</option>
+                <option value="El Almendro">El Almendro</option>
+                <option value="San Juan de Nicaragua">San Juan de Nicaragua</option>
+                <option value="El Tortuguero">El Tortuguero</option>
+              </optgroup>
+
+              <optgroup label="Departamento de Rivas">
+                <option value="Rivas">Rivas</option>
+                <option value="Belén">Belén</option>
+                <option value="San Juan del Sur">San Juan del Sur</option>
+                <option value="Tola">Tola</option>
+                <option value="San Francisco Libre">San Francisco Libre</option>
+                <option value="La Cruz del Río Grande">La Cruz del Río Grande</option>
+                <option value="San Juan de Nicaragua">San Juan de Nicaragua</option>
+                <option value="Buenos Aires">Buenos Aires</option>
+              </optgroup>
+            </select>
+            <i class="bi bi-geo-alt-fill icon"></i>
+          </div>
+
+          <div class="cajas-texto">
+            <select>
+              <option value="" disabled selected>Departamento Domiciliar</option>
+              <option value="Región Autónoma del Atlántico Norte">Región Autónoma del Atlántico Norte</option>
+              <option value="Región Autónoma del Atlántico Sur">Región Autónoma del Atlántico Sur</option>
+              <option value="Boaco">Boaco</option>
+              <option value="Carazo">Carazo</option>
+              <option value="Chinandega">Chinandega</option>
+              <option value="Chontales">Chontales</option>
+              <option value="Estelí">Estelí</option>
+              <option value="Granada">Granada</option>
+              <option value="Jinotega">Jinotega</option>
+              <option value="León">León</option>
+              <option value="Madriz">Madriz</option>
+              <option value="Managua">Managua</option>
+              <option value="Masaya">Masaya</option>
+              <option value="Matagalpa">Matagalpa</option>
+              <option value="Río San Juan">Río San Juan</option>
+              <option value="Rivas">Rivas</option>
+            </select>
+            <i class="bi bi-geo-alt-fill icon"></i>
+          </div>
+
+          <div class="cajas-texto cont">
+            <textarea name="" id="" cols="30" rows="1" placeholder="Direccion"></textarea>
+            <i class="bi bi-geo-alt-fill icon"></i>
+          </div>
+
+          <div class="cajas-texto">
+            <select>
+              <option value="" disabled selected>Discapacidad</option>
+              <option value="Visual">Visual</option>
+              <option value="Auditiva">Auditiva</option>
+              <option value="Motriz">Motriz</option>
+              <option value="Intelectual">Intelectual</option>
+              <option value="Múltiple">Múltiple</option>
+              <option value="Otra">Otra</option>
+            </select>
+            <i class="bi bi-people-fill icon"></i>
+          </div>
+
+          <div class="cajas-texto">
+            <select>
+              <option value="" disabled selected>Parentesco</option>
+              <option value="opcion5">Ninguno</option>
+              <option value="opcion1">Mamá</option>
+              <option value="opcion2">Papá</option>
+              <option value="opcion2">Hermano/a</option>
+              <option value="opcion4">Tía/sobrino/a</option>
+              <option value="opcion2">Otro</option>
+            </select>
+            <i class="bi bi-people-fill icon"></i>
+          </div>
+        </div>
+      </form>
+      <div class="btn-formulario">
+        <button onclick="window.location.href='';" class="btn-estilo">Cancelar</button></a>
+        <button onclick="window.location.href='formulario_1.html';" class="btn-estilo2">Atras</button>
+        <button onclick="window.location.href='formulario_3.html';" class="btn-estilo2">Siguiente</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="pie">
+      <p><a href="https://isseisenpai.github.io/JDLCM/">Innovación educativa José de la Cruz Mena</a> tiene licencia <a
+          href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1">CC BY-NC-SA 4.0.</a> © 2023 por <a
+          href="https://github.com/IsseiSenpai">TeChettos</a></p>
+    </div>
+  </footer>
+  <script src="../js/menu.js"></script>
+</body>
+
+</html>

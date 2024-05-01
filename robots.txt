@@ -1,0 +1,19 @@
+User-agent: *
+
+Allow: /index.html
+Allow: /views/
+Allor: /404.html
+Allor: /500.html
+Allor: /favicon.ico
+Allor: /robots.txt
+
+Disallow: /controllers/
+Disallow: /css/
+Disallow: /db/
+Disallow: /js/
+Disallow: /models/
+Disallow: /src/
+Disallow: /template/
+Disallow: /.htacess
+Disallow: /LICENCE
+Disallow: /README.MD
