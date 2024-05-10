@@ -11,8 +11,8 @@ class Conexion{
     function __construct(){
         $this->server = 'localhost';
         $this->user = 'root';
-        $this->bd = 'xstreaming';
-        $this->pwd = 'TE123';
+        $this->bd = 'sistema_matriculas_jdlcm';
+        $this->pwd = '';
     }
 
     public function conectar(){
@@ -23,7 +23,6 @@ class Conexion{
             echo "No se pudo conectar con la base de datos: ".$this->mysqli->connect_error;
             return 0;
         }else{
-            //echo "<h1>Lo logré</h1>";
             return $this->mysqli;
         }
     }

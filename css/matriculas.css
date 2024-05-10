@@ -1,0 +1,81 @@
+.Contenedor-List {
+    background-color: #fff;
+    position: absolute;
+    top: 120px;
+    left: 320px;
+    padding: 10px 55px;
+    border-radius: 25px;
+    border: 1px solid #034125;
+    box-shadow: -3px 3px 20px #585858;
+}
+
+.students {
+    width: 100%;
+    border-spacing: 0;
+    font-family: var(--titulo2);
+    margin-bottom: 30px;
+}
+
+.tablas_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px 0;
+    margin-bottom: 10px;
+    border: none;
+    border-spacing: 0;
+    font-family: var(--titulo2);
+}
+
+.filtrar-seccion {
+    border-radius: 30px;
+    width: 200px;
+    outline: none;
+    padding: 10px;
+    border: 1px solid #c9c9c9;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: var(--titulo2);
+}
+
+th {
+    background-color: #f1f1f1;
+    text-align: justify;
+    padding: 10px;
+}
+
+td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #dbd2d2;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.i {
+    color: #9c9494;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.status-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-edit,
+.btn-delete {
+    background-color: #FF2C22;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+}
+
+.btn-delete {
+    background-color: #18164A;
+}

@@ -5,6 +5,10 @@
     background-position: center !important;
     background-repeat: no-repeat !important;
 }
+.btn-primary {
+    background-color: #15395A !important;
+    
+}
 .p-0 {
     padding: 0!important;
 }

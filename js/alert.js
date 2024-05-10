@@ -19,10 +19,10 @@ function alertSave() {
                 confirmButton: 'custom-confirmar-button',
             }
           }).then(() => {
-            window.location.href = 'listado.html';
+            window.location.href = 'registration.view.php';
           });
       } else if (result.isDenied) {
-        /* No pasa nada XD */
+        window.location.href = 'http://localhost/views/registration.view.php';
       }
     });
 }
