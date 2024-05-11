@@ -61,7 +61,7 @@
 - Ejectute el siguiente codigo:
 
 ```shell
-$ git clone https://github.com/KenethMacis05/Colegio-Publico-Jos-de-la-Cruz-Mena-.git
+$ git clone https://github.com/KenethMacis05/sistema_escolar_jdlcm/tree/main
 ```
 ### Pagína de Login  
 - Ingrese el nombre de usuario y contraseña.
