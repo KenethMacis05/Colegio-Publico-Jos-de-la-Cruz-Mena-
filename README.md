@@ -60,12 +60,9 @@
 - Ejecute su aplicación Larago y de click en "Terminal"
 - Ejectute el siguiente codigo:
 
-<div>
-  <pre>
-    git clone https://github.com/KenethMacis05/Colegio-Publico-Jos-de-la-Cruz-Mena-.git
-  </pre>
-</div>
-
+```shell
+$ git clone https://github.com/KenethMacis05/Colegio-Publico-Jos-de-la-Cruz-Mena-.git
+```
 ### Pagína de Login  
 - Ingrese el nombre de usuario y contraseña.
 - De Click en "Ingresar".
