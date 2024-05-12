@@ -1,0 +1,42 @@
+/*estilo a la alerta del botton*/
+.custom-alerta {
+    font-family: var(--titulo2);
+    color: rgba(7, 26, 92, 1) !important;
+    background: #ffffff !important;
+    border-radius: 15px !important;
+}
+
+.custom-confirmar-button {
+    background: rgba(229, 96, 90, 1) !important;
+    box-shadow: -5px 5px 25px 10px rgba(0, 0, 0, 0.25) !important;
+    font-size: 15px;
+    font-family: var(--titulo1);
+    padding: 10px 50px;
+    border-radius: 25px !important;
+}
+
+.custom-cancelar-button {
+    background: rgba(24, 22, 74, 1) !important;
+    box-shadow: -5px 5px 25px 10px rgba(0, 0, 0, 0.25) !important;
+    font-size: 15px;
+    font-family: var(--titulo1);
+    padding: 10px 50px;
+    border-radius: 25px !important;
+    margin-left: 20px;
+}
+
+.custom-success-alerta {
+    font-family: var(--titulo2);
+    color: rgba(7, 26, 92, 1) !important;
+    background: #ffffff !important;
+}
+
+.custom-confirmar-button:hover {
+    background-color: #FF2C22;
+    transform: scale(1.1);
+}
+
+.custom-cancelar-button:hover {
+    background-color: #06051A;
+    transform: scale(1.1);
+}

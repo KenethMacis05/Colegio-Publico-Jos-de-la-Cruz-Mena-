@@ -1,0 +1,29 @@
+div.dataTables_wrapper div.dataTables_info,
+div.dataTables_wrapper div.dataTables_length label,
+div.dataTables_wrapper div.dataTables_filter label {
+    color: white !important;
+}
+
+caption {
+    color: #215a94 !important;
+    font-weight: bold;
+}
+.color-thead {
+    background-color: #215a94 !important;
+}
+
+.Contenedor-List {
+    box-shadow: -5px 5px 5px rgba(73, 80, 104, 0.4) !important;
+    width: auto !important;
+    margin: 0 3% 0 0;
+    position: absolute;
+    top: 120px;
+    left: 320px;
+    padding: 2rem 1rem;
+    border-radius: 25px;
+}
+
+hr {
+    color: white;
+    width: 100%;
+}

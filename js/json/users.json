@@ -1,0 +1,114 @@
+[
+    {
+        "id": 1,
+        "username": "admin ",
+        "name": "Keneth Macis",
+        "permisos": "admin",
+        "phone": "82942460",
+        "correo": "ken123oficial@gmail.com"
+    },
+    {
+        "id": 2,
+        "username": "dCalero",
+        "name": "Michelle Calero",
+        "permisos": "secret",
+        "phone": "88888888",
+        "correo": "dcalero@gmail.com"
+    },
+    {
+        "id": 3,
+        "username": "aAlemán",
+        "name": "Alvaro Alemaán",
+        "permisos": "secret",
+        "phone": "85152369",
+        "correo": "aalemena@gmail.com"
+    },
+    {
+        "id": 4,
+        "name": "Carlos Rodriguez",
+        "phone": "88877766",
+        "permisos": "secret",
+        "username": "porDefecto",
+        "correo": "pordefecto@gmail.com"
+    },
+    {
+        "id": 5,
+        "name": "Andrea Morales",
+        "phone": "89876543",
+        "permisos": "secret",
+        "username": "porDefecto",
+        "correo": "pordefecto@gmail.com"
+    },
+    {
+        "id": 6,
+        "name": "David Garcia",
+        "phone": "86543210",
+        "permisos": "secret",
+        "username": "porDefecto",
+        "correo": "pordefecto@gmail.com"
+    },
+    {
+        "id": 7,
+        "name": "Sofia Lopez",
+        "phone": "83210987",
+        "permisos": "secret",
+        "username": "porDefecto",
+        "correo": "pordefecto@gmail.com"
+    },
+    {
+        "id": 8,
+        "name": "Miguel Perez",
+        "phone": "80987654",
+        "permisos": "secret",
+        "username": "porDefecto",
+        "correo": "pordefecto@gmail.com"
+    },
+    {
+        "id": 9,
+        "name": "Ana Castro",
+        "phone": "87654321",
+        "permisos": "secret",
+        "username": "porDefecto",
+        "correo": "pordefecto@gmail.com"
+    },
+    {
+        "id": 10,
+        "name": "Pedro Sanchez",
+        "phone": "88877766",
+        "permisos": "secret",
+        "username": "porDefecto",
+        "correo": "pordefecto@gmail.com"
+    },
+    {
+        "id": 11,
+        "username": "jRamirez",
+        "name": "Juan Ramirez",
+        "permisos": "editor",
+        "phone": "84712398",
+        "correo": "jramirez@gmail.com"
+    },
+    {
+        "id": 12,
+        "username": "mSanchez",
+        "name": "Maria Sanchez",
+        "permisos": "viewer",
+        "phone": "82356987",
+        "correo": "msanchez@gmail.com"
+    },
+    {
+        "id": 13,
+        "username": "eFernandez",
+        "name": "Erika Fernandez",
+        "permisos": "editor",
+        "phone": "81907856",
+        "correo": "efernandez@gmail.com"
+    },
+    {
+        "id": 14,
+        "username": "lGutierrez",
+        "name": "Luis Gutierrez",
+        "permisos": "viewer",
+        "phone": "87412589",
+        "correo": "lgutierrez@gmail.com"
+    }
+]

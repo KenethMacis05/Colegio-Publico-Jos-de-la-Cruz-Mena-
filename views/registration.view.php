@@ -1,40 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!--Meta datos-->
-    <?php include_once "../template/metadata.php"?>
-    <!--Estilos css-->
+    <!-- Meta Data -->
+    <?php include_once "../template/metadata.php" ?>
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/header.css">
+    <!--Bootstrap Icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="/css/matriculas.css">
-    <!--Titulo de la pagina-->
-    <title>Matriculas | Sistema Escolar</title>
-    <link rel="icon" href="/src/img/icon.webp" type="png/img">
-    <style>
-        .nav-pills .nav-link:hover {
-            color: #215a94 !important;
-        }
-        hr {
-            color: white;
-            width: 100%;
-        }
-    </style>
+    <!-- DataTable -->
+    <link rel="stylesheet" href="/css/datatable_css/dataTables.bootstrap5.min.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <!-- Estilos Header-Title -->
+    <link rel="stylesheet" href="/css/header.css">
+    <!-- Estilos por defecto -->
+    <link rel="stylesheet" href="/css/style.matricula.css">
+    <!-- Estilos de alertas -->
+    <link rel="stylesheet" href="/css/style.alert.css">
+    <!-- Libreria Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Titulo de la pagina -->
+    <title>Matriculas | Sistema JDLCM</title>
 </head>
-<body>
+
+<body class="bg-secondary">
     <div class="container-fluid">
         <div class="row flex-nowrap">
-            <?php include_once "../template/dashboard.php"?>
+            <!--------------------------Dashboard------------------------->
+            <?php include_once "../template/dashboard.php" ?>
+            <!----------------------Titulo del Header--------------------->
             <div class="col py-3 header">
                 <?php #include_once "/template/section-info-title/section-info-title.php"?>
-                
             </div>
-            
+            <!-----------------------Tabla Usuarios----------------------->
+            <?php include_once "../template/tables/table.registration.php"?>
         </div>
-        <?php include_once "../template/registration.table.php"?>
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+
+<!-- Configure table -->
+<script src="/js/datatable_config/datatable.config.registration.js"></script>
+<!-- Bootstrap JS -->
+<script src="/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<!-- jQuery -->
+<script src="datatables/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
+<!-- DataTable -->
+<script src="/js/datatable_js/jquery.dataTables.min.js"></script>
+<script src="/js/datatable_js/dataTables.bootstrap5.min.js"></script>
+
 </html>
