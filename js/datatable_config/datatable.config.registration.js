@@ -1,25 +1,3 @@
-function alertModificar() {
-    Swal.fire({
-        title: "¿Desea modificar la matrícula del alumno?",
-        text: "Si acepta podra modificar los datos de la matricúla del alumno ",
-        showDenyButton: true,
-        confirmButtonText: "Si",
-        denyButtonText: `No`,
-        customClass: {
-            popup: 'custom-alerta',
-            confirmButton: 'custom-confirmar-button',
-            denyButton: 'custom-cancelar-button',
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            window.location.href = '/404.html';
-        } else if (result.isDenied) {
-            /* No pasa nada XD */
-        }
-    });
-}
-
-
 let dataTable;
 let dataTableIsInitialized = false;
 
@@ -27,8 +5,8 @@ const dataTableOptions = {
     //scrollX: "2000px",
     lengthMenu: [5, 10, 15, 20, 100, 200, 500],
     columnDefs: [
-        { className: "centered", targets: [0, 1, 2, 3, 4, 5, 6] },
-        { orderable: false, targets: [5, 6] },
+        { className: "centered", targets: [0, 1, 2, 3, 4, 5, 6, 7, 8] },
+        { orderable: false, targets: [7, 8] },
         { searchable: false, targets: [1] }
         //{ width: "50%", targets: [0] }
     ],
@@ -88,14 +66,7 @@ const listUsers = async () => {
         });
         tableBody_users.innerHTML = content;
         
-        // Agregar escucha de eventos a los botones de edición
-        const editButtons = document.querySelectorAll('.edit-button');
-        editButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const userIndex = button.dataset.userIndex; // Obtener índice del usuario del atributo data
-                alertModificar(userIndex); // Llamar a la función alertModificar con el índice de usuario
-            });
-        });
+        
     } catch (ex) {
         alert(ex);
     }
