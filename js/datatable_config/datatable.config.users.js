@@ -1,3 +1,53 @@
+function alertModificar() {
+    Swal.fire({
+        title: "¿Desea modificar los datos del Usuario?",
+        text: "Si acepta podra modificar los datos del usuario",
+        showDenyButton: true,
+        confirmButtonText: "Si",
+        denyButtonText: `No`,
+        customClass: {
+            popup: 'custom-alerta',
+            confirmButton: 'custom-confirmar-button',
+            denyButton: 'custom-cancelar-button',
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = 'form_ejemplo_1.html';
+        } else if (result.isDenied) {
+            /* No pasa nada XD */
+        }
+    });
+}
+function alertRetiro() {
+    Swal.fire({
+        title: "¿Desea eliminar a este Usuario?",
+        text: "Si acepta retirará el usuario seleccionado",
+        showDenyButton: true,
+        confirmButtonText: "Si",
+        denyButtonText: `No`,
+        customClass: {
+            popup: 'custom-alerta',
+            confirmButton: 'custom-confirmar-button',
+            denyButton: 'custom-cancelar-button',
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Retirado con éxito!",
+                text: "Has retirado la matricula del alumno",
+                customClass: {
+                    popup: 'custom-success-alerta',
+                    confirmButton: 'custom-confirmar-button',
+                }
+            }).then(() => {
+                window.location.href = 'listado_ejemplo.html';
+            });
+        } else if (result.isDenied) {
+            /* No pasa nada XD */
+        }
+    });
+}
+/*------------------------------------------------------------*/
 let dataTable;
 let dataTableIsInitialized = false;
 
@@ -57,12 +107,28 @@ const listUsers = async () => {
                     <td>${user.phone}</td>
                     <td>${user.correo}</td>
                     <td>
-                        <button class="btn btn-sm btn-primary"><i class="fa-solid fa-pencil"></i></button>
-                        <button class="btn btn-sm btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                        <button class="btn btn-sm btn-primary edit-button"><i class="fa-solid fa-pencil"></i></button>
+                        <button class="btn btn-sm btn-danger retirar-button"><i class="fa-solid fa-trash-can"></i></button>
                     </td>
                 </tr>`;
         });
         tableBody_users.innerHTML = content;
+
+        // Agregar escucha de eventos a los botones de edición
+        const editButtons = document.querySelectorAll('.edit-button');
+        editButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const userIndex = button.dataset.userIndex; // Obtener índice del usuario del atributo data
+                alertModificar(userIndex); // Llamar a la función alertModificar con el índice de usuario
+            });
+        });
+        const retButtons = document.querySelectorAll('.retirar-button');
+        retButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const userIndex = button.dataset.userIndex; // Obtener índice del usuario del atributo data
+                alertRetiro(userIndex); // Llamar a la función alertModificar con el índice de usuario
+            });
+        });
     } catch (ex) {
         alert(ex);
     }

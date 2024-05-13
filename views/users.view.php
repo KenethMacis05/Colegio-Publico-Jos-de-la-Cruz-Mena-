@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="/css/header.css">
     <!-- Estilos por defecto -->
     <link rel="stylesheet" href="/css/style.matricula.css">
+    <!-- Estilos de alertas -->
+    <link rel="stylesheet" href="/css/style.alert.css">
+    <!-- Libreria Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Titulo de la pagina -->
     <title>Usuarios | Sistema JDLCM</title>
 </head>

@@ -57,7 +57,7 @@ function alertRetiro() {
   });
 }
 
-export function alertModificar() {
+function alertModificar() {
   Swal.fire({
     title: "¿Desea modificar la matrícula del alumno?",
     text: "Si acepta podra modificar los datos de la matricúla del alumno ",      
