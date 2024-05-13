@@ -43,7 +43,7 @@
                 <span class="d-none d-sm-inline mx-1">Nombre</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                <li><a class="dropdown-item" href="#">Configuraciones</a></li>
+                <li><a class="dropdown-item" href="/views/user.config.view.php">Configuraciones</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>

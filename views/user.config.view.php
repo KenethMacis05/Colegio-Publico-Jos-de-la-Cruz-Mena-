@@ -21,7 +21,7 @@
     <!-- Libreria Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Titulo de la pagina -->
-    <title>Matriculas | Sistema JDLCM</title>
+    <title>Usuario | Sistema JDLCM</title>
 </head>
 
 <body class="bg-secondary">
@@ -31,23 +31,15 @@
             <?php include_once "../template/dashboard.php" ?>
             <!----------------------Titulo del Header--------------------->
             <div class="col py-3 header">
-                <?php #include_once "../template/section-info-title/section-info-title.php"?>
+                <?php #include_once "/template/section-info-title/section-info-title.php"?>
             </div>
-            <!-----------------------Tabla Usuarios----------------------->
-            <?php include_once "../template/tables/table.registration.php"?>
+            <!-----------------------Config User----------------------->
+            <?php #include_once ""?>
         </div>
     </div>
 </body>
 
-<!-- Configure table -->
-<script src="/js/datatable_config/datatable.config.registration.js"></script>
 <!-- Bootstrap JS -->
 <script src="/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<!-- jQuery -->
-<script src="datatables/jquery.min.js"></script>
-<script src="/js/jquery.min.js"></script>
-<!-- DataTable -->
-<script src="/js/datatable_js/jquery.dataTables.min.js"></script>
-<script src="/js/datatable_js/dataTables.bootstrap5.min.js"></script>
 
 </html>
