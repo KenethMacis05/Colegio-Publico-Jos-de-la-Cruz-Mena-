@@ -1,5 +1,9 @@
+<?php 
+    include_once "../template/zona_priv.php";
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-NI">
 <head>
     <!--Meta datos-->
     <?php include_once "../template/metadata.php"?>

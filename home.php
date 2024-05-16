@@ -1,3 +1,7 @@
+<?php 
+    include_once "template/zona_priv.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

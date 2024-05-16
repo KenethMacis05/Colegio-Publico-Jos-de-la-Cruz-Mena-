@@ -9,9 +9,9 @@
                     <th class="centered ">#</th>
                     <th class="centered">Usuario</th>
                     <th class="centered">Nombre</th>
-                    <th class="centered">Correo</th>
+                    <th class="centered">Permisos</th>
                     <th class="centered">Telefono</th>
-                    <th class="centered">Ciudad</th>
+                    <th class="centered">Correo</th>
                     <th class="centered">Options</th>
                 </tr>
             </thead>

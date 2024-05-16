@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once "../models/conexion.model.php";
 
 $usuario = $_POST['usuario'];
@@ -12,6 +12,8 @@ and contrasena = '$contrasena';";
 
 if($resultado = $objConection->consultar($consulta)){
     if(mysqli_num_rows($resultado)>0){
+
+        $_SESSION['usuarioautenticado'] = mysqli_fetch_array($resultado);
         header("Location: /home.php");
         exit;
     }else {

@@ -11,7 +11,7 @@ class Conexion{
     function __construct(){
         $this->server = 'localhost';
         $this->user = 'root';
-        $this->bd = 'sistema_matriculas_jdlcm';
+        $this->bd = 'gestion_escolar_jdlcm';
         $this->pwd = '';
     }
 
@@ -31,9 +31,25 @@ class Conexion{
         $this->mysqli->close();
     }
 
-    public function consultar($query){
-        $result = mysqli_query($this->conectar(),$query);
-        $this->cerrarConexion();
-        return $result;
+    public function consultar($query) {
+        try {
+            $this->mysqli = $this->conectar();
+    
+            if (!$this->mysqli) {
+                throw new Exception("No se pudo conectar con la base de datos.");
+            }
+
+            $stmt = $this->mysqli->prepare($query);
+            $stmt->execute();
+    
+            $result = $stmt->get_result();
+            $stmt->close();
+    
+            return $result;
+        } catch (Exception $e) {
+            echo "Error al ejecutar la consulta: ". $e->getMessage();
+            return null;
+        }
     }
+    
 }
