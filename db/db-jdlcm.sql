@@ -28,6 +28,12 @@ CREATE TABLE Tutores (
     constraint pk_Parentesco_id foreign key (FK_Parentesco) references Parentescos(ID_Parentesco) on update cascade on delete cascade
 );
 
+-- LLenado de la tabla tutores
+INSERT INTO Tutores (Pri_Nombre, Seg_Nombre, Pri_Apellido, Seg_Apellido, Cedula, Telefono, Direccion, FK_Parentesco, Correo_Electronico) VALUES
+('Juan', 'Carlos', 'Perez', 'Gomez', '1234567890', 30012345, 'Calle Falsa 123', 1, 'juan.perez@example.com'),
+('Maria', 'Josefa', 'Rodriguez', 'Lopez', '2345678901', 40876543, 'Avenida Siempre Viva 456', 2, 'maria.rodriguez@example.com'),
+('Pedro', 'Manuel', 'Gonzalez', 'Martinez', '3456789012', 07654321, 'Boulevard Eterno 789', 3, 'pedro.gonzalez@example.com');
+
 -- Creación de la tabla Generos
 CREATE TABLE Generos (
 	ID_Genero INT PRIMARY KEY AUTO_INCREMENT,
@@ -55,6 +61,12 @@ CREATE TABLE Estudiantes (
     constraint pk_Tutor_id foreign key (FK_Tutor) references Tutores(ID_Tutor) on update cascade on delete cascade,
     constraint pk_Genero_id foreign key (FK_Genero) references Generos(ID_Genero) on update cascade on delete cascade
 );
+
+-- LLenado de la tabla estudiantes
+INSERT INTO Estudiantes (Pri_Nombre, Seg_Nombre, Pri_Apellido, Seg_Apellido, Fecha_Nacimiento, Cedula, FK_Genero, Telefono, Direccion, Correo_Electronico, FK_Tutor) VALUES
+('Juan', 'Carlos', 'Perez', 'Gomez', '2000-01-01', '12345678901234', 1, 30012345, 'Calle Falsa 123', 'juan.carlos.perez@gmail.com', 1),
+('Maria', 'Josefa', 'Rodriguez', 'Lopez', '2005-02-02', '23456789012345', 2, 49876543, 'Avenida Siempre Viva 456', 'maria.josefa.rodriguez@yahoo.com', 2),
+('Pedro', 'Manuel', 'Gonzalez', 'Martinez', '2010-03-03', '34567890123456', 1, 07654321, 'Boulevard Eterno 789', 'pedro.manuel.gonzalez@hotmail.com', 3);
 
 -- Creación de la tabla Asignaturas
 CREATE TABLE Asignaturas (
@@ -89,6 +101,12 @@ CREATE TABLE Calificaciones (
     constraint pk_Asignatura_id foreign key (FK_Asignatura) references Asignaturas(ID_Asignatura) on update cascade on delete cascade,
     constraint pk_Anio_Lectivo_id foreign key (FK_Anio_Lectivo) references Anio_Lectivo(ID_Anio_Lectivo) on update cascade on delete cascade
 );
+
+-- LLenado de la tabla calificaciones
+INSERT INTO Calificaciones (FK_Estudiante, FK_Asignatura, Nota, FK_Anio_Lectivo) VALUES
+(1, 1, 85, 1), -- Calificación para el primer estudiante en Lengua y Literatura para el año 2024
+(2, 1, 90, 1), -- Calificación para el segundo estudiante en Lengua y Literatura para el año 2024
+(3, 1, 88, 1); -- Calificación para el tercer estudiante en Lengua y Literatura para el año 2024
 
 -- Creacón de la tabla Grados
 CREATE TABLE Grados (
@@ -144,8 +162,6 @@ CREATE TABLE Grupos (
 INSERT INTO Grupos (ID_Grupo, FK_Grado, FK_Seccion, FK_Turno)
 VALUES ('1', '1', '1', '1');
 
-INSERT INTO Turnos (Turno) VALUES ('Matutino'), ('Vespertido');
-
 -- Creación de la tabla Matrículas
 CREATE TABLE Matrículas (
     ID_Matricula INT PRIMARY KEY AUTO_INCREMENT,
@@ -160,6 +176,12 @@ CREATE TABLE Matrículas (
     constraint pk_Estados_id foreign key (FK_Estado) references Estados(ID_Estado) on update cascade on delete cascade,
     constraint pk_Anios_Lectivos_id foreign key (FK_Anio_Lectivo) references Anio_Lectivo(ID_Anio_Lectivo) on update cascade on delete cascade
 );
+
+-- LLenado de la tabla Matriculas
+INSERT INTO Matrículas (Cod_Matricula, FK_Estudiante, FK_Grupo, FK_Estado, FK_Anio_Lectivo, Fecha_Matricula) VALUES
+('M001', 1, 1, 1, 1, '2024-01-01'), -- Matrícula para el primer estudiante
+('M002', 2, 1, 1, 1, '2024-01-01'), -- Matrícula para el segundo estudiante
+('M003', 3, 1, 1, 1, '2024-01-01'); -- Matrícula para el tercer estudiante
 
 -- Índice en la columna FK_Estudiante de la tabla Matrículas
 CREATE INDEX idx_FK_Estudiante ON Matrículas (FK_Estudiante);
@@ -184,9 +206,17 @@ CREATE TABLE USERS (
     Pri_Apellido VARCHAR(20) NOT NULL,
     Seg_Apellido VARCHAR(20),
     Telefono INT(8),
-    Correo_Electronico VARCHAR(20) NOT NULL,
+    Correo_Electronico VARCHAR(45) NOT NULL,
     constraint pk_Tipos_Users_id foreign key (FK_Tipo_User) references Tipos_Users(ID_Tipo) on update cascade on delete cascade
 );
 
-INSERT INTO USERS (FK_Tipo_User, Usuario, Contrasena, Pri_Nombre, Pri_Apellido, Correo_Electronico)
-VALUES (1, 'admin', '12358', 'nose', 'nose', 'admin@gmail.com');
+INSERT INTO USERS (FK_Tipo_User, Usuario, Contrasena, Pri_Nombre, Pri_Apellido, Correo_Electronico) VALUES 
+(1, 'Keny', '12358', 'Keneth', 'Macis', 'ken123oficial@gmail.com'),
+(2, 'dcalero', '12358', 'Michelle', 'Calero', 'dayadri05@gmail.com'),
+(2, 'aaleman', '12358', 'Alvaro', 'Aleman', 'alemanalvaro35@gmail.com');
+
+-- Consultas sql de la tabla USERS
+SELECT U.Usuario, U.Pri_Nombre, U.Seg_Nombre, U.Pri_Apellido, U.Seg_Apellido, T.Tipo AS Permisos, U.Telefono, U.Correo_Electronico
+FROM USERS U
+JOIN Tipos_Users T ON U.FK_Tipo_User = T.ID_Tipo;
+
