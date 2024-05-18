@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../src/fonts/Roboto/Roboto-Bold.ttf') format('truetype'),
+}
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('../src/fonts/Roboto/Roboto-Regular.ttf') format('truetype'),
+}
+
+@font-face {
+    font-family: 'Seaweed Script';
+    src: url('../src/fonts/Seaweed_Script/SeaweedScript-Regular.ttf') format('truetype'),
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 4rem;
+}
+
+h2 {
+    font-family: 'Seaweed Script', sans-serif;
+    color: #D7A310;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3 {
+    text-shadow: -5px 5px 4px rgba(0, 0, 0, 0.87);
+}
+
+p, span, li {
+    font-family: 'Roboto-Regular', sans-serif;
+}

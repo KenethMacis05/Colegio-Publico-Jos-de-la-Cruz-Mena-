@@ -2,7 +2,7 @@
 
 require_once '../models/conexion.model.php'; 
 
-class User {
+class Users{
     private $id_user;
     private $fk_tipo_user;
     private $usuario;
@@ -14,24 +14,21 @@ class User {
     private $telefono;
     private $correo_electronico;
 
-    private $conexion;
+    private $objetoConexion;
+    
+    public function __construct($id_user = null, $fk_tipo_user = null, $usuario = null, $contrasena = null, $pri_nombre = null, $seg_nombre = null, $pri_apellido = null, $seg_apellido = null, $telefono = null, $correo_electronico = null){
+        $this->id_user = $id_user;
+        $this->fk_tipo_user = $fk_tipo_user;
+        $this->usuario = $usuario;
+        $this->contrasena = $contrasena;
+        $this->pri_nombre = $pri_nombre;
+        $this->seg_nombre = $seg_nombre;
+        $this->pri_apellido = $pri_apellido;
+        $this->seg_apellido = $seg_apellido;
+        $this->telefono = $telefono;
+        $this->correo_electronico = $correo_electronico;
 
-    //Constructor
-    public function __construct($id_user = null, $fk_tipo_user = null, $usuario = null, $contrasena = null, $pri_nombre = null, $seg_nombre = null, $pri_apellido = null, $seg_apellido = null, $telefono = null, $correo_electronico = null) {
-        if (func_num_args() > 0) {
-            $this->id_user = $id_user;
-            $this->fk_tipo_user = $fk_tipo_user;
-            $this->usuario = $usuario;
-            $this->contrasena = $contrasena;
-            $this->pri_nombre = $pri_nombre;
-            $this->seg_nombre = $seg_nombre;
-            $this->pri_apellido = $pri_apellido;
-            $this->seg_apellido = $seg_apellido;
-            $this->telefono = $telefono;
-            $this->correo_electronico = $correo_electronico;
-            
-            $this->conexion = new Conexion();
-        }
+        $this->objetoConexion = new Conexion();
     }
 
     //Getter
@@ -42,6 +39,13 @@ class User {
     public function __set($propiedad, $valor) {
         $this->$propiedad = $valor;
         return $this;
+    }
+
+    //Funcion para logiarse 
+    public function login($usuario, $contrasena){
+        $consulta = "SELECT * FROM users where usuario = '$usuario' and contrasena = '$contrasena';";
+        $resultado = $this->objetoConexion->consultar($consulta);
+        return $resultado;
     }
 
     //Metodos CRUD

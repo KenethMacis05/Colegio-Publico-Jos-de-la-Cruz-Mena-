@@ -207,6 +207,7 @@ CREATE TABLE USERS (
     Seg_Apellido VARCHAR(20),
     Telefono INT(8),
     Correo_Electronico VARCHAR(45) NOT NULL,
+    imagen varchar(250),
     constraint pk_Tipos_Users_id foreign key (FK_Tipo_User) references Tipos_Users(ID_Tipo) on update cascade on delete cascade
 );
 
@@ -220,3 +221,5 @@ SELECT U.Usuario, U.Pri_Nombre, U.Seg_Nombre, U.Pri_Apellido, U.Seg_Apellido, T.
 FROM USERS U
 JOIN Tipos_Users T ON U.FK_Tipo_User = T.ID_Tipo;
 
+select * from users;
+select * from users where usuario = 'Keny';
