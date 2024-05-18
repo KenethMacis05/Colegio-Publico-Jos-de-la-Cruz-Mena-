@@ -60,10 +60,16 @@ class Users{
     }
 
     //Leer
-    public function read() {
-        $query = "SELECT U.Usuario, U.Pri_Nombre, U.Seg_Nombre, U.Pri_Apellido, U.Seg_Apellido, T.Tipo AS Permisos, U.Telefono, U.Correo_Electronico FROM USERS U JOIN Tipos_Users T ON U.FK_Tipo_User = T.ID_Tipo";
-        $resultado =  $this->conexion->consultar($query);
+    public function read2() {
+        $consulta = "SELECT * FROM users;";
+        $resultado = $this->objetoConexion->consultar($consulta);
         return $resultado;
+    }
+    public function read(){
+        $consulta = "SELECT U.ID_USER, U.Usuario, U.Pri_Nombre, U.Seg_Nombre, U.Pri_Apellido, U.Seg_Apellido, T.Tipo AS Permisos, U.Telefono, U.Correo_Electronico
+        FROM USERS U
+        JOIN Tipos_Users T ON U.FK_Tipo_User = T.ID_Tipo;";
+       return $this->objetoConexion->consultar($consulta);
     }
 
     //Actualizar
