@@ -36,8 +36,6 @@ const initDataTable = async () => {
     dataTableIsInitialized = true;
 };
 
-
-
 window.addEventListener("load", async () => {
     await initDataTable();
 });

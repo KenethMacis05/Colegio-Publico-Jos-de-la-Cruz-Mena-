@@ -1,5 +1,6 @@
 <?php 
     include_once "../template/zona_priv.php";
+    include_once "../models/periodoescolar.model.php";
 ?>
 
 <!DOCTYPE html>
