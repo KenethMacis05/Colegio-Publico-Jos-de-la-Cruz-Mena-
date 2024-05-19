@@ -1,8 +1,145 @@
+h2 {
+    text-shadow: -3px 3px 6px rgba(83, 83, 83, 0.719);
+    font-family: 'Roboto', sans-serif;
+}
+.estilos-hr-form {
+    background: #212529; 
+    width: 70%; 
+    margin: 15px auto; 
+    height: 4px
+}
 .Contenedor-List {
-    width: auto !important;
-    margin: 0 3% 0 0 !important;
-    position: absolute !important;
-    top: 120px !important;
-    left: 320px !important;
-    padding: 2rem 1rem !important;
+    background-color: #212529;
+    box-shadow: -5px 5px 5px rgba(73, 80, 104, 0.4) !important;
+    /*Ajustar ancho si se decea*/
+    width: 73vw;
+    margin: 0 3% 0 0;
+    position: absolute;
+    top: 120px;
+    left: 320px;
+    padding: 2rem 1rem;
+    border-radius: 25px;
+    
+}
+form {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    padding: 1rem 0;
+}
+.titulo, .titulo-notas {
+    text-align: center;
+}
+
+.inputs-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;            
+}
+
+.cajas-texto {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 5px 5px;
+    border: none;
+}
+.cajas-texto input, .cajas-texto select, .cajas-texto textarea, .cajas-texto option {
+    width: 15.625em;
+    padding: 0.625em 0.625em 0.625em 3.125em;
+    font-size: 1em;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    outline: none;
+    border-color: #E5E5E5;
+}
+
+.cajas-texto input:focus, .cajas-texto select:focus, .cajas-texto textarea:focus {
+    background-color: #F4F4F4;
+}
+
+option {
+    background: #c8c8c938;
+}
+
+option:hover {
+    background-color: #387a3b;
+}
+
+.icon {
+    color: #9c9494;
+    font-size: 20px;
+    position: absolute;
+    left: 20px;
+}
+
+.icon-container {
+    position: absolute;
+    top: 40%;
+    right: -26px;
+}
+.icon-container-i {
+    position: absolute;
+    top: 40%;
+    left: -20px;
+}
+.icon-container-guardar {
+    position: absolute;
+    top: -15px;
+    right: -7px;
+}
+
+/*Datos de la matricualas------------*/
+.tabla {
+    margin: 1rem;
+    width: 97%;
+}
+
+.encabezado-tabla th {
+    text-align: center;
+    font-size: 1.25em;
+    background-color: #212529;
+    border-radius: 15px;
+    color: #fff;
+    padding: 5px;
+    border-bottom: 1rem;
+}
+
+.calificaciones td {
+    padding: 7px 0;
+    font-size: 0.9em;
+}
+
+.input-tabla {
+    text-align: center;
+}
+
+
+tbody .calificaciones input {
+    width: 33%;
+    font-size: 0.9em;
+    text-align: center;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #212529;
+}
+
+th {
+    background-color: #f1f1f1;
+    text-align: justify;
+    padding: 10px;
+}
+
+td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #dbd2d2;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.i {
+    color: #9c9494;
+    padding: 10px;
 }
