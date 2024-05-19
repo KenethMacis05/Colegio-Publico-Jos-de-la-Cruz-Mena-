@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="/css/style.alert.css">
     <!-- Libreria Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Luego lo tengo que borrar -->
+    <link rel="stylesheet" href="/css/borrar.css">
     <!-- Titulo de la pagina -->
     <title>Usuario | Sistema JDLCM</title>
 </head>

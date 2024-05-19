@@ -14,7 +14,7 @@ caption {
 
 .Contenedor-List {
     box-shadow: -5px 5px 5px rgba(73, 80, 104, 0.4) !important;
-    width: auto !important;
+    width: 73vw !important;
     margin: 0 3% 0 0;
     position: absolute;
     top: 120px;
@@ -26,4 +26,22 @@ caption {
 hr {
     color: white;
     width: 100%;
+}
+
+.nav-pills .nav-link:hover {
+    color: #215a94 !important;
+}
+
+.Contenedor-Saludo {
+    width: auto !important;
+    margin: 0 3% 0 0;
+    position: absolute;
+    top: 120px;
+    left: 320px;
+    padding: 2rem 1rem;
+}
+.fondo{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }

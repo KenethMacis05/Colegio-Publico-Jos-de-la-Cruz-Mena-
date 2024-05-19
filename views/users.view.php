@@ -23,8 +23,12 @@
     <link rel="stylesheet" href="/css/style.matricula.css">
     <!-- Estilos de alertas -->
     <link rel="stylesheet" href="/css/style.alert.css">
+    <!-- Estilos de fuentes -->
+    <link rel="stylesheet" href="css/style.font.css">
     <!-- Libreria Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Luego lo tengo que borrar -->
+    <link rel="stylesheet" href="/css/borrar.css">
     <!-- Titulo de la pagina -->
     <title>Usuarios | Sistema JDLCM</title>
 </head>
@@ -36,52 +40,11 @@
             <?php include_once "../template/dashboard.php" ?>
             <!----------------------Titulo del Header--------------------->
             <div class="col py-3 header">
+                <span class="title">Usuarios</span>
                 <?php #include_once "/template/section-info-title/section-info-title.php"?>
             </div>
             <!-----------------------Tabla Usuarios----------------------->
-            <div class="bg-dark rounded-4 Contenedor-List col ">
-                <div class="table-responsive">
-                    <table id="datatable_users" class="table table-striped table-responsive table-light table-hover">
-                        <caption>
-                            José de la cruz Mena
-                        </caption>
-                        <thead class="m-4 table-primary">
-                            <tr>
-                                <th class="centered ">#</th>
-                                <th class="centered">Usuario</th>
-                                <th class="centered">Nombre</th>
-                                <th class="centered">Permisos</th>
-                                <th class="centered">Telefono</th>
-                                <th class="centered">Correo</th>
-                                <th class="centered">Options</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php 
-                                $objUser = new Users();
-                                $allUsers = $objUser->read();
-                                $numRows = mysqli_num_rows($allUsers); // Obtener el número total de filas
-
-                                for ($i = 0; $i < $numRows; $i++) {
-                                    $user = mysqli_fetch_assoc($allUsers);
-                            ?>
-                            <tr>
-                                <td><?= $user["ID_USER"]?></td>
-                                <td><?= $user["Usuario"]?></td>
-                                <td><?= $user["Pri_Nombre"]. ' '.$user["Pri_Apellido"]?></td>
-                                <td><?= $user["Permisos"]?></td>
-                                <td><?= $user["Telefono"]?></td>
-                                <td><?= $user["Correo_Electronico"]?></td>
-                                <td>
-                                <button class="btn btn-sm btn-primary edit-button"><i class="fa-solid fa-pencil"></i></button>
-                        <button class="btn btn-sm btn-danger retirar-button"><i class="fa-solid fa-trash-can"></i></button>
-                                </td>
-                            </tr>
-                            <?php }?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <?php include_once "../template/tables/table.users.php" ?>
         </div>
     </div>
 </body>

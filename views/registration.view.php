@@ -22,8 +22,12 @@
     <link rel="stylesheet" href="/css/style.matricula.css">
     <!-- Estilos de alertas -->
     <link rel="stylesheet" href="/css/style.alert.css">
+    <!-- Estilos de fuentes -->
+    <link rel="stylesheet" href="css/style.font.css">
     <!-- Libreria Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Luego lo tengo que borrar -->
+    <link rel="stylesheet" href="/css/borrar.css">
     <!-- Titulo de la pagina -->
     <title>Matriculas | Sistema JDLCM</title>
 </head>
@@ -35,6 +39,7 @@
             <?php include_once "../template/dashboard.php" ?>
             <!----------------------Titulo del Header--------------------->
             <div class="col py-3 header">
+                <span class="title">Matriculas</span>
                 <?php #include_once "../template/section-info-title/section-info-title.php"?>
             </div>
             <!-----------------------Tabla Usuarios----------------------->
