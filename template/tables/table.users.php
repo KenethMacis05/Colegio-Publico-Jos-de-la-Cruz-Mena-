@@ -1,8 +1,25 @@
-<div class="bg-dark rounded-4 Contenedor-List col ">
+<div class="bg-dark rounded-4 Contenedor-List col">
+    <!-- Botones de acción -->    
+    <div class="botones">
+        <button type="button" class="btn btn-success">
+            <i class="bi bi-file-earmark-plus"></i>
+            Nuevo
+        </button>
+        <button type="button" class="btn btn-warning" style="color: white">
+            <i class="bi bi-file-earmark-pdf-fill"></i>
+            PDF
+        </button>
+        <button type="button" class="btn btn-secondary" style="color: white">
+        <i class="bi bi-file-spreadsheet"></i>
+            Excel
+        </button>
+    </div>
+    <!--Tabla Usuarios -->
     <div class="table-responsive">
         <table id="datatable_users" class="table table-striped table-responsive table-light table-hover">
             <caption>
                 José de la cruz Mena
+                <hr class="mt-3 mb-0 mx-0">
             </caption>
             <thead class="m-4 table-primary">
                 <tr>

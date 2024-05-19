@@ -25,12 +25,14 @@
     <link rel="stylesheet" href="/css/style.alert.css">
     <!-- Estilos de fuentes -->
     <link rel="stylesheet" href="css/style.font.css">
+    <!-- Estilos botones -->
+    <link rel="stylesheet" href="/css/style.botones.css">
     <!-- Libreria Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Luego lo tengo que borrar -->
     <link rel="stylesheet" href="/css/borrar.css">
     <!-- Titulo de la pagina -->
-    <title>Matriculas | Sistema JDLCM</title>
+    <title>Periodo Escolar | Sistema JDLCM</title>
 </head>
 
 <body class="bg-secondary">
@@ -42,10 +44,9 @@
             <div class="col py-3 header">
                 <span class="title">Periodo Escolar</span>
                 <?php #include_once "/template/section-info-title/section-info-title.php"?>
-            </div>
-            <!-----------------------Tabla Usuarios----------------------->
-            <?php include_once "../template/tables/table.school.period.php" ?>
-            
+            </div>            
+            <!-----------------------Tabla Periodo escolar----------------------->
+            <?php include_once "../template/tables/table.school.period.php" ?>            
         </div>
     </div>
 </body>
@@ -60,9 +61,5 @@
 <!-- DataTable -->
 <script src="/js/datatable_js/jquery.dataTables.min.js"></script>
 <script src="/js/datatable_js/dataTables.bootstrap5.min.js"></script>
-
-<script>
-    
-</script>
 
 </html>

@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="/css/style.alert.css">
     <!-- Estilos de fuentes -->
     <link rel="stylesheet" href="css/style.font.css">
+    <!-- Estilos botones -->
+    <link rel="stylesheet" href="/css/style.botones.css">
     <!-- Libreria Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Luego lo tengo que borrar -->
