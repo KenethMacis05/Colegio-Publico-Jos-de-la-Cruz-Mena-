@@ -49,6 +49,7 @@
             <?php include_once "../template/tables/table.users.php" ?>
         </div>
     </div>
+    <?php include_once "../template/modals/new_user_form.php" ?>
 </body>
 <!-- Configure table -->
 <script src="/js/datatable_config/datatable.config.users.js"></script>
