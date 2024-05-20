@@ -22,7 +22,8 @@
             </caption>
             <thead class="m-4 table-primary">
                 <tr>
-                    <th class="centered ">#</th>
+                    <th class="centered">#</th>
+                    <th class="centered">Codigo</th>
                     <th class="centered">Nombre</th>
                     <th class="centered">Telefono</th>
                     <th class="centered">Grado</th>
@@ -33,7 +34,31 @@
                     <th class="centered">Options</th>
                 </tr>
             </thead>
-            <tbody id="tableBody_users"></tbody>
+            <tbody>
+                <?php
+                $objMatricula = new Matricula();
+                $allMatricula = $objMatricula->read();
+                $numRows = mysqli_num_rows($allMatricula);
+                for ($i = 0; $i < $numRows; $i++) {
+                    $matricula = mysqli_fetch_assoc($allMatricula);                
+                ?>
+                    <tr>
+                        <td><?= $matricula["ID_Matricula"] ?></td>
+                        <td><?= $matricula["Cod_Matricula"] ?></td>
+                        <td><?= $matricula["Pri_Nombre"] . ' ' . $matricula["Pri_Apellido"] ?></td>
+                        <td><?= $matricula["Telefono"] ?></td>
+                        <td><?= $matricula["Grupo"] ?></td>
+                        <td><?= $matricula["Turno"] == "Matutino"  ? "M" : "V" ?></td>
+                        <td><?= $matricula["Direccion"] ?></td>
+                        <td><?= $matricula["T_Pri_Nombre"] . ' ' . $matricula["T_Pri_Apellido"] ?></td>
+                        <td><?= $matricula["Estado"] == "Reingreso"  ? "R" : "N" ?></td>
+                        <td>
+                            <button class="btn btn-sm btn-primary edit-button"><i class="fa-solid fa-pencil"></i></button>
+                            <button class="btn btn-sm btn-danger retirar-button"><i class="fa-solid fa-trash-can"></i></button>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
         </table>
     </div>
 </div>

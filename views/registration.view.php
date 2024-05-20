@@ -1,5 +1,6 @@
 <?php 
     include_once "../template/zona_priv.php";
+    include_once "../models/matricula.model.php";
 ?>
 
 <!DOCTYPE html>
@@ -51,9 +52,9 @@
 </body>
 
 <!-- Configure table -->
-<script src="/js/datatable_config/datatable.config.registration.js"></script>
+<script src="/js/datatable_config/datatable.config.users.js"></script>
 <!-- Bootstrap JS -->
-<script src="/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
 <!-- jQuery -->
 <script src="datatables/jquery.min.js"></script>
 <script src="/js/jquery.min.js"></script>
