@@ -1,7 +1,7 @@
 <div class="bg-dark rounded-4 Contenedor-List col ">
     <!-- Botones de acción -->
     <div class="botones">
-        <button type="button" class="btn btn-success">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_new_periodo_escolar">
             <i class="bi bi-file-earmark-plus"></i>
             Nuevo
         </button>
@@ -53,7 +53,7 @@
                         </td>
                         <td>
                             <button class="btn btn-sm btn-primary edit-button"><i class="fa-solid fa-pencil"></i></button>
-                            <button class="btn btn-sm btn-danger retirar-button"><i class="fa-solid fa-trash-can"></i></button>
+                            <button class="btn btn-sm btn-danger retirar-button" onclick="window.location='../controllers/school.period.controller.php?delete_period=<?= $periodo['ID_Anio_Lectivo']; ?>'"><i class="fa-solid fa-trash-can"></i></button>
                         </td>
                     </tr>
                 <?php } ?>

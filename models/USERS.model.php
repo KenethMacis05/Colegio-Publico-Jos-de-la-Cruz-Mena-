@@ -12,11 +12,11 @@ class Users{
     private $pri_apellido;
     private $seg_apellido;
     private $telefono;
-    private $correo_electronico;
+    private $correo;
 
     private $objetoConexion;
     
-    public function __construct($id_user = null, $fk_tipo_user = null, $usuario = null, $contrasena = null, $pri_nombre = null, $seg_nombre = null, $pri_apellido = null, $seg_apellido = null, $telefono = null, $correo_electronico = null){
+    public function __construct($id_user = null, $fk_tipo_user = null, $usuario = null, $contrasena = null, $pri_nombre = null, $seg_nombre = null, $pri_apellido = null, $seg_apellido = null, $telefono = null, $correo = null){
         $this->id_user = $id_user;
         $this->fk_tipo_user = $fk_tipo_user;
         $this->usuario = $usuario;
@@ -26,7 +26,7 @@ class Users{
         $this->pri_apellido = $pri_apellido;
         $this->seg_apellido = $seg_apellido;
         $this->telefono = $telefono;
-        $this->correo_electronico = $correo_electronico;
+        $this->correo = $correo;
 
         $this->objetoConexion = new Conexion();
     }
@@ -51,12 +51,10 @@ class Users{
     //Metodos CRUD
 
     //Crear
-    public static function create($data) {
-        global $conn; // Asume que $conn es una instancia de Conexion disponible globalmente
-        $stmt = $conn->prepare("INSERT INTO users (FK_Tipo_User, Usuario, Contrasena, Pri_Nombre, Seg_Nombre, Pri_Apellido, Seg_Apellido, Telefono, Correo_Electronico) VALUES (?,?,?,?,?,?,?,?,?)");
-        $stmt->bind_param("isssssssi", $data['fk_tipo_user'], $data['usuario'], $data['contrasena'], $data['pri_nombre'], $data['seg_nombre'], $data['pri_apellido'], $data['seg_apellido'], $data['telefono'], $data['correo_electronico']);
-        $stmt->execute();
-        $stmt->close();
+    public function create($usuario, $contrasena, $pri_nombre, $seg_nombre, $pri_apellido, $seg_apellido, $telefono, $correo) {
+        $consulta = "INSERT INTO users (Usuario, Contrasena, Pri_Nombre, Seg_Nombre, Pri_Apellido, Seg_Apellido, Telefono, Correo_Electronico) VALUES
+        ('$usuario', '$contrasena', '$pri_nombre', '$seg_nombre', '$pri_apellido', '$seg_apellido', '$telefono', '$correo');";
+        return $this->objetoConexion->consultar($consulta);
     }
 
     //Leer
@@ -68,21 +66,19 @@ class Users{
     }
 
     //Actualizar
-    public static function update($data) {
-        global $conn;
-        $stmt = $conn->prepare("UPDATE users SET FK_Tipo_User =?, Usuario =?, Contrasena =?, Pri_Nombre =?, Seg_Nombre =?, Pri_Apellido =?, Seg_Apellido =?, Telefono =?, Correo_Electronico =? WHERE ID_USER =?");
-        $stmt->bind_param("issssssisi", $data['fk_tipo_user'], $data['usuario'], $data['contrasena'], $data['pri_nombre'], $data['seg_nombre'], $data['pri_apellido'], $data['seg_apellido'], $data['telefono'], $data['correo_electronico'], $data['id_user']);
-        $stmt->execute();
-        $stmt->close();
+    public function update($id_user, $usuario, $contrasena, $pri_nombre, $seg_nombre, $pri_apellido, $seg_apellido, $telefono, $correo) {
+        $consulta = "UPDATE users SET Usuario =?, Contrasena =?, Pri_Nombre =?, Seg_Nombre =?, Pri_Apellido =?, Seg_Apellido =?, Telefono =?, Correo_Electronico =? WHERE ID_USER =?";
+        $parametros = array($usuario, $contrasena, $pri_nombre, $seg_nombre, $pri_apellido, $seg_apellido, $telefono, $correo, $id_user);
+        return $this->objetoConexion->consultar($consulta, $parametros);
     }
+    
 
     //Eliminar
-    public static function delete($id_user) {
-        global $conn;
-        $stmt = $conn->prepare("DELETE FROM users WHERE ID_USER =?");
-        $stmt->bind_param("i", $id_user);
-        $stmt->execute();
-        $stmt->close();
+    public function delete($id_user) {
+        $consulta = "DELETE FROM users WHERE ID_USER =?";
+        $parametros = array($id_user);
+        return $this->objetoConexion->consultar($consulta, $parametros);
     }
+    
 }
 ?>

@@ -6,22 +6,19 @@
                 <button type="button" class="btn btn-danger btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="/controllers/user.controllers.php" method="POST">
                     <div class="mb-3 row">
                         <div class="col-md-6">
                             <label for="fk_tipo_usuario" class="form-label">Tipo de Usuario</label>
-                            <select class="form-select" id="fk_tipo_usuario" name="fk_tipo_usuario" style="background-color: #E5E5E5;">
+                            <select class="form-select" id="tipo_usuario" name="tipo_usuario" style="background-color: #E5E5E5;">
                                 <option value="">Seleccione...</option>
                                 <option value="1">Admin</option>
-                                <option value="2">Secretario</option>                                
+                                <option value="2">Secretario</option>
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="usuario" class="form-label">Usuario</label>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-person-fill" style="color: #9C9494;"></i></span>
-                                <input type="text" class="form-control" id="usuario" name="usuario" required style="background-color: #E5E5E5;">
-                            </div>
+                            <input type="text" class="form-control" id="usuario" name="usuario" required style="background-color: #E5E5E5;">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -51,10 +48,9 @@
                         </div>
                         <div class="col-md-6">
                             <label for="correo_electronico" class="form-label">Correo Electrónico</label>
-                            <input type="email" class="form-control" id="correo_electronico" name="correo_electronico" required style="background-color: #E5E5E5;">
+                            <input type="email" class="form-control" id="correo" name="correo" required style="background-color: #E5E5E5;">
                         </div>
                     </div>
-                    <!-- No se muestra un campo para la contraseña ni para la imagen aquí, pero podrías considerar agregar un área de texto oculta para la contraseña -->
                 </form>
             </div>
             <div class="modal-footer">

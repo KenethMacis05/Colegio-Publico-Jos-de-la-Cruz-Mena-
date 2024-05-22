@@ -1,7 +1,7 @@
 <div class="bg-dark rounded-4 Contenedor-List col">
     <!-- Botones de acción -->    
     <div class="botones">
-        <button type="button" class="btn btn-success">
+        <button type="button" class="btn btn-success" onclick="window.location.href='/views/new_registration.view.php';">
             <i class="bi bi-file-earmark-plus"></i>
             Nuevo
         </button>

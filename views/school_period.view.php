@@ -49,6 +49,7 @@
             <?php include_once "../template/tables/table.school.period.php" ?>            
         </div>
     </div>
+    <?php include_once "../template/modals/new_school.period_form.php" ?>
 </body>
 
 <!-- Configure table -->
