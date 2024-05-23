@@ -3,10 +3,6 @@ require_once '../models/conexion.model.php';
 
 class PeriodoEscolar
 {
-    private $anio;
-    private $fecha_inicial;
-    private $fecha_final;
-    private $estado;
     private $objetoConexion;
 
     public function __construct()
@@ -14,13 +10,9 @@ class PeriodoEscolar
         $this->objetoConexion = new Conexion();
     }
 
-    //Metodos CRUD
-    
-    public function create($anio, $fecha_inicial, $fecha_final, $estado)
-    {
+    public function create($anio, $fecha_inicial, $fecha_final, $estado) { //Crear
         try {
-            $consulta = "INSERT INTO anio_lectivo (Anio, Fecha_Inicio, Fecha_final, Estado) VALUES 
-            ('$anio', '$fecha_inicial', '$fecha_final', '$estado');";
+            $consulta = "CALL sp_new_school_period('$anio', '$fecha_inicial', '$fecha_final', '$estado');";
             return $this->objetoConexion->consultar($consulta);
         } catch (Exception $e) {
             echo "Error en la cansulta: " . $e->getMessage();
@@ -28,25 +20,36 @@ class PeriodoEscolar
         }
     }
 
-    //Leer
-    public function read()
-    {
-        $consulta = "SELECT * FROM anio_lectivo;";
-        return $this->objetoConexion->consultar($consulta);
+    public function read() { //Leer
+        try {
+            $consulta = "CALL sp_school_period();";
+            return $this->objetoConexion->consultar($consulta);
+        } catch (Exception $e) {
+            echo "Error en la cansulta: " . $e->getMessage();
+            return false;
+        }
+        
     }
 
-    //Actualizar
-    public function update($id, $anio, $fecha_inicial, $fecha_final, $estado)
-    {
-        $consulta = "UPDATE anio_lectivo SET Anio = '$anio', Fecha_Inicio = '$fecha_inicial', Fecha_final = '$fecha_final', Estado = '$estado' WHERE ID_Anio_Lectivo = $id";
-        return $this->objetoConexion->consultar($consulta);
+    public function update($id, $anio, $fecha_inicial, $fecha_final, $estado) { //Actualizar
+        try {
+            $consulta = "UPDATE anio_lectivo SET Anio = '$anio', Fecha_Inicio = '$fecha_inicial', Fecha_final = '$fecha_final', Estado = '$estado' WHERE ID_Anio_Lectivo = $id";
+            return $this->objetoConexion->consultar($consulta);
+        } catch (Exception $e) {
+            echo "Error en la cansulta: " . $e->getMessage();
+            return false;
+        }
+        
     }
 
-
-    //Eliminar
-    public function delete($id)
-    {
-        $consulta = "DELETE FROM anio_lectivo WHERE ID_Anio_Lectivo = $id";
-        return $this->objetoConexion->consultar($consulta);
+    public function delete($id) { //Eliminar
+        try {
+            $consulta = "CALL sp_delete_school_period('$id');";
+            return $this->objetoConexion->consultar($consulta);
+        } catch (Exception $e) {
+            echo "Error en la cansulta: " . $e->getMessage();
+            return false;
+        }
+        
     }
 }

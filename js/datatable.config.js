@@ -3,11 +3,6 @@ let dataTableIsInitialized = false;
 
 const dataTableOptions = {
     lengthMenu: [5, 10, 15, 20, 100, 200, 500],
-    columnDefs: [
-        { className: "centered", targets: [0, 1, 2, 3, 4, 5] },
-        { orderable: false, targets: [4, 5] },
-        { searchable: false, targets: [1] }
-    ],
     pageLength: 5,
     destroy: true,
     language: {
@@ -32,7 +27,7 @@ const initDataTable = async () => {
         dataTable.destroy();
     }
 
-    dataTable = $("#datatable_users").DataTable(dataTableOptions);
+    dataTable = $("#datatable").DataTable(dataTableOptions);
     dataTableIsInitialized = true;
 };
 

@@ -400,4 +400,37 @@ INNER JOIN
 INNER JOIN 
     Secciones Sec ON G.FK_Seccion = Sec.ID_Seccion
 INNER JOIN 
-    Tutores Tut ON E.FK_Tutor = Tut.ID_Tutor;
+    Tutores Tut ON E.FK_Tutor = Tut.ID_Tutor
+ORDER BY M.ID_Matricula;
+
+-- Procedimientos almacenados
+
+-- Crear un nuevo periodo escolar
+DELIMITER //
+CREATE PROCEDURE sp_new_school_period(
+    IN Anio INT,
+    Fecha_Inicio DATE,
+    Fecha_Final DATE,
+    Estado VARCHAR(45)
+)
+BEGIN
+    INSERT INTO anio_lectivo (Anio, Fecha_Inicio, Fecha_final, Estado) VALUES 
+    (Anio, Fecha_Inicio, Fecha_final, Estado);
+END//
+DELIMITER ; -- CALL sp_new_school_period('', '', '', '');
+
+-- Leer la tabla periodo escolar
+DELIMITER //
+CREATE PROCEDURE sp_school_period()
+BEGIN
+    SELECT * FROM anio_lectivo;
+END//
+DELIMITER ; -- CALL sp_school_period();
+
+-- Eliminar periodo escolar
+DELIMITER //
+CREATE PROCEDURE sp_delete_school_period(in id int)
+BEGIN
+    DELETE FROM anio_lectivo WHERE ID_Anio_Lectivo = id;
+END//
+DELIMITER ;  -- CALL sp_delete_school_period('5');

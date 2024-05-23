@@ -16,7 +16,7 @@
     </div>
     <!--Tabla Usuarios -->
     <div class="table-responsive">
-        <table id="datatable_users" class="table table-striped table-responsive table-light table-hover">
+        <table id="datatable" class="table table-striped table-responsive table-light table-hover">
             <caption>
                 José de la cruz Mena
                 <hr class="mt-3 mb-0 mx-0">

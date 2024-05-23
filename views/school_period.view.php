@@ -1,6 +1,6 @@
-<?php 
-    include_once "../template/zona_priv.php";
-    include_once "../models/periodoescolar.model.php";
+<?php
+include_once "../template/zona_priv.php";
+include_once "../models/periodoescolar.model.php";
 ?>
 
 <!DOCTYPE html>
@@ -43,17 +43,18 @@
             <!----------------------Titulo del Header--------------------->
             <div class="col py-3 header">
                 <span class="title">Periodo Escolar</span>
-                <?php #include_once "/template/section-info-title/section-info-title.php"?>
-            </div>            
+                <?php #include_once "/template/section-info-title/section-info-title.php"
+                ?>
+            </div>
             <!-----------------------Tabla Periodo escolar----------------------->
-            <?php include_once "../template/tables/table.school.period.php" ?>            
+            <?php include_once "../template/tables/table.school.period.php" ?>
         </div>
     </div>
     <?php include_once "../template/modals/new_school.period_form.php" ?>
 </body>
 
 <!-- Configure table -->
-<script src="/js/datatable_config/datatable.config.school.period.js"></script>
+<script src="/js/datatable.config.js"></script>
 <!-- Bootstrap JS -->
 <script src="/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <!-- jQuery -->
@@ -62,5 +63,7 @@
 <!-- DataTable -->
 <script src="/js/datatable_js/jquery.dataTables.min.js"></script>
 <script src="/js/datatable_js/dataTables.bootstrap5.min.js"></script>
+<!-- Opciones del CRUD -->
+<?php include_once "../template/option-crud/option_period.php"?>
 
 </html>

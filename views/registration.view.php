@@ -52,7 +52,7 @@
 </body>
 
 <!-- Configure table -->
-<script src="/js/datatable_config/datatable.config.users.js"></script>
+<script src="/js/datatable.config.js"></script>
 <!-- Bootstrap JS -->
 <script src="/js/bootstrap.bundle.min.js"></script>
 <!-- jQuery -->
