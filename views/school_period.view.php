@@ -50,7 +50,10 @@ include_once "../models/periodoescolar.model.php";
             <?php include_once "../template/tables/table.school.period.php" ?>
         </div>
     </div>
+    <!-- Modal nuevo periodo escolar -->
     <?php include_once "../template/modals/new_school.period_form.php" ?>
+    <!-- Modal editar periodo escolar -->
+    <?php include_once "../template/modals/edit_school.period_form.php" ?>
 </body>
 
 <!-- Configure table -->

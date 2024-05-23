@@ -52,8 +52,9 @@
                             ?>
                         </td>
                         <td>
-                            <button class="btn btn-sm btn-primary edit-button"><i class="fa-solid fa-pencil"></i></button>
-                            <button class="btn btn-sm btn-danger retirar-button" onclick="alertDeleteUser()"><i class="fa-solid fa-trash-can"></i></button>        </td>
+                            <button class="btn btn-sm btn-primary edit-button" data-bs-toggle="modal" data-bs-target="#modal_edit_periodo_escolar"><i class="fa-solid fa-pencil"></i></button>
+                            <button class="btn btn-sm btn-danger retirar-button" onclick="alertDeleteUser()"><i class="fa-solid fa-trash-can"></i></button>
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>

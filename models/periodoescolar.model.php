@@ -33,7 +33,7 @@ class PeriodoEscolar
 
     public function update($id, $anio, $fecha_inicial, $fecha_final, $estado) { //Actualizar
         try {
-            $consulta = "UPDATE anio_lectivo SET Anio = '$anio', Fecha_Inicio = '$fecha_inicial', Fecha_final = '$fecha_final', Estado = '$estado' WHERE ID_Anio_Lectivo = $id";
+            $consulta = "CALL sp_update_school_period('$id', '$anio', '$fecha_inicial', '$fecha_final', '$estado');";
             return $this->objetoConexion->consultar($consulta);
         } catch (Exception $e) {
             echo "Error en la cansulta: " . $e->getMessage();

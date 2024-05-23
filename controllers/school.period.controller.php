@@ -17,6 +17,17 @@ try {
         } else {
             header("Location:../views/school_period.view.php?crear=2");
         }
+    }    
+    
+    #Editar un periodo escolar
+    if (isset($_GET['update_period'])) {
+        $id_school_period = filter_input(INPUT_GET, 'update_period', FILTER_SANITIZE_NUMBER_INT);
+
+        if ($periodoEscolar->delete($id_school_period)) {
+            header("Location:../views/school_period.view.php?eliminar=1");
+        } else {
+            header("Location:../views/school_period.view.php?eliminar=0");
+        }
     }
 
     #Eliminar un nuevo periodo escolar
