@@ -1,6 +1,6 @@
 <!-- Eliminar periodo escolar -->
 <script>
-function alertDeleteUser() {
+function alertDeletePeriod() {
     Swal.fire({
         position: 'top-center',
         icon: 'question',

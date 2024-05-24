@@ -53,7 +53,7 @@
                         </td>
                         <td>
                             <button class="btn btn-sm btn-primary edit-button" data-bs-toggle="modal" data-bs-target="#modal_edit_periodo_escolar<?= $periodo["ID_Anio_Lectivo"];?>"><i class="fa-solid fa-pencil"></i></button>
-                            <button class="btn btn-sm btn-danger retirar-button" onclick="alertDeleteUser()"><i class="fa-solid fa-trash-can"></i></button>
+                            <button class="btn btn-sm btn-danger retirar-button" onclick="alertDeletePeriod()"><i class="fa-solid fa-trash-can"></i></button>
                             <?php include "../template/modals/edit_school.period_form.php" ?>
                         </td>
                     </tr>

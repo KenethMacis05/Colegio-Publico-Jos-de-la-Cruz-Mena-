@@ -9,10 +9,11 @@ class PeriodoEscolar
     {
         $this->objetoConexion = new Conexion();
     }
-
-    public function create($anio, $fecha_inicial, $fecha_final, $estado) { //Crear
+    
+    //Crear
+    public function create($anio, $fecha_inicial, $fecha_final, $estado) { 
         try {
-            $consulta = "CALL sp_new_school_period('$anio', '$fecha_inicial', '$fecha_final', '$estado');";
+            $consulta = "CALL sp_create_school_period('$anio', '$fecha_inicial', '$fecha_final', '$estado');";
             return $this->objetoConexion->consultar($consulta);
         } catch (Exception $e) {
             echo "Error en la cansulta: " . $e->getMessage();
@@ -20,9 +21,9 @@ class PeriodoEscolar
         }
     }
 
-    public function read() { //Leer
+    public function read() { 
         try {
-            $consulta = "CALL sp_school_period();";
+            $consulta = "CALL sp_read_school_period();";
             return $this->objetoConexion->consultar($consulta);
         } catch (Exception $e) {
             echo "Error en la cansulta: " . $e->getMessage();

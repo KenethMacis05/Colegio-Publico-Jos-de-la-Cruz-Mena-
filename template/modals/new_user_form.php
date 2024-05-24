@@ -19,7 +19,17 @@
                         <div class="col-md-6">
                             <label for="usuario" class="form-label">Usuario</label>
                             <input type="text" class="form-control" id="usuario" name="usuario" required style="background-color: #E5E5E5;">
+                        </div>                        
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col-md-6">
+                            <label for="contrasena" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="contrasena" name="contrasena" required style="background-color: #E5E5E5;">
                         </div>
+                        <div class="col-md-6">
+                            <label for="imagen" class="form-label">Imagen</label>
+                            <input type="text" class="form-control" id="imagen" name="imagen" style="background-color: #E5E5E5;">
+                        </div>                        
                     </div>
                     <div class="mb-3 row">
                         <div class="col-md-6">
@@ -51,18 +61,18 @@
                             <input type="email" class="form-control" id="correo" name="correo" required style="background-color: #E5E5E5;">
                         </div>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                            <i class="bi bi-x-lg"></i>
+                            Cerrar
+                        </button>
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-floppy-fill"></i>
+                            Guardar cambios
+                        </button>
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-                    <i class="bi bi-x-lg"></i>
-                    Cerrar
-                </button>
-                <button type="button" class="btn btn-success">
-                    <i class="bi bi-floppy-fill"></i>
-                    Guardar cambios
-                </button>
-            </div>
+            </div>            
         </div>
     </div>
 </div>

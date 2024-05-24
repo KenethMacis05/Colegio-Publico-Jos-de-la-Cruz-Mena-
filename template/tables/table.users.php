@@ -25,6 +25,7 @@
                 <tr>
                     <th class="centered ">#</th>
                     <th class="centered">Usuario</th>
+                    <th class="centered">Contraseña</th>
                     <th class="centered">Nombre</th>
                     <th class="centered">Permisos</th>
                     <th class="centered">Telefono</th>
@@ -35,7 +36,7 @@
             <tbody>
                 <?php
                 $objUser = new Users();
-                $allUsers = $objUser->read();
+                $allUsers = $objUser->read();                
                 $numRows = mysqli_num_rows($allUsers);
 
                 for ($i = 0; $i < $numRows; $i++) {
@@ -44,13 +45,15 @@
                     <tr>
                         <td><?= $user["ID_USER"] ?></td>
                         <td><?= $user["Usuario"] ?></td>
+                        <td><?= $user["Contrasena"] ?></td>
                         <td><?= $user["Pri_Nombre"] . ' ' . $user["Pri_Apellido"] ?></td>
                         <td><?= $user["Permisos"] ?></td>
                         <td><?= $user["Telefono"] ?></td>
                         <td><?= $user["Correo_Electronico"] ?></td>
                         <td>
-                            <button class="btn btn-sm btn-primary edit-button"><i class="fa-solid fa-pencil"></i></button>
-                            <button class="btn btn-sm btn-danger retirar-button"><i class="fa-solid fa-trash-can"></i></button>
+                            <button class="btn btn-sm btn-primary edit-button" data-bs-toggle="modal" data-bs-target="#modal_edit_user<?= $user["ID_USER"];?>"><i class="fa-solid fa-pencil"></i></button>
+                            <button class="btn btn-sm btn-danger retirar-button" onclick="alertDeleteUser()"><i class="fa-solid fa-trash-can"></i></button>
+                            <?php include "../template/modals/edit_user_form.php" ?>
                         </td>
                     </tr>
                 <?php } ?>
