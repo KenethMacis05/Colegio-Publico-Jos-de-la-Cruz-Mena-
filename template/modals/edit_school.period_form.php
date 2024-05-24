@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal_edit_periodo_escolar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal_edit_periodo_escolar<?= $periodo["ID_Anio_Lectivo"];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content bg-dark text-light">
             <div class="modal-header">
@@ -11,24 +11,24 @@
                         <div class="col-md-6">
                             <label for="estado" class="form-label">Estado</label>
                             <select class="form-select" id="estado" name="estado" style="background-color: #E5E5E5;" required>
-                                <option>Seleccione...</option>
+                                <option><?= $periodo['Estado']; ?></option>
                                 <option value="1">Activo</option>
                                 <option value="2">Desactivo</option>
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="anio" class="form-label">Año Escolar</label>
-                            <input type="text" class="form-control" id="anio" name="anio" required style="background-color: #E5E5E5;">
+                            <input type="text" class="form-control" value="<?= $periodo['Anio']; ?>" id="anio" name="anio" required style="background-color: #E5E5E5;">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <div class="col-md-6">
                             <label for="fecha_inicio" class="form-label">Fecha de Inicio</label>
-                            <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio" required style="background-color: #E5E5E5;">
+                            <input type="date" class="form-control" value="<?= $periodo['Fecha_Inicio']; ?>" id="fecha_inicio" name="fecha_inicio" required style="background-color: #E5E5E5;">
                         </div>
                         <div class="col-md-6">
                             <label for="fecha_final" class="form-label">Fecha de Final</label>
-                            <input type="date" class="form-control" id="fecha_final" name="fecha_final" required style="background-color: #E5E5E5;">
+                            <input type="date" class="form-control" value="<?= $periodo['Fecha_Final']; ?>" id="fecha_final" name="fecha_final" required style="background-color: #E5E5E5;">
                         </div>
                     </div>                    
                     <div class="modal-footer">

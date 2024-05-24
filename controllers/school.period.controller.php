@@ -6,7 +6,7 @@ $periodoEscolar = new PeriodoEscolar();
 
 try {
     #Crear un nuevo periodo escolar
-    if (isset($_POST['estado'], $_POST['anio'], $_POST['fecha_inicio'], $_POST['fecha_final'])) {
+    if (isset($_POST['estado']) && isset($_POST['anio']) && isset($_POST['fecha_inicio']) && isset($_POST['fecha_final'])) {
         $estado = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_STRING); 
         $anio = filter_input(INPUT_POST, 'anio', FILTER_SANITIZE_NUMBER_INT);
         $fecha_inicio = filter_input(INPUT_POST, 'fecha_inicio', FILTER_SANITIZE_STRING);
@@ -21,12 +21,16 @@ try {
     
     #Editar un periodo escolar
     if (isset($_GET['update_period'])) {
-        $id_school_period = filter_input(INPUT_GET, 'update_period', FILTER_SANITIZE_NUMBER_INT);
+        $id_period = filter_input(INPUT_GET, 'update_period', FILTER_SANITIZE_NUMBER_INT);
+        $anio = $_POST['anio'];
+        $fecha_inicio = $_POST['fecha_inicio'];
+        $fecha_final = $_POST['fecha_final'];
+        $estado = $_POST['estado'];
 
-        if ($periodoEscolar->delete($id_school_period)) {
-            header("Location:../views/school_period.view.php?eliminar=1");
+        if ($periodoEscolar->update($id_period, $anio, $fecha_inicio, $fecha_final, $estado)) {
+            header("Location:../views/school_period.view.php?update=1");
         } else {
-            header("Location:../views/school_period.view.php?eliminar=0");
+            header("Location:../views/school_period.view.php?update=0");
         }
     }
 
