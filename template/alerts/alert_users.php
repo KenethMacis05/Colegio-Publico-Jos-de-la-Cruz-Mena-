@@ -17,7 +17,7 @@ function alertDeleteUser() {
         }
     }).then((result) => {            
         if (result.isConfirmed) {
-            window.location.href = '../controllers/user.controllers.php?delete_user=<?= $user["ID_USER"]; ?>';            
+            window.location.href = '../controllers/user.controllers.php?delete_user=<?= $user['ID_USER']; ?>';            
         } else if (result.isDenied) {
             console.log("Error al eleminar el usuario")
         }
@@ -126,4 +126,3 @@ if (isset($_GET['crear'])) {
             break;
     }
 }
-?>

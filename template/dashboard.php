@@ -19,6 +19,14 @@
                 </a>
             </li>
             <li>
+                <a href="/views/tutor.view.php" class="nav-link px-0 align-middle text-white">
+                    <i class="fs-4 bi bi-person-badge"></i> <span class="ms-1 d-none d-sm-inline">Tutores</span></a>
+            </li>
+            <li>
+                <a href="/views/student.view.php" class="nav-link px-0 align-middle text-white">
+                    <i class="fs-4 bi bi-person-vcard"></i> <span class="ms-1 d-none d-sm-inline">Estudiantes</span></a>
+            </li>
+            <li>
                 <a href="/views/new_registration.view.php" class="nav-link px-0 align-middle text-white">
                     <i class="fs-4 bi bi-calendar-plus"></i> <span class="ms-1 d-none d-sm-inline">Crear Matricula</span></a>
             </li>

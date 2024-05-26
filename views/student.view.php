@@ -1,6 +1,6 @@
-<?php 
-    include_once "../template/zona_priv.php";
-    include_once "../models/USERS.model.php";
+<?php
+require_once "../template/zona_priv.php";
+include_once "../models/estudiante.model.php";
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +32,7 @@
     <!-- Luego lo tengo que borrar -->
     <link rel="stylesheet" href="/css/borrar.css">
     <!-- Titulo de la pagina -->
-    <title>Usuarios | Sistema JDLCM</title>
+    <title>Estudiantes | Sistema JDLCM</title>
 </head>
 
 <body class="bg-secondary">
@@ -42,20 +42,22 @@
             <?php include_once "../template/dashboard.php" ?>
             <!----------------------Titulo del Header--------------------->
             <div class="col py-3 header">
-                <span class="title">Usuarios</span>
-                <?php #include_once "/template/section-info-title/section-info-title.php"?>
+                <span class="title">Estudiantes</span>
+                <?php #include_once "/template/section-info-title/section-info-title.php"
+                ?>
             </div>
-            <!-----------------------Tabla Usuarios----------------------->
-            <?php include_once "../template/tables/table.users.php" ?>
+            <!-----------------------Tabla Periodo escolar----------------------->
+            <?php include_once "../template/tables/table.student.php" ?>
         </div>
     </div>
     <!-- Modal nuevo periodo escolar -->
-    <?php include_once "../template/modals/new_user_form.php" ?>
+    <?php include_once "../template/modals/new_student_form.php" ?>
 </body>
+
 <!-- Configure table -->
 <script src="/js/datatable.config.js"></script>
 <!-- Bootstrap JS -->
-<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <!-- jQuery -->
 <script src="datatables/jquery.min.js"></script>
 <script src="/js/jquery.min.js"></script>
@@ -63,6 +65,6 @@
 <script src="/js/datatable_js/jquery.dataTables.min.js"></script>
 <script src="/js/datatable_js/dataTables.bootstrap5.min.js"></script>
 <!-- Opciones del CRUD -->
-<?php include_once "../template/alerts/alert_users.php"?>
+<?php include_once "../template/alerts/alert_student.php"?>
 
 </html>

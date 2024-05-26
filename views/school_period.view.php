@@ -65,6 +65,6 @@ include_once "../models/periodoescolar.model.php";
 <script src="/js/datatable_js/jquery.dataTables.min.js"></script>
 <script src="/js/datatable_js/dataTables.bootstrap5.min.js"></script>
 <!-- Opciones del CRUD -->
-<?php include_once "../template/option-crud/option_period.php"?>
+<?php include_once "../template/alerts/alert_period.php"?>
 
 </html>

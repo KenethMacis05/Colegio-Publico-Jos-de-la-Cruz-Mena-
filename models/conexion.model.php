@@ -33,10 +33,22 @@ class Conexion{
 
     public function consultar($query){
         $result = mysqli_query($this->conectar(), $query);
+        //$result = $this->prepareE($query);
         if (!$result) {
             throw new Exception("Error al ejecutar la consulta: ". mysqli_error($this->conectar()));
         }
         $this->cerrarConexion();
         return $result;
     }    
+
+    public function prepareE($query) {
+        $stmt = $this->conectar()->prepare($query);
+        if (!$stmt) {
+            throw new Exception("Error al preparar la consulta: ". $this->mysqli->error);
+        }
+        if (!$stmt->execute()) {
+            throw new Exception("Error al ejecutar la consulta: ". $stmt->error);
+        }
+        return $stmt;
+    }
 }

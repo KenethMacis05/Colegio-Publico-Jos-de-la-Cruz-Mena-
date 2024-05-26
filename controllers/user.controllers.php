@@ -20,7 +20,7 @@ if (isset($_POST['tipo_usuario']) && isset($_POST['usuario']) && isset($_POST['c
     if ($objUser->create($tipo, $usuario, $contrasena, $pri_nombre, $seg_nombre, $pri_apellido, $seg_apellido, $telefono, $correo, $imagen)) {
         header("Location:../views/users.view.php?crear=1");
     } else {
-        header("Location:../views/users.view.php?crear=2");
+        header("Location:../views/users.view.php?crear=0");
     }
 }
 #Modificar usuario
@@ -40,8 +40,7 @@ if ( isset($_POST['modificaUser']) && isset($_POST['edit_tipo_usuario']) && isse
     if ($objUser->update($id, $tipo, $usuario, $contrasena, $pri_nombre, $seg_nombre, $pri_apellido, $seg_apellido, $telefono, $correo, $imagen)) {
         header("Location:../views/users.view.php?update=1");
     } else {
-        header("Location:../views/users.view.php?update=0");      
-        echo $id, $tipo, $usuario, $contrasena, $pri_nombre;  
+        header("Location:../views/users.view.php?update=0");       
     }
 }
 
@@ -52,7 +51,7 @@ if (isset($_GET['delete_user'])) {
     if ($objUser->delete($id_user)) {
         header("Location:../views/users.view.php?eliminar=1");
     } else {
-        #header("Location:../views/users.view.php?eliminar=0");
+        header("Location:../views/users.view.php?eliminar=0");
     }
 }
 ?>

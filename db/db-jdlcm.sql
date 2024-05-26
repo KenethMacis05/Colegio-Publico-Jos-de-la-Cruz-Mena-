@@ -316,15 +316,11 @@ CREATE TABLE USERS (
     constraint pk_Tipos_Users_id foreign key (FK_Tipo_User) references Tipos_Users(ID_Tipo) on update cascade on delete cascade
 );
 
-INSERT INTO USERS (FK_Tipo_User, Usuario, Contrasena, Pri_Nombre, Seg_Nombre, Pri_Apellido, Seg_Apellido, Telefono, Correo_Electronico) VALUES 
-(1, 'Keny', '12358', 'Keneth', 'Ernesto', 'Macis', 'Flores', '87947283', 'ken123oficial@gmail.com'),
-(2, 'dcalero', '12358', 'Dayana', 'Michelle', 'Calero', '', '77233249','dayadri05@gmail.com'),
-(2, 'aaleman', '12358', 'Alvaro', 'Alexander', 'Aleman', '', '57913541', 'alemanalvaro35@gmail.com');
+INSERT INTO USERS (FK_Tipo_User, Usuario, Contrasena, Pri_Nombre, Seg_Nombre, Pri_Apellido, Seg_Apellido, Telefono, Correo_Electronico, imagen) VALUES 
+(1, 'Keny', '12358', 'Keneth', 'Ernesto', 'Macis', 'Flores', '87947283', 'ken123oficial@gmail.com', '' ),
+(2, 'dcalero', '12358', 'Dayana', 'Michelle', 'Calero', '', '77233249','dayadri05@gmail.com' , ''),
+(2, 'aaleman', '12358', 'Alvaro', 'Alexander', 'Aleman', '', '57913541', 'alemanalvaro35@gmail.com', '');
 
--- Consultas sql de la tabla USERS
-SELECT U.ID_USER, U.Usuario, U.Pri_Nombre, U.Seg_Nombre, U.Pri_Apellido, U.Seg_Apellido, T.Tipo AS Permisos, U.Telefono, U.Correo_Electronico
-FROM USERS U
-JOIN Tipos_Users T ON U.FK_Tipo_User = T.ID_Tipo;
 
 -- Consulta de la tabla Grupos
 SELECT 
@@ -340,29 +336,6 @@ ORDER BY
     G.ID_Grupo ASC, -- Ordena por ID_Grupo en orden ascendente
     Gd.Grado ASC,   -- Ordena por Grado en orden ascendente
     Sec.Seccion ASC; -- Ordena por Sección en orden ascendente
-
--- Consulta Estudiante
-SELECT E.*, 
-    CONCAT(Tut.Pri_Nombre, ' ', Tut.Seg_Nombre, ' ', Tut.Pri_Apellido, ' ', Tut.Seg_Apellido) AS TutorNombreCompletoTutor
-FROM Estudiantes E
-INNER JOIN Tutores Tut ON E.FK_Tutor = Tut.ID_Tutor;
-
--- Conculta Calificaciones
-SELECT 
-    c.FK_Estudiante AS Estudiante_ID,
-    concat(e.Pri_Nombre, " ", e.Pri_Apellido) AS Nombre_Estudiante, -- Asumiendo que tienes una columna Nombre en la tabla Estudiantes
-    a.Asignatura AS Asignatura,
-    c.Nota AS Nota
-FROM 
-    Calificaciones c
-JOIN 
-    Estudiantes e ON c.FK_Estudiante = e.ID_Estudiante
-JOIN 
-    Asignaturas a ON c.FK_Asignatura = a.ID_Asignatura
-WHERE 
-    c.FK_Estudiante IN (1, 2) -- Filtra por los IDs de los estudiantes
-ORDER BY 
-    c.FK_Estudiante, a.Asignatura; -- Ordena por estudiante y luego por asignatura
 
 -- Consulta de la tabla Matriculas    
 SELECT 
@@ -402,35 +375,3 @@ INNER JOIN
 INNER JOIN 
     Tutores Tut ON E.FK_Tutor = Tut.ID_Tutor
 ORDER BY M.ID_Matricula;
-
--- Procedimientos almacenados
-
--- Crear un nuevo periodo escolar
-DELIMITER //
-CREATE PROCEDURE sp_new_school_period(
-    IN Anio INT,
-    Fecha_Inicio DATE,
-    Fecha_Final DATE,
-    Estado VARCHAR(45)
-)
-BEGIN
-    INSERT INTO anio_lectivo (Anio, Fecha_Inicio, Fecha_final, Estado) VALUES 
-    (Anio, Fecha_Inicio, Fecha_final, Estado);
-END//
-DELIMITER ; -- CALL sp_new_school_period('', '', '', '');
-
--- Leer la tabla periodo escolar
-DELIMITER //
-CREATE PROCEDURE sp_school_period()
-BEGIN
-    SELECT * FROM anio_lectivo;
-END//
-DELIMITER ; -- CALL sp_school_period();
-
--- Eliminar periodo escolar
-DELIMITER //
-CREATE PROCEDURE sp_delete_school_period(in id int)
-BEGIN
-    DELETE FROM anio_lectivo WHERE ID_Anio_Lectivo = id;
-END//
-DELIMITER ;  -- CALL sp_delete_school_period('5');
