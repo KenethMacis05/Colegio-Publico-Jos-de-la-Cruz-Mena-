@@ -23,5 +23,6 @@ try {
             echo "error en usuario y/o contraseña";
         }
 } catch (Exception $e) {
+    header("Location: ../template/form_conexion.php");
     echo "Error en la conexión: ". $e->getMessage();
 }

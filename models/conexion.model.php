@@ -14,6 +14,14 @@ class Conexion{
         $this->bd = 'gestion_escolar_jdlcm';
         $this->pwd = '';
     }
+    public function __get($propiedad) {
+        return $this->$propiedad;
+    }
+
+    public function __set($propiedad, $valor) {
+        $this->$propiedad = $valor;
+        return $this;
+    }
 
     public function conectar(){
 
@@ -32,23 +40,19 @@ class Conexion{
     }
 
     public function consultar($query){
-        $result = mysqli_query($this->conectar(), $query);
-        //$result = $this->prepareE($query);
+        $result = mysqli_query($this->conectar(), $query);        
         if (!$result) {
             throw new Exception("Error al ejecutar la consulta: ". mysqli_error($this->conectar()));
         }
         $this->cerrarConexion();
         return $result;
     }    
-
-    public function prepareE($query) {
+    // Nuevo método para preparar consultas
+    public function prepare($query){
         $stmt = $this->conectar()->prepare($query);
-        if (!$stmt) {
-            throw new Exception("Error al preparar la consulta: ". $this->mysqli->error);
-        }
-        if (!$stmt->execute()) {
-            throw new Exception("Error al ejecutar la consulta: ". $stmt->error);
+        if(!$stmt){
+            throw new Exception("Error al preparar la consulta: ".$this->conectar()->error);
         }
         return $stmt;
-    }
+    }  
 }

@@ -41,46 +41,59 @@ if(isset($_POST['priNombre'])
 }
 
 //Actualizar
-if (isset($_POST['modificaStudent'])
-    && isset($_POST['edit_priNombre'])
-    && isset($_POST['edit_segNombre'])
-    && isset($_POST['edit_priApellido'])
-    && isset($_POST['edit_segApellido'])
-    && isset($_POST['edit_cedula'])
-    && isset($_POST['edit_fechaNacimiento'])
-    && isset($_POST['edit_genero'])
-    && isset($_POST['edit_telefono'])
-    && isset($_POST['edit_direccion'])
-    && isset($_POST['edit_correo'])
-    && isset($_POST['edit_fkTutor'])) {
-        $ID = $_POST['modificaStudent'];
-        $priNombre = $_POST['edit_priNombre'];
-        $segNombre = $_POST['edit_segNombre'];
-        $priApellido = $_POST['edit_priApellido'];
-        $segApellido = $_POST['edit_segApellido'];
-        $cedula = $_POST['edit_cedula'];
-        $fechaNacimiento = $_POST['edit_fechaNacimiento'];
-        $genero = $_POST['edit_genero'];
-        $telefono = $_POST['edit_telefono'];
-        $direccion = $_POST['edit_direccion'];
-        $correo = $_POST['edit_correo'];
-        $fkTutor = $_POST['edit_fkTutor'];
+// Verifica si todos los campos necesarios están presentes en el POST
+$requiredFields = [
+    'modificaStudent',
+    'edit_priNombre',
+    'edit_segNombre',
+    'edit_priApellido',
+    'edit_segApellido',
+    'edit_cedula',
+    'edit_fechaNacimiento',
+    'edit_genero',
+    'edit_telefono',
+    'edit_direccion',
+    'edit_correo',
+    'edit_fkTutor'
+];
 
-        if ($objEstudiante->update($ID, $priNombre, $segNombre, $priApellido, $segApellido, $fechaNacimiento, $cedula, $genero, $telefono, $direccion, $correo, $fkTutor)) {
-            header("Location:../views/student.view.php?update=1");
-        } else {
-            header("Location:../views/student.view.php?update=0");
-        }
-}
+if (!empty(array_intersect($requiredFields, array_keys($_POST)))) {
+    $ID = filter_input(INPUT_POST, 'modificaStudent', FILTER_SANITIZE_NUMBER_INT);
+    $nombreCampos = [
+        'priNombre' => 'edit_priNombre', 
+        'segNombre' => 'edit_segNombre', 
+        'priApellido' => 'edit_priApellido', 
+        'segApellido' => 'edit_segApellido', 
+        'cedula' => 'edit_cedula', 
+        'fechaNacimiento' => 'edit_fechaNacimiento', 
+        'genero' => 'edit_genero', 
+        'telefono' => 'edit_telefono', 
+        'direccion' => 'edit_direccion', 
+        'correo' => 'edit_correo', 
+        'fkTutor' => 'edit_fkTutor'];
+
+    foreach ($nombreCampos as $key => $campo) {
+        $$key = filter_input(INPUT_POST, $campo, FILTER_SANITIZE_STRING);
+    }
+
+    if ($objEstudiante->update($ID, $priNombre, $segNombre, $priApellido, $segApellido, $fechaNacimiento, $cedula, $genero, $telefono, $direccion, $correo, $fkTutor)) {
+        header("Location:../views/student.view.php?update=1");
+    } else {
+        header("Location:../views/student.view.php?update=0");
+    }
+} 
 
 //Eliminar
 if (isset($_GET['delete'])) {
-    $ID = filter_input(INPUT_GET, 'delete', FILTER_SANITIZE_NUMBER_INT);
-    
-    if ($objEstudiante->delete($ID)) {
-        header("Location:../views/student.view.php?delete=1");
-    } else {
-        header("Location:../views/student.view.php?delete=0");
+    try {
+        $ID = filter_input(INPUT_GET, 'delete', FILTER_SANITIZE_NUMBER_INT);
+        $resultado = $objEstudiante->delete($ID)? "../views/student.view.php?delete=1" : "../views/student.view.php?delete=0";
+        header("Location: ". $resultado);
+        exit;
+    } catch (Exception $e) {
+        error_log("Error al eliminar el estudiante: ". $e->getMessage());
+        exit;
     }
+    
 }
 ?>

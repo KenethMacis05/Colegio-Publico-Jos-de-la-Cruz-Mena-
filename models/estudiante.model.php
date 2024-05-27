@@ -13,18 +13,19 @@ class Estudiante
     public function create($priNombre, $segNombre, $priApellido, $segApellido, $fechaNacimiento, $cedula, $genero, $telefono, $direccion, $correo, $fkTutor) {
         try {
             $query = "CALL sp_create_student(?,?,?,?,?,?,?,?,?,?,?)";
-            $stmt = $this->objetoConexion->conectar()->prepare($query);            
+            $stmt = $this->objetoConexion->prepare($query);            
             $stmt->bind_param('sssssssssss', $priNombre, $segNombre, $priApellido, $segApellido, $fechaNacimiento, $cedula, $genero, $telefono, $direccion, $correo, $fkTutor);
             if ($stmt->execute()) {
-                return true;
+                return true;                
             } else {
                 throw new Exception("Error al ejecutar la consulta: ". $stmt->error);
             }
         } catch (Exception $e) {
-            echo "Error en la consulta: ". $e->getMessage();
+            error_log("Error en la consulta: ". $e->getMessage()) ;
             return false;
         } finally {            
             $stmt->close();
+            $this->objetoConexion->cerrarConexion();
         }
     }
     
@@ -48,22 +49,40 @@ class Estudiante
     //Actualizar
     public function update($id, $priNombre, $segNombre, $priApellido, $segApellido, $fechaNacimiento, $cedula, $genero, $telefono, $direccion, $correo, $fkTutor) {
         try {
-            $consulta = "CALL sp_update_student('$id', '$priNombre', '$segNombre', '$priApellido', '$segApellido', '$fechaNacimiento', '$cedula', '$genero', '$telefono', '$direccion', '$correo', '$fkTutor');";
-            return $this->objetoConexion->consultar($consulta);
+            $query = "CALL sp_update_student(?,?,?,?,?,?,?,?,?,?,?,?);";
+            $stmt = $this->objetoConexion->prepare($query);
+            $stmt->bind_param('ssssssssssss', $id, $priNombre, $segNombre, $priApellido, $segApellido, $fechaNacimiento, $cedula, $genero, $telefono, $direccion, $correo, $fkTutor);
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                throw new Exception("Error al ejecutar la consulta: ". $stmt->error);
+            }
         } catch (Exception $e) {
-            echo "Error en la cansulta: ". $e->getMessage();
+            error_log("Error en la cansulta: ". $e->getMessage());
             return false;
+        } finally {
+            $stmt->close();
+            $this->objetoConexion->cerrarConexion();
         }
     }
 
     //Eliminar
     public function delete($ID) {
         try {
-            $consulta = "CALL sp_delete_student('$ID');";
-            return $this->objetoConexion->consultar($consulta);
+            $query = "CALL sp_delete_student(?);";
+            $stmt = $this->objetoConexion->prepare($query);
+            $stmt->bind_param('s', $ID);
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                throw new Exception("Error al ejecutar la consulta: ". $stmt->error);
+            }
         } catch (Exception $e) {
             echo "Error en la cansulta: ". $e->getMessage();
             return false;
+        } finally {
+            $stmt->close();
+            $this->objetoConexion->cerrarConexion();
         }
     }
 }
