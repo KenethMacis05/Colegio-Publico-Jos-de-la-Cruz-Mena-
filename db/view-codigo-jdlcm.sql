@@ -1,3 +1,12 @@
+-- Codigo de las vistas
+
+-- SELECT * FROM view_tutores;
+-- SELECT * FROM view_estudiantes;
+-- SELECT * FROM view_periodo_escolar;
+-- SELECT * FROM view_calificaciones;
+-- SELECT * FROM view_matriculas;
+-- SELECT * FROM view_usuarios;
+
 -- Vista tutores
 CREATE VIEW view_tutores AS
 SELECT ID_Tutor, CONCAT(Pri_Nombre, ' ', Seg_Nombre, ' ', Pri_Apellido, ' ', Seg_Apellido) AS Nombre_Tutor,

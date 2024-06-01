@@ -115,7 +115,7 @@ En la parte inferior se encuentra el nombre del usuario conectado, damos Click y
 
 ## Link de Descargas y de Interés
 - [Página oficial del Colegio José de la Cruz Mena](https://iergrupo6.seogoogle.pro)
-- [Sisetma de Matriculas - V.0.1](https://github.com/KenethMacis05/sistema_escolar_jdlcm/archive/refs/heads/main.zip)
+- [Sistema de Matriculas - V.0.1](https://github.com/KenethMacis05/sistema_escolar_jdlcm/archive/refs/heads/main.zip)
 - [Base de Datos del sistema de Matriculas](https://github.com/KenethMacis05/sistema_escolar_jdlcm/raw/main/db/db-jdlcm.sql)
 - [SP de la base de datos](https://github.com/KenethMacis05/sistema_escolar_jdlcm/raw/main/db/sp-codigo-jdlcm.sql)
 - [VIEWS de la base de datos](https://github.com/KenethMacis05/sistema_escolar_jdlcm/raw/main/db/view-codigo-jdlcm.sql)
