@@ -1,28 +1,40 @@
-<?php 
-require_once '../models/conexion.model.php'; 
+<?php
+require_once '../models/conexion.model.php';
 
-class Matricula {
-    
+class Matricula
+{
+
     private $objetoConexion;
 
-    public function __construct() {        
+    public function __construct()
+    {
         $this->objetoConexion = new Conexion();
     }
-    
+
     //Crear
-    public function create($codMatricula, $fkEstudiante, $fkGrupo, $fkModalidad, $fkAnioLectivo, $fechaMatricula, $fkEstado){
+    public function create($codMatricula, $fkEstudiante, $fkGrupo, $fkModalidad, $fkAnioLectivo, $fechaMatricula, $fkEstado)
+    {
         try {
-            $consulta = "CALL sp_create_matricula('$codMatricula', '$fkEstudiante', '$fkGrupo', '$fkModalidad', '$fkAnioLectivo', '$fechaMatricula', '$fkEstado');";            
-            return $this->objetoConexion->consultar($consulta);;
-            
+            $query = "CALL sp_create_matricula(?,?,?,?,?,?,?)";
+            $stmt = $this->objetoConexion->prepare($query);
+            $stmt->bind_param('sssssss', $codMatricula, $fkEstudiante, $fkGrupo, $fkModalidad, $fkAnioLectivo, $fechaMatricula, $fkEstado);
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                throw new Exception("Error al ejecutar la consulta: " . $stmt->error);
+            }
         } catch (Exception $e) {
-            echo "Error en la cansulta: ". $e->getMessage();
+            error_log("Error en la consulta: " . $e->getMessage());
             return false;
+        } finally {
+            $stmt->close();
+            $this->objetoConexion->cerrarConexion();
         }
     }
-    
-    # Leer
-    public function read(){
+
+    //Leer
+    public function read()
+    {
         try {
             $consulta = "
             SELECT 
@@ -56,42 +68,58 @@ class Matricula {
             INNER JOIN 
                 Grupos G ON M.FK_Grupo = G.ID_Grupo
             INNER JOIN 
-                Grados Gr ON G.FK_Grado = Gr.ID_Grado -- Corrección aquí
+                Grados Gr ON G.FK_Grado = Gr.ID_Grado
             INNER JOIN 
                 Secciones Sec ON G.FK_Seccion = Sec.ID_Seccion
             INNER JOIN 
                 Tutores Tut ON E.FK_Tutor = Tut.ID_Tutor;
             ";
-            return $this->objetoConexion->consultar($consulta);    
+            return $this->objetoConexion->consultar($consulta);
         } catch (Exception $e) {
-            echo "Error en la cansulta: ". $e->getMessage();
+            echo "Error en la cansulta: " . $e->getMessage();
             return false;
         }
-        
     }
 
     //Actualizar
-    public function update($id, $codMatricula, $fkEstudiante, $fkGrupo, $fkModalidad, $fkAnioLectivo, $fechaMatricula, $fkEstado){
+    public function update($id, $codMatricula, $fkEstudiante, $fkGrupo, $fkModalidad, $fkAnioLectivo, $fechaMatricula, $fkEstado)
+    {
         try {
-            $consulta = "CALL sp_update_matricula('$id', '$codMatricula', '$fkEstudiante', '$fkGrupo', '$fkModalidad', '$fkAnioLectivo', '$fechaMatricula', '$fkEstado');";
-            return $this->objetoConexion->consultar($consulta);;
+            $query = "CALL sp_update_matricula(?,?,?,?,?,?,?,?);";
+            $stmt = $this->objetoConexion->prepare($query);
+            $stmt->bind_param('ssssssss', $id, $codMatricula, $fkEstudiante, $fkGrupo, $fkModalidad, $fkAnioLectivo, $fechaMatricula, $fkEstado);
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                throw new Exception("Error al ejecutar la consulta: " . $stmt->error);
+            }
         } catch (Exception $e) {
-            echo "Error en la cansulta: ". $e->getMessage();
+            error_log("Error en la cansulta: " . $e->getMessage());
             return false;
+        } finally {
+            $stmt->close();
+            $this->objetoConexion->cerrarConexion();
         }
-        
     }
-
+    
     //Eliminar
-    public function delete($id) { 
+    public function delete($ID)
+    {
         try {
-            $consulta = "CALL sp_delete_matricula('$id');";
-            return $this->objetoConexion->consultar($consulta);
+            $query = "CALL sp_delete_matricula(?);";
+            $stmt = $this->objetoConexion->prepare($query);
+            $stmt->bind_param('s', $ID);
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                throw new Exception("Error al ejecutar la consulta: " . $stmt->error);
+            }
         } catch (Exception $e) {
-            echo "Error en la cansulta: ". $e->getMessage();
+            echo "Error en la cansulta: " . $e->getMessage();
             return false;
+        } finally {
+            $stmt->close();
+            $this->objetoConexion->cerrarConexion();
         }
     }
-
 }
-?>

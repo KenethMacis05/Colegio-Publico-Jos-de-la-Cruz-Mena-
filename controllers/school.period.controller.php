@@ -13,9 +13,9 @@ if (isset($_POST['estado']) && isset($_POST['anio']) && isset($_POST['fecha_inic
     $fecha_final = filter_input(INPUT_POST, 'fecha_final', FILTER_SANITIZE_STRING);
 
     if ($periodoEscolar->create($anio, $fecha_inicio, $fecha_final, $estado)) {
-        header("Location:../views/school_period.view.php?crear=1");
+        header("Location:../views/school_period.view.php?create=1");
     } else {
-        header("Location:../views/school_period.view.php?crear=2");
+        header("Location:../views/school_period.view.php?create=2");
     }
 }
 
@@ -35,13 +35,16 @@ if (isset($_POST['modificaPeriodo']) && isset($_POST['edit_estado']) && isset($_
 }
 
 
-#Eliminar un nuevo periodo escolar
-if (isset($_GET['delete_period'])) {
-    $id_school_period = filter_input(INPUT_GET, 'delete_period', FILTER_SANITIZE_NUMBER_INT);
-
-    if ($periodoEscolar->delete($id_school_period)) {
-        header("Location:../views/school_period.view.php?eliminar=1");
-    } else {
-        header("Location:../views/school_period.view.php?eliminar=0");
+//Eliminar un nuevo periodo escolar
+if (isset($_GET['delete'])) {
+    try {
+        $ID = filter_input(INPUT_GET, 'delete', FILTER_SANITIZE_NUMBER_INT);
+        $resultado = $periodoEscolar->delete($ID)? "../views/school_period.view.php?delete=1" : "../views/school_period.view.php?delete=0";
+        header("Location: ". $resultado);
+        exit;
+    } catch (Exception $e) {
+        error_log("Error al eliminar el estudiante: ". $e->getMessage());
+        exit;
     }
+    
 }

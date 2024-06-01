@@ -4,7 +4,7 @@ include_once "../models/USERS.model.php";
 
 $objUser = new Users();
 
-#Crear usuario
+//Crear
 if (isset($_POST['tipo_usuario']) && isset($_POST['usuario']) && isset($_POST['contrasena']) && isset($_POST['pri_nombre']) && isset($_POST['seg_nombre']) && isset($_POST['pri_apellido']) && isset($_POST['seg_apellido']) && isset($_POST['telefono']) && isset($_POST['correo']) && isset($_POST['imagen'])) {
     $tipo = $_POST['tipo_usuario'];
     $usuario = $_POST['usuario'];
@@ -18,12 +18,13 @@ if (isset($_POST['tipo_usuario']) && isset($_POST['usuario']) && isset($_POST['c
     $imagen = $_POST['imagen'];
 
     if ($objUser->create($tipo, $usuario, $contrasena, $pri_nombre, $seg_nombre, $pri_apellido, $seg_apellido, $telefono, $correo, $imagen)) {
-        header("Location:../views/users.view.php?crear=1");
+        header("Location:../views/users.view.php?create=1");
     } else {
-        header("Location:../views/users.view.php?crear=0");
+        header("Location:../views/users.view.php?create=0");
     }
 }
-#Modificar usuario
+
+//Actualizar
 if ( isset($_POST['modificaUser']) && isset($_POST['edit_tipo_usuario']) && isset($_POST['edit_usuario']) && isset($_POST['edit_contrasena']) && isset($_POST['edit_pri_nombre']) && isset($_POST['edit_seg_nombre']) && isset($_POST['edit_pri_apellido']) && isset($_POST['edit_seg_apellido']) && isset($_POST['edit_telefono']) && isset($_POST['edit_correo']) && isset($_POST['edit_imagen'])) {
     $id = $_POST['modificaUser'];
     $tipo = $_POST['edit_tipo_usuario'];
@@ -44,14 +45,16 @@ if ( isset($_POST['modificaUser']) && isset($_POST['edit_tipo_usuario']) && isse
     }
 }
 
-#Eliminar usuario
-if (isset($_GET['delete_user'])) {
-    $id_user = filter_input(INPUT_GET, 'delete_user', FILTER_SANITIZE_NUMBER_INT);
-    echo $id_user;
-    if ($objUser->delete($id_user)) {
-        header("Location:../views/users.view.php?eliminar=1");
-    } else {
-        header("Location:../views/users.view.php?eliminar=0");
+//Eliminar
+if (isset($_GET['delete'])) {
+    try {
+        $ID = filter_input(INPUT_GET, 'delete', FILTER_SANITIZE_NUMBER_INT);
+        $resultado = $objUser->delete($ID)? "../views/users.view.php?delete=1" : "../views/users.view.php?delete=0";
+        header("Location: ". $resultado);
+        exit;
+    } catch (Exception $e) {
+        error_log("Error al eliminar el estudiante: ". $e->getMessage());
+        exit;
     }
+    
 }
-?>

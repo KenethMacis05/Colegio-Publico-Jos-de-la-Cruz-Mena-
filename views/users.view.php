@@ -52,6 +52,8 @@
     <!-- Modal nuevo periodo escolar -->
     <?php include_once "../template/modals/new_user_form.php" ?>
 </body>
+<!-- Alertas -->
+<?php include_once "../template/alerts/alert_users.php"?>
 <!-- Configure table -->
 <script src="/js/datatable.config.js"></script>
 <!-- Bootstrap JS -->
@@ -62,7 +64,5 @@
 <!-- DataTable -->
 <script src="/js/datatable_js/jquery.dataTables.min.js"></script>
 <script src="/js/datatable_js/dataTables.bootstrap5.min.js"></script>
-<!-- Opciones del CRUD -->
-<?php include_once "../template/alerts/alert_users.php"?>
 
 </html>

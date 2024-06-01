@@ -1,7 +1,7 @@
 <div class="bg-dark rounded-4 Contenedor-List col">
     <!-- Botones de acción -->    
     <div class="botones">
-        <button type="button" class="btn btn-success" onclick="window.location.href='/views/new_registration.view.php';">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_nueva_matricula">
             <i class="bi bi-file-earmark-plus"></i>
             Nuevo
         </button>

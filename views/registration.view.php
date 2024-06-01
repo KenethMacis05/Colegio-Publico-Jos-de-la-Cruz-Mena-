@@ -49,8 +49,11 @@
             <?php include_once "../template/tables/table.registration.php"?>
         </div>
     </div>
+    <!-- Modal nuevo periodo escolar -->
+    <?php include_once "../template/modals/new_matricula_form.php" ?>
 </body>
-
+<!-- Alertas -->
+<?php include_once "../template/alerts/alert_matricula.php"?>
 <!-- Configure table -->
 <script src="/js/datatable.config.js"></script>
 <!-- Bootstrap JS -->
