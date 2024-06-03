@@ -39,11 +39,11 @@
     <div class="container-fluid">
         <div class="row flex-nowrap">
             <!--------------------------Dashboard------------------------->
-            <?php include_once "../template/dashboard.php" ?>
+            <?php include_once "../template/dashboard.permisos.php" ?>
             <!----------------------Titulo del Header--------------------->
             <div class="col py-3 header">
-                <span class="title">Matriculas</span>
-                <?php #include_once "../template/section-info-title/section-info-title.php"?>
+                <!--<span class="title">Matriculas</span>-->
+                <?php include_once "../template/section-info-title/section-info-title.php"?>
             </div>
             <!-----------------------Tabla Usuarios----------------------->
             <?php include_once "../template/tables/table.registration.php"?>

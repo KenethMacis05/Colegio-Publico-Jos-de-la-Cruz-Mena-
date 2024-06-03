@@ -16,30 +16,12 @@
     <link rel="stylesheet" href="/css/style.matricula.css">
     <!--Titulo de la pagina-->
     <title>Home</title>
-    <style>
-        .Contenedor-Saludo {
-            width: auto !important;
-            margin: 0 3% 0 0;
-            position: absolute;
-            top: 120px;
-            left: 320px;
-            padding: 2rem 1rem;
-        }
-        .fondo{
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-        }
-        .nav-pills .nav-link:hover {
-            color: #215a94 !important;
-        }
-    </style>
 </head>
 <body class="fondo" style="background-image: url(src/img/bg-school.png);">
     <div class="container-fluid">
         <div class="row flex-nowrap">
             <!--------------------------Dashboard------------------------->
-            <?php include_once "template/dashboard.php"?>
+            <?php include_once "template/dashboard.permisos.php";?>
             <!----------------------Titulo del Header--------------------->
             <div class="col py-3 header">
                 <?php include_once "template/section-info-title/section-info-title.php"?>

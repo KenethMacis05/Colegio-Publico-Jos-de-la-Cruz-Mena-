@@ -1,6 +1,5 @@
 <?php
 require_once "../template/zona_priv.php";
-include_once "../models/estudiante.model.php";
 include_once "../models/tutor.model.php";
 ?>
 
@@ -40,12 +39,11 @@ include_once "../models/tutor.model.php";
     <div class="container-fluid">
         <div class="row flex-nowrap">
             <!--------------------------Dashboard------------------------->
-            <?php include_once "../template/dashboard.php" ?>
+            <?php include_once "../template/dashboard.permisos.php" ?>
             <!----------------------Titulo del Header--------------------->
             <div class="col py-3 header">
-                <span class="title">Tutores</span>
-                <?php #include_once "/template/section-info-title/section-info-title.php"
-                ?>
+                <!--<span class="title">Tutores</span>-->
+                <?php include "../template/section-info-title/section-info-title.php"?>
             </div>
             <!-----------------------Tabla Periodo escolar----------------------->
             <?php include_once "../template/tables/table.tutor.php" ?>
@@ -55,8 +53,12 @@ include_once "../models/tutor.model.php";
     <?php include_once "../template/modals/new_tutor_form.php" ?>
 </body>
 
+<!-- Alertas -->
+<?php include_once "../template/alerts/alert_tutor.php"?>
 <!-- Configure table -->
 <script src="/js/datatable.config.js"></script>
+<!-- Configure de los inputs -->
+<script src="/js/config.input.js"></script>
 <!-- Bootstrap JS -->
 <script src="/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <!-- jQuery -->
@@ -65,32 +67,4 @@ include_once "../models/tutor.model.php";
 <!-- DataTable -->
 <script src="/js/datatable_js/jquery.dataTables.min.js"></script>
 <script src="/js/datatable_js/dataTables.bootstrap5.min.js"></script>
-<!-- Opciones del CRUD -->
-<?php include_once "../template/alerts/alert_tutor.php"?>
-<script>
-function alertDeleteTutor() {
-    Swal.fire({
-        position: 'top-center',
-        icon: 'question',
-        title: "¿Desea eliminar este tutor?",
-        text: "Si acepta se eliminara el tutor",
-        showDenyButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "¡Sí, bórralo!",
-        denyButtonText: `Cancelar`,
-        customClass: {
-            popup: 'custom-alerta',
-            confirmButton: 'custom-confirmar-button',
-            denyButton: 'custom-cancelar-button',
-        }
-    }).then((result) => {            
-        if (result.isConfirmed) {
-            window.location.href = '../controllers/tutor.controller.php?delete_tutor=<?= $tutor["ID_Tutor"]; ?>';       
-        } else if (result.isDenied) {
-            console.log("Error al eleminar el usuario")
-        }
-    });
-}
-</script>
 </html>

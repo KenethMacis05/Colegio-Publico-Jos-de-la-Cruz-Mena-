@@ -11,14 +11,14 @@
                         <div class="col-md-6">
                             <label for="estado" class="form-label">Estado</label>
                             <select class="form-select" id="estado" name="estado" style="background-color: #E5E5E5;" required>
-                                <option>Seleccione...</option>
+                                <option value="" disabled selected>Seleccione...</option>
                                 <option value="1">Activo</option>
                                 <option value="2">Desactivo</option>
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="anio" class="form-label">Año Escolar</label>
-                            <input type="text" class="form-control" id="anio" name="anio" required style="background-color: #E5E5E5;">
+                            <input type="text" class="form-control" id="anio" name="anio" required style="background-color: #E5E5E5;" placeholder="0000">
                         </div>
                     </div>
                     <div class="mb-3 row">

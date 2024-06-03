@@ -47,10 +47,10 @@
                         <td><?= $matricula["Cod_Matricula"] ?></td>
                         <td><?= $matricula["Pri_Nombre"] . ' ' . $matricula["Pri_Apellido"] ?></td>
                         <td><?= $matricula["Telefono"] ?></td>
-                        <td><?= $matricula["Grupo"] ?></td>
+                        <td><?= $matricula["Grado"] ?></td>
                         <td><?= $matricula["Turno"] == "Matutino"  ? "M" : "V" ?></td>
                         <td><?= $matricula["Direccion"] ?></td>
-                        <td><?= $matricula["T_Pri_Nombre"] . ' ' . $matricula["T_Pri_Apellido"] ?></td>
+                        <td><?= $matricula["Tutor_Pri_Nombre"] . ' ' . $matricula["Tutor_Pri_Apellido"] ?></td>
                         <td><?= $matricula["Estado"] == "Reingreso"  ? "R" : "N" ?></td>
                         <td>
                             <button class="btn btn-sm btn-primary edit-button"><i class="fa-solid fa-pencil"></i></button>

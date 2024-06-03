@@ -10,16 +10,25 @@ class Tutor {
     }
 
     //Crear
-    public function create() {
+    public function create($pri_nombre, $seg_nombre, $pri_apellido, $seg_apellido, $cedula, $telefono, $direccion, $correo)
+    {
         try {
-            $consulta = "CALL sp_create_tutor();";
-            $resultado = $this->objetoConexion->consultar($consulta);
-            return $resultado;
-        } catch (Exception $ex) {
-            echo $ex->getMessage();
+            $query = "CALL sp_create_tutor(?,?,?,?,?,?,?,?);";
+            $stmt = $this->objetoConexion->prepare($query);
+            $stmt->bind_param('ssssssss', $pri_nombre, $seg_nombre, $pri_apellido, $seg_apellido, $cedula, $telefono, $direccion, $correo);
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                throw new Exception("Error al ejecutar la consulta: " . $stmt->error);
+            }
+        } catch (Exception $e) {
+            error_log("Error en la consulta: " . $e->getMessage());
+            return false;
+        } finally {
+            $stmt->close();
+            $this->objetoConexion->cerrarConexion();
         }
     }
-
     //leer
     public function read() {
         try {
@@ -32,24 +41,44 @@ class Tutor {
     }
 
     //Actualizar
-    public function update() {
+    public function update($id_tutor, $pri_nombre, $seg_nombre, $pri_apellido, $seg_apellido, $cedula, $telefono, $direccion, $correo)
+    {
         try {
-            $consulta = "CALL sp_update_tutor();";
-            $resultado = $this->objetoConexion->consultar($consulta);
-            return $resultado;
-        } catch (Exception $ex) {
-            echo $ex->getMessage();
+            $query = "CALL sp_update_tutor(?,?,?,?,?,?,?,?,?);";
+            $stmt = $this->objetoConexion->prepare($query);
+            $stmt->bind_param('sssssssss', $id_tutor, $pri_nombre, $seg_nombre, $pri_apellido, $seg_apellido, $cedula, $telefono, $direccion, $correo);
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                throw new Exception("Error al ejecutar la consulta: " . $stmt->error);
+            }
+        } catch (Exception $e) {
+            error_log("Error en la cansulta: " . $e->getMessage());
+            return false;
+        } finally {
+            $stmt->close();
+            $this->objetoConexion->cerrarConexion();
         }
     }
 
     //Eliminar
-    public function delete() {
+    public function delete($ID)
+    {
         try {
-            $consulta = "CALL sp_delete_tutor();";
-            $resultado = $this->objetoConexion->consultar($consulta);
-            return $resultado;
-        } catch (Exception $ex) {
-            echo $ex->getMessage();
+            $query = "CALL sp_delete_tutor(?);";
+            $stmt = $this->objetoConexion->prepare($query);
+            $stmt->bind_param('s', $ID);
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                throw new Exception("Error al ejecutar la consulta: " . $stmt->error);
+            }
+        } catch (Exception $e) {
+            echo "Error en la cansulta: " . $e->getMessage();
+            return false;
+        } finally {
+            $stmt->close();
+            $this->objetoConexion->cerrarConexion();
         }
     }
 }

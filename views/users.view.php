@@ -1,6 +1,7 @@
 <?php 
-    include_once "../template/zona_priv.php";
-    include_once "../models/USERS.model.php";
+include_once "../template/zona_priv.php";
+include_once "../template/permisos.php";
+include_once "../models/USERS.model.php";
 ?>
 
 <!DOCTYPE html>
@@ -39,11 +40,11 @@
     <div class="container-fluid">
         <div class="row flex-nowrap">
             <!--------------------------Dashboard------------------------->
-            <?php include_once "../template/dashboard.php" ?>
+            <?php include_once "../template/dashboard.permisos.php" ?>
             <!----------------------Titulo del Header--------------------->
             <div class="col py-3 header">
-                <span class="title">Usuarios</span>
-                <?php #include_once "/template/section-info-title/section-info-title.php"?>
+                <!--<span class="title">Usuarios</span>-->
+                <?php include_once "../template/section-info-title/section-info-title.php"?>
             </div>
             <!-----------------------Tabla Usuarios----------------------->
             <?php include_once "../template/tables/table.users.php" ?>
@@ -52,10 +53,13 @@
     <!-- Modal nuevo periodo escolar -->
     <?php include_once "../template/modals/new_user_form.php" ?>
 </body>
+
 <!-- Alertas -->
 <?php include_once "../template/alerts/alert_users.php"?>
 <!-- Configure table -->
 <script src="/js/datatable.config.js"></script>
+<!-- Configure de los inputs -->
+<script src="/js/config.input.js"></script>
 <!-- Bootstrap JS -->
 <script src="/js/bootstrap.bundle.min.js"></script>
 <!-- jQuery -->
@@ -64,5 +68,4 @@
 <!-- DataTable -->
 <script src="/js/datatable_js/jquery.dataTables.min.js"></script>
 <script src="/js/datatable_js/dataTables.bootstrap5.min.js"></script>
-
 </html>

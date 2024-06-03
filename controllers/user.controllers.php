@@ -4,45 +4,25 @@ include_once "../models/USERS.model.php";
 
 $objUser = new Users();
 
-//Crear
-if (isset($_POST['tipo_usuario']) && isset($_POST['usuario']) && isset($_POST['contrasena']) && isset($_POST['pri_nombre']) && isset($_POST['seg_nombre']) && isset($_POST['pri_apellido']) && isset($_POST['seg_apellido']) && isset($_POST['telefono']) && isset($_POST['correo']) && isset($_POST['imagen'])) {
-    $tipo = $_POST['tipo_usuario'];
-    $usuario = $_POST['usuario'];
-    $contrasena = $_POST['contrasena'];
-    $pri_nombre = $_POST['pri_nombre'];
-    $seg_nombre = $_POST['seg_nombre'];
-    $pri_apellido = $_POST['pri_apellido'];
-    $seg_apellido = $_POST['seg_apellido'];
-    $telefono = $_POST['telefono'];
-    $correo = $_POST['correo'];
-    $imagen = $_POST['imagen'];
+if (isset($_POST['modificaUser']) || isset($_POST['tipo_usuario']) && isset($_POST['usuario']) && isset($_POST['contrasena']) && isset($_POST['pri_nombre']) && isset($_POST['seg_nombre']) && isset($_POST['pri_apellido']) && isset($_POST['seg_apellido']) && isset($_POST['telefono']) && isset($_POST['correo']) && isset($_POST['imagen'])) {
+    $id = filter_var(trim($_POST['modificaUser']), FILTER_SANITIZE_NUMBER_INT);
+    $tipo = filter_var(trim($_POST['tipo_usuario']), FILTER_SANITIZE_NUMBER_INT);
+    $usuario = filter_var(trim($_POST['usuario']), FILTER_SANITIZE_STRING);
+    $contrasena = filter_var(trim($_POST['contrasena']), FILTER_SANITIZE_NUMBER_INT);
+    $pri_nombre = filter_var(trim($_POST['pri_nombre']), FILTER_SANITIZE_STRING);
+    $seg_nombre = filter_var(trim($_POST['seg_nombre']), FILTER_SANITIZE_STRING);
+    $pri_apellido = filter_var(trim($_POST['pri_apellido']), FILTER_SANITIZE_STRING);
+    $seg_apellido = filter_var(trim($_POST['seg_apellido']), FILTER_SANITIZE_STRING);
+    $telefono = filter_var(trim($_POST['telefono']), FILTER_SANITIZE_NUMBER_INT);
+    $correo = filter_var(trim($_POST['correo']), FILTER_VALIDATE_EMAIL);
+    $imagen = filter_var(trim($_POST['imagen']), FILTER_SANITIZE_STRING);
 
-    if ($objUser->create($tipo, $usuario, $contrasena, $pri_nombre, $seg_nombre, $pri_apellido, $seg_apellido, $telefono, $correo, $imagen)) {
-        header("Location:../views/users.view.php?create=1");
-    } else {
-        header("Location:../views/users.view.php?create=0");
-    }
-}
-
-//Actualizar
-if ( isset($_POST['modificaUser']) && isset($_POST['edit_tipo_usuario']) && isset($_POST['edit_usuario']) && isset($_POST['edit_contrasena']) && isset($_POST['edit_pri_nombre']) && isset($_POST['edit_seg_nombre']) && isset($_POST['edit_pri_apellido']) && isset($_POST['edit_seg_apellido']) && isset($_POST['edit_telefono']) && isset($_POST['edit_correo']) && isset($_POST['edit_imagen'])) {
-    $id = $_POST['modificaUser'];
-    $tipo = $_POST['edit_tipo_usuario'];
-    $usuario = $_POST['edit_usuario'];
-    $contrasena = $_POST['edit_contrasena'];
-    $pri_nombre = $_POST['edit_pri_nombre'];
-    $seg_nombre = $_POST['edit_seg_nombre'];
-    $pri_apellido = $_POST['edit_pri_apellido'];
-    $seg_apellido = $_POST['edit_seg_apellido'];
-    $telefono = $_POST['edit_telefono'];
-    $correo = $_POST['edit_correo'];
-    $imagen = $_POST['edit_imagen'];
-
-    if ($objUser->update($id, $tipo, $usuario, $contrasena, $pri_nombre, $seg_nombre, $pri_apellido, $seg_apellido, $telefono, $correo, $imagen)) {
-        header("Location:../views/users.view.php?update=1");
-    } else {
-        header("Location:../views/users.view.php?update=0");       
-    }
+    $params = [$tipo, $usuario, $contrasena, $pri_nombre, $seg_nombre, $pri_apellido, $seg_apellido, $telefono, $correo, $imagen];
+    $accion = isset($_POST['modificaUser'])? 'update' : 'create';    
+    if ($accion === 'update') {array_unshift($params, $id);}
+    $resultado = call_user_func_array([$objUser, $accion], $params) ? "../views/users.view.php?{$accion}=1" : "../views/users.view.php?{$accion}=0";
+    header("Location: ".$resultado);
+    exit;
 }
 
 //Eliminar

@@ -28,7 +28,6 @@
                     <th class="centered">Cedula</th>
                     <th class="centered">Telefono</th>
                     <th class="centered">Direccion</th>
-                    <th class="centered">Parentesco</th>
                     <th class="centered">Correo</th>
                     <th class="centered">Options</th>
                 </tr>
@@ -48,7 +47,6 @@
                         <td><?= $tutor["Cedula"] ?></td>
                         <td><?= $tutor["Telefono"] ?></td>
                         <td><?= $tutor["Direccion"] ?></td>
-                        <td><?= $tutor["Parentesco"] ?></td>
                         <td><?= $tutor["Correo_Electronico"] ?></td>
                         <td>
                             <button class="btn btn-sm btn-primary edit-button" data-bs-toggle="modal" data-bs-target="#modal_edit_tutor<?= $tutor["ID_Tutor"]; ?>"><i class="fa-solid fa-pencil"></i></button>

@@ -39,11 +39,11 @@ include_once "../models/estudiante.model.php";
     <div class="container-fluid">
         <div class="row flex-nowrap">
             <!--------------------------Dashboard------------------------->
-            <?php include_once "../template/dashboard.php" ?>
+            <?php include_once "../template/dashboard.permisos.php" ?>
             <!----------------------Titulo del Header--------------------->
             <div class="col py-3 header">
-                <span class="title">Estudiantes</span>
-                <?php #include_once "/template/section-info-title/section-info-title.php"
+                <!--<span class="title">Estudiantes</span>-->
+                <?php include_once "../template/section-info-title/section-info-title.php"
                 ?>
             </div>
             <!-----------------------Tabla Periodo escolar----------------------->
@@ -56,6 +56,8 @@ include_once "../models/estudiante.model.php";
 
 <!-- Configure table -->
 <script src="/js/datatable.config.js"></script>
+<!-- Configure de los inputs -->
+<script src="/js/config.input.js"></script>
 <!-- Bootstrap JS -->
 <script src="/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <!-- jQuery -->

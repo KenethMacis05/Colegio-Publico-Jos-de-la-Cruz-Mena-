@@ -34,10 +34,10 @@
     <div class="container-fluid">
         <div class="row flex-nowrap">
             <!--------------------------Dashboard------------------------->
-            <?php include_once "../template/dashboard.php" ?>
+            <?php include_once "../template/dashboard.permisos.php" ?>
             <!----------------------Titulo del Header--------------------->
             <div class="col py-3 header">
-                <?php #include_once "/template/section-info-title/section-info-title.php"?>
+                <?php include_once "../template/section-info-title/section-info-title.php"?>
             </div>
             <!-----------------------Config User----------------------->
             <?php #include_once ""?>

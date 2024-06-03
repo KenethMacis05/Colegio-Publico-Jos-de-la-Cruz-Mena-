@@ -24,12 +24,13 @@
             <thead class="m-4 table-primary">
                 <tr>
                     <th class="centered ">#</th>
-                    <th class="centered">Nombre</th>
-                    <th class="centered">Tutor</th>
+                    <th class="centered">Nombre</th>                    
                     <th class="centered">Genero</th>
                     <th class="centered">Telefono</th>
                     <th class="centered">Direccion</th>
                     <th class="centered">Correo</th>
+                    <th class="centered">Tutor</th>
+                    <th class="centered">Parentesco</th>
                     <th class="centered">Options</th>
                 </tr>
             </thead>
@@ -45,13 +46,14 @@
                     <tr>
                         <td><?= $estudiante["ID_Estudiante"] ?></td>
                         <td><?= $estudiante["Pri_Nombre"] . ' ' . $estudiante["Pri_Apellido"] ?></td>
-                        <td><?= $estudiante["Tutor"] ?></td>
-                        <td><?= $estudiante["Genero"] ?></td>
+                        <td style="text-align: center;"><?= $estudiante["Genero"] == "Masculino"? '<span>M</span>' : '<span>F</span>'?></td>
                         <td><?= $estudiante["Telefono"] ?></td>
                         <td><?= $estudiante["Direccion"] ?></td>
                         <td><?= $estudiante["Correo_Electronico"] ?></td>
+                        <td><?= $estudiante["Tutor"] ?></td>
+                        <td><?= $estudiante["Parentesco"] ?></td>
                         <td>
-                            <button class="btn btn-sm btn-primary edit-button" data-bs-toggle="modal" data-bs-target="#modal_edit_periodo_escolar<?= $estudiante["ID_Estudiante"]; ?>"><i class="fa-solid fa-pencil"></i></button>
+                            <button class="btn btn-sm btn-primary edit-button" data-bs-toggle="modal" data-bs-target="#modal_edit_student<?= $estudiante["ID_Estudiante"]; ?>"><i class="fa-solid fa-pencil"></i></button>
                             <button class="btn btn-sm btn-danger retirar-button" onclick="alertDeleteStudent()"><i class="fa-solid fa-trash-can"></i></button>
                             <?php include "../template/modals/edit_student_form.php" ?>
                         </td>

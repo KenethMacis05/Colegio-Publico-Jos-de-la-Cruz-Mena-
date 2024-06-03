@@ -11,12 +11,12 @@ class Estudiante
     }
 
     //Crear
-    public function create($priNombre, $segNombre, $priApellido, $segApellido, $fechaNacimiento, $cedula, $genero, $telefono, $direccion, $correo, $fkTutor)
+    public function create($priNombre, $segNombre, $priApellido, $segApellido, $fechaNacimiento, $cedula, $genero, $telefono, $direccion, $correo, $fkTutor, $fkParentesco)
     {
         try {
-            $query = "CALL sp_create_student(?,?,?,?,?,?,?,?,?,?,?)";
+            $query = "CALL sp_create_student(?,?,?,?,?,?,?,?,?,?,?,?)";
             $stmt = $this->objetoConexion->prepare($query);
-            $stmt->bind_param('sssssssssss', $priNombre, $segNombre, $priApellido, $segApellido, $fechaNacimiento, $cedula, $genero, $telefono, $direccion, $correo, $fkTutor);
+            $stmt->bind_param('ssssssssssss', $priNombre, $segNombre, $priApellido, $segApellido, $fechaNacimiento, $cedula, $genero, $telefono, $direccion, $correo, $fkTutor, $fkParentesco);
             if ($stmt->execute()) {
                 return true;
             } else {
@@ -50,12 +50,12 @@ class Estudiante
     }
 
     //Actualizar
-    public function update($id, $priNombre, $segNombre, $priApellido, $segApellido, $fechaNacimiento, $cedula, $genero, $telefono, $direccion, $correo, $fkTutor)
+    public function update($id, $priNombre, $segNombre, $priApellido, $segApellido, $fechaNacimiento, $cedula, $genero, $telefono, $direccion, $correo, $fkTutor, $fkParentesco)
     {
         try {
-            $query = "CALL sp_update_student(?,?,?,?,?,?,?,?,?,?,?,?);";
+            $query = "CALL sp_update_student(?,?,?,?,?,?,?,?,?,?,?,?,?);";
             $stmt = $this->objetoConexion->prepare($query);
-            $stmt->bind_param('ssssssssssss', $id, $priNombre, $segNombre, $priApellido, $segApellido, $fechaNacimiento, $cedula, $genero, $telefono, $direccion, $correo, $fkTutor);
+            $stmt->bind_param('sssssssssssss', $id, $priNombre, $segNombre, $priApellido, $segApellido, $fechaNacimiento, $cedula, $genero, $telefono, $direccion, $correo, $fkTutor, $fkParentesco);
             if ($stmt->execute()) {
                 return true;
             } else {

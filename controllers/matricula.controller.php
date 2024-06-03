@@ -1,60 +1,23 @@
 <?php
-
 include_once "../models/conexion.model.php";
-include_once "../models/calificaiones.model.php";
-include_once "../models/estudiante.model.php";
 include_once "../models/matricula.model.php";
-include_once "../models/tutor.model.php";
 
-#Datos de estudiante
-$PriNombreEstudiante = $_POST['PriNombreEstudiante'];
-$SegNombreEstudiante = $_POST['SegNombreEstudiante'];
-$PriApellidoEstudiante = $_POST['PriApellidoEstudiante'];
-$SegApellidoEstudiante = $_POST['PriApellidoEstudiante'];
-$FechaNacEstudiante = $_POST['FechaNacEstudiante'];
-$CedulaEstudiante = $_POST['CedulaEstudiante'];
-$FkGeneroEstudiante = $_POST['FkGeneroEstudiante'];
-$TelefonoEstudiante = $_POST['TelefonoEstudiante'];
-$DireccionEstudiante = $_POST['DirrecionEstudiante'];
-$CorreoEstudiante = $_POST['CorreoEstudiante'];
-$FkTutorEstudiante = $_POST['FkTutorEstudiante'];
+$objMatricula = new Matricula();
 
-#Datos de tutor
-$PriNombreTutor = $_POST['PriNombreTutor'];
-$SegNombreTutor = $_POST['SegNombreTutor'];
-$PriApellidoTutor = $_POST['PriApellidoTutor'];
-$SegApellidoTutor = $_POST['PriApellidoTutor'];
-$CedulaTutor = $_POST['CedulaTutor'];
-$TelefonoTutor = $_POST['TelefonoTutor'];
-$DireccionTutor = $_POST['DirrecionTutor'];
-$ParentescoTutor = $_POST['ParentescoTutor'];
-$CorreoEstudiante = $_POST['CorreoEstudiante'];
+// Crear
+if (isset($_POST['Cod_Matricula']) && isset($_POST['FK_Estudiante']) && isset($_POST['FK_Grado']) && isset($_POST['FK_Seccion']) && isset($_POST['FK_Turno']) && isset($_POST['FK_Estado']) && isset($_POST['FK_Anio_Lectivo']) && isset($_POST['Fecha_Matricula'])) {
+    $codMatricula = $_POST['Cod_Matricula'];
+    $fkEstudiante = $_POST['FK_Estudiante'];
+    $fkGrado = $_POST['FK_Grado'];
+    $fkSeccion = $_POST['FK_Seccion'];
+    $fkTurno = $_POST['FK_Turno'];
+    $fkEstado = $_POST['FK_Estado'];
+    $fkAnioLectivo = $_POST['FK_Anio_Lectivo'];
+    $fechaMatricula = $_POST['Fecha_Matricula'];
 
-#Datos de matricula
-$CodMatricula = $_POST['CodMatricula'];
-$FkEstudiante = $_POST['FkEstudiante'];
-$FkGrupo = $_POST['FkGrupo'];
-$FkEstado = $_POST['FkEstado'];
-$FkAnioLectivo = $_POST['FkAnioLectivo'];
-$FechaMatricula = $_POST['FechaMatricula'];
-
-#Datos Calificaiones
-$Matematica = $_POST['Matematica'];
-$LenguaLiteratura = $_POST['LenguaLiteratura'];
-$EducacionFisica = $_POST['EducacionFisica'];
-$OrientacionTecnicaVocacional = $_POST['OrientacionTecnicaVocacional'];
-$Biologia = $_POST['Biologia'];
-$Geografia = $_POST['Geografia'];
-$Sociologia = $_POST['Sociologia'];
-$LenguaExtranjera = $_POST['LenguaExtranjera'];
-$CienciasNaturales = $_POST['CienciasNaturales'];
-$Quimica = $_POST['Quimica'];
-$Fisica = $_POST['Fisica'];
-$Historia = $_POST['Historia'];
-$Economia = $_POST['$Economia'];
-$ExpresionCulturalArtistica = $_POST['$ExpresionCulturalArtistica'];
-
-?>
-
-
-
+    if ($objMatricula->create($codMatricula, $fkEstudiante, $fkGrado, $fkSeccion, $fkTurno, $fkEstado, $fkAnioLectivo, $fechaMatricula)) {
+        header("Location:../views/registration.view.php?create=1");
+    } else {
+        header("Location:../views/registration.view.php?create=0");
+    }
+}

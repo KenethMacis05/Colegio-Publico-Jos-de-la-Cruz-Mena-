@@ -11,56 +11,56 @@
 
                     <div class="mb-3 row">
                         <div class="col-md-6">
-                            <label for="edit_tipo_usuario" class="form-label">Tipo de Usuario</label>
-                            <select class="form-select" id="edit_tipo_usuario" name="edit_tipo_usuario" style="background-color: #E5E5E5;">
-                                <option><?= $user["FK_Tipo_User"]; ?></option>
-                                <option value="">admin</option>
+                            <label for="edit_tipo_usuario" class="form-label">Tipo de Usuario <span class="text-danger">*</span></label>
+                            <select class="form-select" id="tipo_usuario" name="tipo_usuario" style="background-color: #E5E5E5;">
+                                <option value="<?= $user["FK_Tipo_User"]; ?>"><?= $user["Permisos"]; ?></option>
+                                <option value="1">admin</option>
                                 <option value="2">secretario</option>
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label for="edit_usuario" class="form-label">Usuario</label>
-                            <input type="text" value="<?= $user["Usuario"];?>" class="form-control" id="edit_usuario" name="edit_usuario" required style="background-color: #E5E5E5;">
+                            <label for="edit_usuario" class="form-label">Usuario <span class="text-danger">*</span></label>
+                            <input type="text" value="<?= $user["Usuario"];?>" class="form-control" id="usuario" name="usuario" required style="background-color: #E5E5E5;">
                         </div>                        
                     </div>
                     <div class="mb-3 row">
                         <div class="col-md-6">
-                            <label for="edit_contrasena" class="form-label">Contraseña</label>
-                            <input type="password" value="<?= $user["Contrasena"];?>" class="form-control" id="edit_contrasena" name="edit_contrasena" required style="background-color: #E5E5E5;">
+                            <label for="edit_contrasena" class="form-label">Contraseña <span class="text-danger">*</span></label>
+                            <input type="password" value="<?= $user["Contrasena"];?>" class="form-control" id="contrasena" name="contrasena" required style="background-color: #E5E5E5;">
                         </div>
                         <div class="col-md-6">
                             <label for="edit_imagen" class="form-label">Imagen</label>
-                            <input type="text" value="<?= $user["imagen"];?>" class="form-control" id="edit_imagen" name="edit_imagen" style="background-color: #E5E5E5;">
+                            <input type="text" value="<?= $user["imagen"];?>" class="form-control" id="imagen" name="imagen" style="background-color: #E5E5E5;">
                         </div>                        
                     </div>
                     <div class="mb-3 row">
                         <div class="col-md-6">
-                            <label for="edit_pri_nombre" class="form-label">Primer Nombre</label>
-                            <input type="text" value="<?= $user["Pri_Nombre"];?>" class="form-control" id="edit_pri_nombre" name="edit_pri_nombre" required style="background-color: #E5E5E5;">
+                            <label for="edit_pri_nombre" class="form-label">Primer Nombre <span class="text-danger">*</span></label>
+                            <input type="text" value="<?= $user["Pri_Nombre"];?>" class="form-control" id="pri_nombre" name="pri_nombre" required style="background-color: #E5E5E5;">
                         </div>
                         <div class="col-md-6">
                             <label for="edit_seg_nombre" class="form-label">Segundo Nombre</label>
-                            <input type="text" value="<?= $user["Seg_Nombre"];?>" class="form-control" id="edit_seg_nombre" name="edit_seg_nombre" style="background-color: #E5E5E5;">
+                            <input type="text" value="<?= $user["Seg_Nombre"];?>" class="form-control" id="seg_nombre" name="seg_nombre" style="background-color: #E5E5E5;">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <div class="col-md-6">
-                            <label for="edit_pri_apellido" class="form-label">Primer Apellido</label>
-                            <input type="text" value="<?= $user["Pri_Apellido"];?>" class="form-control" id="edit_pri_apellido" name="edit_pri_apellido" required style="background-color: #E5E5E5;">
+                            <label for="edit_pri_apellido" class="form-label">Primer Apellido <span class="text-danger">*</span></label>
+                            <input type="text" value="<?= $user["Pri_Apellido"];?>" class="form-control" id="pri_apellido" name="pri_apellido" required style="background-color: #E5E5E5;">
                         </div>
                         <div class="col-md-6">
                             <label for="edit_seg_apellido" class="form-label">Segundo Apellido</label>
-                            <input type="text" value="<?= $user["Seg_Apellido"];?>" class="form-control" id="edit_seg_apellido" name="edit_seg_apellido" style="background-color: #E5E5E5;">
+                            <input type="text" value="<?= $user["Seg_Apellido"];?>" class="form-control" id="seg_apellido" name="seg_apellido" style="background-color: #E5E5E5;">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <div class="col-md-6">
-                            <label for="edit_telefono" class="form-label">Teléfono</label>
-                            <input type="tel" value="<?= $user["Telefono"];?>" class="form-control" id="edit_telefono" name="edit_telefono" style="background-color: #E5E5E5;">
+                            <label for="edit_telefono" class="form-label">Teléfono <span class="text-danger">*</span></label>
+                            <input type="tel" value="<?= $user["Telefono"];?>" class="form-control" id="telefono" name="telefono" style="background-color: #E5E5E5;">
                         </div>
                         <div class="col-md-6">
                             <label for="edit_correo_electronico" class="form-label">Correo Electrónico</label>
-                            <input type="email" value="<?= $user["Correo_Electronico"];?>" class="form-control" id="edit_correo" name="edit_correo" required style="background-color: #E5E5E5;">
+                            <input type="email" value="<?= $user["Correo_Electronico"];?>" class="form-control" id="correo" name="correo" required style="background-color: #E5E5E5;">
                         </div>
                     </div>
                     <div class="modal-footer">

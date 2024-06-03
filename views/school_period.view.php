@@ -1,5 +1,6 @@
 <?php
 include_once "../template/zona_priv.php";
+include_once "../template/permisos.php";
 include_once "../models/periodoescolar.model.php";
 ?>
 
@@ -39,11 +40,11 @@ include_once "../models/periodoescolar.model.php";
     <div class="container-fluid">
         <div class="row flex-nowrap">
             <!--------------------------Dashboard------------------------->
-            <?php include_once "../template/dashboard.php" ?>
+            <?php include_once "../template/dashboard.permisos.php" ?>
             <!----------------------Titulo del Header--------------------->
             <div class="col py-3 header">
-                <span class="title">Periodo Escolar</span>
-                <?php #include_once "/template/section-info-title/section-info-title.php"
+                <!--<span class="title">Periodo Escolar</span>-->
+                <?php include_once "../template/section-info-title/section-info-title.php"
                 ?>
             </div>
             <!-----------------------Tabla Periodo escolar----------------------->
