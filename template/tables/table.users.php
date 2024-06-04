@@ -5,11 +5,11 @@
             <i class="bi bi-person-fill-add"></i>
             Nuevo
         </button>
-        <button type="button" class="btn btn-warning" style="color: white">
+        <button type="button" class="btn btn-warning" style="color: white" onclick="window.location.href='/template/reports/reports_users/reports.pdf.php'">
             <i class="bi bi-file-earmark-pdf-fill"></i>
             PDF
         </button>
-        <button type="button" class="btn btn-secondary" style="color: white">
+        <button type="button" class="btn btn-secondary" style="color: white" onclick="window.location.href='/template/reports/reports_users/reports.excel.php'">
         <i class="bi bi-file-spreadsheet"></i>
             Excel
         </button>

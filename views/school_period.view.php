@@ -18,8 +18,6 @@ include_once "../models/periodoescolar.model.php";
     <link rel="stylesheet" href="/css/datatable_css/dataTables.bootstrap5.min.css" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-    <!-- Estilos Header-Title -->
-    <link rel="stylesheet" href="/css/header.css">
     <!-- Estilos por defecto -->
     <link rel="stylesheet" href="/css/style.matricula.css">
     <!-- Estilos de alertas -->
@@ -30,8 +28,6 @@ include_once "../models/periodoescolar.model.php";
     <link rel="stylesheet" href="/css/style.botones.css">
     <!-- Libreria Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Luego lo tengo que borrar -->
-    <link rel="stylesheet" href="/css/borrar.css">
     <!-- Titulo de la pagina -->
     <title>Periodo Escolar | Sistema JDLCM</title>
 </head>
