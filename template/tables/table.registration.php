@@ -53,8 +53,9 @@
                         <td><?= $matricula["Tutor_Pri_Nombre"] . ' ' . $matricula["Tutor_Pri_Apellido"] ?></td>
                         <td><?= $matricula["Estado"] == "Reingreso"  ? "R" : "N" ?></td>
                         <td>
-                            <button class="btn btn-sm btn-primary edit-button"><i class="fa-solid fa-pencil"></i></button>
-                            <button class="btn btn-sm btn-danger retirar-button"><i class="fa-solid fa-trash-can"></i></button>
+                            <button class="btn btn-sm btn-primary edit-button" data-bs-toggle="modal" data-bs-target="#modal_edit_matricula<?= $matricula['ID_Matricula'] ?>"><i class="fa-solid fa-pencil"></i></button>
+                            <button class="btn btn-sm btn-danger retirar-button" onclick="alertDeleteMatricula()"><i class="fa-solid fa-trash-can"></i></button>
+                            <?php include "../template/modals/edit_matricula_form.php" ?>
                         </td>
                     </tr>
                 <?php } ?>

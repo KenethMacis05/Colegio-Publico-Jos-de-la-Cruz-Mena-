@@ -22,12 +22,13 @@ try {
         $_SESSION['usuarioautenticado'] = $autenticado;
 
         // Obtener el año escolar activo
-        $query = "SELECT Anio FROM Anio_Lectivo WHERE Estado = 'Activo';";
+        $query = "SELECT * FROM Anio_Lectivo WHERE Estado = 'Activo';";
         if ($result = $objConexion->consultar($query)) {
             if ($row = mysqli_fetch_array($result)) {
-                $_SESSION['school_period'] = $row['Anio'];
+                $_SESSION['school_period'] = $row;
             }
         }
+        
         $tipoUsuario = $_SESSION['usuarioautenticado']['FK_Tipo_User'];
         $_SESSION['permisos'] = $tipoUsuario == 1? 1 : 2;
 

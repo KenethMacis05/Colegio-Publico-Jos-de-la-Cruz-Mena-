@@ -12,12 +12,12 @@ class Matricula
     }
 
     //Crear
-    public function create($codMatricula, $fkEstudiante, $fkGrado, $fkSeccion, $fkModalidad, $fkAnioLectivo, $fechaMatricula, $fkEstado)
+    public function create($codMatricula, $fkEstudiante, $fkGrado, $fkSeccion, $fkTurno, $fkEstado, $fkAnioLectivo, $fechaMatricula)
     {
         try {
             $query = "CALL sp_create_matricula(?,?,?,?,?,?,?,?)";
             $stmt = $this->objetoConexion->prepare($query);
-            $stmt->bind_param('ssssssss', $codMatricula, $fkEstudiante, $fkGrado, $fkSeccion, $fkModalidad, $fkAnioLectivo, $fechaMatricula, $fkEstado);
+            $stmt->bind_param('ssssssss', $codMatricula, $fkEstudiante, $fkGrado, $fkSeccion, $fkTurno, $fkEstado, $fkAnioLectivo, $fechaMatricula);
             if ($stmt->execute()) {
                 return true;
             } else {
@@ -45,12 +45,12 @@ class Matricula
     }
 
     //Actualizar
-    public function update($id, $codMatricula, $fkEstudiante, $fkGrado, $fkSeccion, $fkModalidad, $fkAnioLectivo, $fechaMatricula, $fkEstado)
+    public function update($id, $codMatricula, $fkEstudiante, $fkGrado, $fkSeccion, $fkTurno, $fkEstado, $fkAnioLectivo, $fechaMatricula)
     {
         try {
             $query = "CALL sp_update_matricula(?,?,?,?,?,?,?,?,?);";
             $stmt = $this->objetoConexion->prepare($query);
-            $stmt->bind_param('sssssssss', $id, $codMatricula, $fkEstudiante, $fkGrado, $fkSeccion, $fkModalidad, $fkAnioLectivo, $fechaMatricula, $fkEstado);
+            $stmt->bind_param('sssssssss', $id, $codMatricula, $fkEstudiante, $fkGrado, $fkSeccion, $fkTurno, $fkEstado, $fkAnioLectivo, $fechaMatricula);
             if ($stmt->execute()) {
                 return true;
             } else {

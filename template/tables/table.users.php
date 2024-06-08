@@ -24,7 +24,7 @@
             <thead class="m-4 table-primary">
                 <tr>
                     <th class="centered ">#</th>
-                    <th class="centered">Usuario</th>
+                    <th class="centered">Usuario</th>                
                     <th class="centered">Contraseña</th>
                     <th class="centered">Nombre</th>
                     <th class="centered">Permisos</th>
@@ -44,7 +44,22 @@
                 ?>
                     <tr>
                         <td><?= $user["ID_USER"] ?></td>
-                        <td><?= $user["Usuario"] ?></td>
+                        <td>
+                            <div style="display: flex; justify-content: start; align-items: center;">
+                                <!-- Verifica si $user['Imagen'] existe -->
+                                <?php if (!empty($user['Imagen'])):?>
+                                    <div style="border-radius: 50%; width: 30px; height: 30px; overflow: hidden; margin-right: 10px;">
+                                        <img src="data:image/*;base64,<?= base64_encode($user['Imagen'])?>" style="width: 100%; height: 100%; object-fit: cover;"> 
+                                    </div>
+                                <?php else:?>
+                                    <!-- Si no hay imagen de perfil, muestra la imagen predeterminada -->
+                                    <div style="border-radius: 50%; width: 30px; height: 30px; overflow: hidden; margin-right: 10px;">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqKRdNTUVE6P28Z1Gjw-fwnfsE6icmFmf4eiXXEpmc4A&s" style="width: 100%; height: 100%; object-fit: cover;"> 
+                                    </div>
+                                <?php endif;?>                                
+                                <?= $user["Usuario"]?>
+                            </div>
+                        </td>
                         <td><?= $user["Contrasena"] ?></td>
                         <td><?= $user["Pri_Nombre"] . ' ' . $user["Pri_Apellido"] ?></td>
                         <td><?= $user["Permisos"] ?></td>

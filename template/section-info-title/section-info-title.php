@@ -43,6 +43,6 @@ $_SESSION['title_form_section'] = $tituloFormSection;
 <div class="info-school-period">
     <span class="school-period">
         Periodo Escolar /
-        <a id="schoolPeriod" class="text-white" href="/views/school_period.view.php"><?php print $_SESSION['school_period']; ?></a>
+        <a id="schoolPeriod" class="text-white" href="/views/school_period.view.php"><?php print $_SESSION['school_period']['Anio']; ?></a>
     </span>
 </div>
