@@ -1,6 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
-require_once '../models/USERS.model.php';
+require_once '../models/estudiante.model.php';
+require_once '../models/tutor.model.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -14,7 +15,7 @@ $sheet = $spreadsheet->getActiveSheet();
 // Agregar el título 'Reporte de usuarios' que abarca todas las columnas desde A hasta F
 // Fusionar las celdas de la fila 2 desde la columna A hasta la F
 $sheet->mergeCells('A2:F2');
-$sheet->setCellValue('A2', 'Reporte de usuarios');
+$sheet->setCellValue('A2', 'Reporte de Tutores');
 
 // Alinear el título al centro
 $sheet->getStyle('A2:F2')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
@@ -24,12 +25,12 @@ $sheet->getStyle('A2:F2')->getFont()->setSize(16);
 $sheet->getStyle('A2:F2')->getFont()->setBold(true);
 
 // Establecer los datos de la tabla
-$sheet->setCellValue('A4', 'Usuario');
-$sheet->setCellValue('B4', 'Password');
-$sheet->setCellValue('C4', 'Permisos');
-$sheet->setCellValue('D4', 'Nombre completo');
-$sheet->setCellValue('E4', 'Correo Electronico');
-$sheet->setCellValue('F4', 'Telefono');
+$sheet->setCellValue('A4', 'ID');
+$sheet->setCellValue('B4', 'Nombre Completo');
+$sheet->setCellValue('C4', 'Cedula');
+$sheet->setCellValue('D4', 'Telefono');
+$sheet->setCellValue('E4', 'Direccion');
+$sheet->setCellValue('F4', 'Correo Electronico');
 
 // Cambiar color de fondo de la primera fila a #0F172A y color de texto a blanco
 $sheet->getStyle('A4:F4')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
@@ -50,32 +51,32 @@ foreach($sheet->getRowIterator() as $row) {
 }
 
 // Consulta a la base de datos
-$objUser = new Users;
-$allUsers = $objUser->read();
-$numRows = mysqli_num_rows($allUsers);
+$objTutor = new Tutor;
+$allTutores = $objTutor->read();
+$numRows = mysqli_num_rows($allTutores);
 
 // Contador para las filas
 $rowCount = 5;
 for ($i = 0; $i < $numRows; $i++) { 
-    $user = mysqli_fetch_assoc($allUsers);    
-    $sheet->setCellValue('A'.$rowCount, $user['Usuario']);
-    $sheet->setCellValue('B'.$rowCount, $user['Contrasena']);
-    $sheet->setCellValue('C'.$rowCount, $user['Permisos']);
-    $sheet->setCellValue('D'.$rowCount, $user['Pri_Nombre']. ' '. $user['Pri_Nombre']. ' '. $user['Pri_Apellido']. ' '. $user['Seg_Apellido']);
-    $sheet->setCellValue('E'.$rowCount, $user['Correo_Electronico']);
-    $sheet->setCellValue('F'.$rowCount, $user['Telefono']);
+    $tutor = mysqli_fetch_assoc($allTutores);
+    $sheet->setCellValue('A'.$rowCount, $tutor['ID_Tutor']);
+    $sheet->setCellValue('B'.$rowCount, $tutor['Pri_Nombre']. ' '. $tutor['Pri_Nombre']. ' '. $tutor['Pri_Apellido']. ' '. $tutor['Seg_Apellido']);
+    $sheet->setCellValue('C'.$rowCount, $tutor['Cedula']);
+    $sheet->setCellValue('D'.$rowCount, $tutor['Telefono']);
+    $sheet->setCellValue('E'.$rowCount, $tutor['Direccion']);
+    $sheet->setCellValue('F'.$rowCount, $tutor['Correo_Electronico']);
 
     $rowCount++;
 }
 
 // Ajustar el ancho de las columnas
 $columnsWidths = [
-    'A' => 10, // Ancho para la columna A
-    'B' => 10, // Ancho para la columna B
+    'A' => 7, // Ancho para la columna A
+    'B' => 40, // Ancho para la columna B
     'C' => 15, // Ancho para la columna C
-    'D' => 40, // Ancho para la columna D
-    'E' => 30, // Ancho para la columna E
-    'F' => 15   // Ancho para la columna F
+    'D' => 15, // Ancho para la columna D
+    'E' => 40, // Ancho para la columna E
+    'F' => 40, // Ancho para la columna F
 ];
 
 foreach ($columnsWidths as $column => $width) {
@@ -107,7 +108,7 @@ $writer->save($tempFile);
 
 // Preparar las cabeceras para la descarga
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-header('Content-Disposition: attachment; filename="usuarios.xlsx"');
+header('Content-Disposition: attachment; filename="tutores.xlsx"');
 header('Cache-Control: max-age=0');
 
 

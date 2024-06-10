@@ -5,11 +5,11 @@
             <i class="bi bi-file-earmark-plus"></i>
             Nuevo
         </button>
-        <button type="button" class="btn btn-warning" style="color: white">
+        <button type="button" class="btn btn-warning" style="color: white" onclick="window.location.href='/report/reports.students.pdf.php'">
             <i class="bi bi-file-earmark-pdf-fill"></i>
             PDF
         </button>
-        <button type="button" class="btn btn-secondary" style="color: white">
+        <button type="button" class="btn btn-secondary" style="color: white" onclick="window.location.href='/report/reports.students.excel.php'">
         <i class="bi bi-file-spreadsheet"></i>
             Excel
         </button>
@@ -53,9 +53,12 @@
                         <td><?= $estudiante["Tutor"] ?></td>
                         <td><?= $estudiante["Parentesco"] ?></td>
                         <td>
-                            <button class="btn btn-sm btn-primary edit-button" data-bs-toggle="modal" data-bs-target="#modal_edit_student<?= $estudiante["ID_Estudiante"]; ?>"><i class="fa-solid fa-pencil"></i></button>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-sm btn-success pdf-button me-1" style="color: white" onclick="window.location.href='/report/report.student.pdf.php?estudiante=<?= $estudiante['ID_Estudiante'] ?>'"><i class="bi bi-file-earmark-pdf-fill"></i></button>
+                            <button class="btn btn-sm btn-primary edit-button me-1" data-bs-toggle="modal" data-bs-target="#modal_edit_student<?= $estudiante["ID_Estudiante"]; ?>"><i class="fa-solid fa-pencil"></i></button>
                             <button class="btn btn-sm btn-danger retirar-button" onclick="alertDeleteStudent()"><i class="fa-solid fa-trash-can"></i></button>
-                            <?php include "../template/modals/edit_student_form.php" ?>
+                        </div>
+                        <?php include "../template/modals/edit_student_form.php" ?>
                         </td>
                     </tr>
                 <?php } ?>

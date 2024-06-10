@@ -1,6 +1,6 @@
 <?php
 require_once '../vendor/autoload.php';
-require_once '../models/USERS.model.php';
+require_once '../models/matricula.model.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -14,7 +14,7 @@ $sheet = $spreadsheet->getActiveSheet();
 // Agregar el título 'Reporte de usuarios' que abarca todas las columnas desde A hasta F
 // Fusionar las celdas de la fila 2 desde la columna A hasta la F
 $sheet->mergeCells('A2:F2');
-$sheet->setCellValue('A2', 'Reporte de usuarios');
+$sheet->setCellValue('A2', 'Reporte de Matriculas');
 
 // Alinear el título al centro
 $sheet->getStyle('A2:F2')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
@@ -24,20 +24,24 @@ $sheet->getStyle('A2:F2')->getFont()->setSize(16);
 $sheet->getStyle('A2:F2')->getFont()->setBold(true);
 
 // Establecer los datos de la tabla
-$sheet->setCellValue('A4', 'Usuario');
-$sheet->setCellValue('B4', 'Password');
-$sheet->setCellValue('C4', 'Permisos');
-$sheet->setCellValue('D4', 'Nombre completo');
-$sheet->setCellValue('E4', 'Correo Electronico');
-$sheet->setCellValue('F4', 'Telefono');
+$sheet->setCellValue('A4', 'Codigo');
+$sheet->setCellValue('B4', 'Nombre');
+$sheet->setCellValue('C4', 'Telefono');
+$sheet->setCellValue('D4', 'Grado');
+$sheet->setCellValue('E4', 'Seccion');
+$sheet->setCellValue('F4', 'Turno');
+$sheet->setCellValue('G4', 'Anio');
+$sheet->setCellValue('H4', 'Dirección');
+$sheet->setCellValue('I4', 'Tutor');
+$sheet->setCellValue('J4', 'Cedula del Tutor');
 
 // Cambiar color de fondo de la primera fila a #0F172A y color de texto a blanco
-$sheet->getStyle('A4:F4')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
+$sheet->getStyle('A4:J4')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
     ->getStartColor()->setARGB('0F172A'); // Color de fondo
-    $sheet->getStyle('A4:F4')->getFont()->getColor()->setARGB(\PhpOffice\PhpSpreadsheet\Style\Color::COLOR_WHITE); // Color de texto
+    $sheet->getStyle('A4:J4')->getFont()->getColor()->setARGB(\PhpOffice\PhpSpreadsheet\Style\Color::COLOR_WHITE); // Color de texto
 
 // Hacer que la primera fila esté en negritas
-$sheet->getStyle('A4:F4')->getFont()->setBold(true);
+$sheet->getStyle('A4:J4')->getFont()->setBold(true);
 
 // Centrar el texto en todas las celdas de la columna
 $alignmentCenter = \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER;
@@ -50,20 +54,24 @@ foreach($sheet->getRowIterator() as $row) {
 }
 
 // Consulta a la base de datos
-$objUser = new Users;
-$allUsers = $objUser->read();
-$numRows = mysqli_num_rows($allUsers);
+$objMatricula = new Matricula;
+$allMatriculas = $objMatricula->read();
+$numRows = mysqli_num_rows($allMatriculas);
 
 // Contador para las filas
 $rowCount = 5;
 for ($i = 0; $i < $numRows; $i++) { 
-    $user = mysqli_fetch_assoc($allUsers);    
-    $sheet->setCellValue('A'.$rowCount, $user['Usuario']);
-    $sheet->setCellValue('B'.$rowCount, $user['Contrasena']);
-    $sheet->setCellValue('C'.$rowCount, $user['Permisos']);
-    $sheet->setCellValue('D'.$rowCount, $user['Pri_Nombre']. ' '. $user['Pri_Nombre']. ' '. $user['Pri_Apellido']. ' '. $user['Seg_Apellido']);
-    $sheet->setCellValue('E'.$rowCount, $user['Correo_Electronico']);
-    $sheet->setCellValue('F'.$rowCount, $user['Telefono']);
+    $matricula = mysqli_fetch_assoc($allMatriculas);    
+    $sheet->setCellValue('A'.$rowCount, $matricula['Cod_Matricula']);
+    $sheet->setCellValue('B'.$rowCount, $matricula['Pri_Nombre']. ' '. $matricula['Seg_Nombre']. ' '. $matricula['Pri_Apellido']. ' '. $matricula['Seg_Apellido']);
+    $sheet->setCellValue('C'.$rowCount, $matricula['Telefono']);
+    $sheet->setCellValue('D'.$rowCount, $matricula['Grado']);
+    $sheet->setCellValue('E'.$rowCount, $matricula['Seccion']);
+    $sheet->setCellValue('F'.$rowCount, $matricula['Turno']);
+    $sheet->setCellValue('G'.$rowCount, $matricula['Anio']);
+    $sheet->setCellValue('H'.$rowCount, $matricula['Direccion']);
+    $sheet->setCellValue('I'.$rowCount, $matricula['Tutor_Pri_Nombre']. ' '. $matricula['Tutor_Seg_Nombre']. ' '. $matricula['Tutor_Pri_Apellido']. ' '. $matricula['Tutor_Seg_Apellido']);
+    $sheet->setCellValue('J'.$rowCount, $matricula['Tutor_Cedula']);
 
     $rowCount++;
 }
@@ -71,11 +79,15 @@ for ($i = 0; $i < $numRows; $i++) {
 // Ajustar el ancho de las columnas
 $columnsWidths = [
     'A' => 10, // Ancho para la columna A
-    'B' => 10, // Ancho para la columna B
+    'B' => 40, // Ancho para la columna B
     'C' => 15, // Ancho para la columna C
-    'D' => 40, // Ancho para la columna D
-    'E' => 30, // Ancho para la columna E
-    'F' => 15   // Ancho para la columna F
+    'D' => 9, // Ancho para la columna D
+    'E' => 8, // Ancho para la columna E
+    'F' => 15, // Ancho para la columna F
+    'G' => 8, // Ancho para la columna G
+    'H' => 30, // Ancho para la columna H
+    'I' => 40, // Ancho para la columna I
+    'J' => 20, // Ancho para la columna J
 ];
 
 foreach ($columnsWidths as $column => $width) {
@@ -84,7 +96,7 @@ foreach ($columnsWidths as $column => $width) {
 
 // Aplicar el estilo de borde a cada celda individualmente
 for ($row = 4; $row <= $rowCount; $row++) { // Comienza desde la fila 4
-    for ($col = 1; $col <= 6; $col++) { // Itera sobre las columnas A-F
+    for ($col = 1; $col <= 10; $col++) { // Itera sobre las columnas A-F
         $cell = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($col). $row;
         
         // Obtener el objeto de estilo para la celda actual
@@ -96,8 +108,6 @@ for ($row = 4; $row <= $rowCount; $row++) { // Comienza desde la fila 4
     }
 }
 
-
-
 // Crear un objeto Writer para exportar la hoja de cálculo como XLSX
 $writer = new Xlsx($spreadsheet);
 
@@ -107,7 +117,7 @@ $writer->save($tempFile);
 
 // Preparar las cabeceras para la descarga
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-header('Content-Disposition: attachment; filename="usuarios.xlsx"');
+header('Content-Disposition: attachment; filename="matriculas.xlsx"');
 header('Cache-Control: max-age=0');
 
 

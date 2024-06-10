@@ -44,6 +44,17 @@ class Matricula
         }
     }
 
+    public function readMatricula($ID)
+    {
+        try {
+            $consulta = "call sp_read_matricula_estudiante('$ID');";
+            return $this->objetoConexion->consultar($consulta);
+        } catch (Exception $e) {
+            echo "Error en la cansulta: " . $e->getMessage();
+            return false;
+        }
+    }
+    
     //Actualizar
     public function update($id, $codMatricula, $fkEstudiante, $fkGrado, $fkSeccion, $fkTurno, $fkEstado, $fkAnioLectivo, $fechaMatricula)
     {

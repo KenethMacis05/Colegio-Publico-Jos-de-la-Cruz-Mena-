@@ -1,6 +1,6 @@
 <?php
 require_once '../fpdf186/fpdf.php';
-require_once '../models/USERS.model.php';
+require_once '../models/estudiante.model.php';
 
 class PDF extends FPDF {
     private $watermarkPath;
@@ -17,7 +17,7 @@ class PDF extends FPDF {
         $this->Image('../src/img/logo-mined.png', 85, 8, 40);
         $this->Image('../src/img/logo-inatec.png', 165, 8, 30);
         $this->Image('../src/img/firmas.png', 45, 250, 130);
-        $this->Image('../src/img/sello.png', 80, 210, 40);
+        $this->Image('../src/img/sello.png', 80, 240, 30);
         /* CABECERA */
         $this->Ln(20);
         $this->Cell(60);
@@ -36,19 +36,19 @@ class PDF extends FPDF {
         $this->Cell(60);
         $this->SetTextColor(15, 23, 42); 
         $this->SetFont('Arial', 'B', 14);
-        $this->Cell(70, 10, utf8_decode('Reporte de usuarios'), 0, 0, 'C', 0);        
+        $this->Cell(70, 10, utf8_decode('Reporte de Estudiantes'), 0, 0, 'C', 0);        
         $this->Ln(15);         
         $this->SetFillColor(15, 23, 42);
         $this->SetTextColor(255, 255, 255); 
         $this->SetFont('Arial', 'B', 10);        
         /* CAMPOS DE LA TABLA */
         $this->SetX(8);            
-        $this->Cell(25, 10, 'Usuario', 1, 0, 'C', 1);
-        $this->Cell(20, 10, 'Password', 1, 0, 'C', 1);
-        $this->Cell(20, 10, 'Permisos', 1, 0, 'C', 1);
-        $this->Cell(54, 10, 'Nombre completo', 1, 0, 'C', 1);
-        $this->Cell(50, 10, 'Correo', 1, 0, 'C', 1);
-        $this->Cell(20, 10, 'Telefono', 1, 1, 'C', 1);        
+        $this->Cell(34, 10, 'Nombre', 1, 0, 'C', 1);
+        $this->Cell(31, 10, 'Cedula', 1, 0, 'C', 1);                
+        $this->Cell(20, 10, 'Telefono', 1, 0, 'C', 1);        
+        $this->Cell(42, 10, 'Direccion', 1, 0, 'C', 1);        
+        $this->Cell(34, 10, 'Tutor', 1, 0, 'C', 1);        
+        $this->Cell(31, 10, 'Parentesco', 1, 1, 'C', 1);        
     }
     function Footer()
     {
@@ -58,9 +58,9 @@ class PDF extends FPDF {
     }
 }
 
-$objUser = new Users;
-$allUsers = $objUser->read();
-$numRows = mysqli_num_rows($allUsers);
+$objStudent = new Estudiante;
+$allStudent = $objStudent->read();
+$numRows = mysqli_num_rows($allStudent);
 
 $pdf = new PDF();
 
@@ -69,14 +69,14 @@ $pdf->AddPage();
 $pdf->SetFont('Arial', '', 9);
 
 for ($i = 0; $i < $numRows; $i++) { 
-    $user = mysqli_fetch_assoc($allUsers);    
+    $student = mysqli_fetch_assoc($allStudent);    
     $pdf->SetX(8);
-    $pdf->Cell(25, 10, $user['Usuario'], 1, 0, 'L', 0);
-    $pdf->Cell(20, 10, $user['Contrasena'], 1, 0, 'L', 0);
-    $pdf->Cell(20, 10, $user['Permisos'], 1, 0, 'L', 0);
-    $pdf->Cell(54, 10, $user['Pri_Nombre']. ' '. $user['Seg_Nombre']. ' '. $user['Pri_Apellido']. ' '. $user['Seg_Apellido'], 1, 0, 'L', 0);
-    $pdf->Cell(50, 10, $user['Correo_Electronico'], 1, 0, 'L', 0);
-    $pdf->Cell(20, 10, $user['Telefono'], 1, 1, 'L', 0);
+    $pdf->Cell(34, 10, $student['Pri_Nombre']. ' '. $student['Seg_Apellido'], 1, 0, 'L', 0);
+    $pdf->Cell(31, 10, $student['Cedula'], 1, 0, 'L', 0);        
+    $pdf->Cell(20, 10, $student['Telefono'], 1, 0, 'L', 0);    
+    $pdf->Cell(42, 10, $student['Direccion'], 1, 0, 'L', 0);
+    $pdf->Cell(34, 10, $student['Tutor'], 1, 0, 'L', 0);
+    $pdf->Cell(31, 10, $student['Parentesco'], 1, 1, 'L', 0);
 }
 
 $pdf->Output('ReporteUsuarios.pdf', 'I');

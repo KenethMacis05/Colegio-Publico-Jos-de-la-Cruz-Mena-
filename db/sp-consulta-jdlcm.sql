@@ -25,6 +25,7 @@ CALL sp_delete_calificaciones('');
 -- SP Matriculas
 CALL sp_create_matricula('', '', '', '', '', '', '', '');
 CALL sp_read_matricula();
+call sp_read_matricula_estudiante('');
 CALL sp_update_matricula('', '', '', '', '', '', '', '', '');
 CALL sp_delete_matricula('');
 -- ----------------------------------------------------------------------------------------------------------------------

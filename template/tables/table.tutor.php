@@ -5,11 +5,11 @@
             <i class="bi bi-file-earmark-plus"></i>
             Nuevo
         </button>
-        <button type="button" class="btn btn-warning" style="color: white">
+        <button type="button" class="btn btn-warning" style="color: white" onclick="window.location.href='/report/reports.tutores.pdf.php'">
             <i class="bi bi-file-earmark-pdf-fill"></i>
             PDF
         </button>
-        <button type="button" class="btn btn-secondary" style="color: white">
+        <button type="button" class="btn btn-secondary" style="color: white" onclick="window.location.href='/report/reports.tutores.excel.php'">
         <i class="bi bi-file-spreadsheet"></i>
             Excel
         </button>
@@ -49,8 +49,11 @@
                         <td><?= $tutor["Direccion"] ?></td>
                         <td><?= $tutor["Correo_Electronico"] ?></td>
                         <td>
-                            <button class="btn btn-sm btn-primary edit-button" data-bs-toggle="modal" data-bs-target="#modal_edit_tutor<?= $tutor["ID_Tutor"]; ?>"><i class="fa-solid fa-pencil"></i></button>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-sm btn-success pdf-button me-1" style="color: white" onclick="window.location.href='/report/report.tutor.pdf.php?tutor=<?= $tutor['ID_Tutor'] ?>'"><i class="bi bi-file-earmark-pdf-fill"></i></button>
+                            <button class="btn btn-sm btn-primary edit-button me-1" data-bs-toggle="modal" data-bs-target="#modal_edit_tutor<?= $tutor["ID_Tutor"]; ?>"><i class="fa-solid fa-pencil"></i></button>
                             <button class="btn btn-sm btn-danger retirar-button" onclick="alertDeleteTutor()"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
                             <?php include "../template/modals/edit_tutor_form.php" ?>
                         </td>
                     </tr>

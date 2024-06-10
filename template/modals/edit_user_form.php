@@ -30,7 +30,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="edit_imagen" class="form-label">Imagen</label>
-                            <input type="text" value="<?= $user["imagen"];?>" class="form-control" id="imagen" name="imagen" style="background-color: #E5E5E5;">
+                            <input type="file" class="form-control" id="imagen" name="imagen" style="background-color: #E5E5E5;" accept="image/*">
                         </div>                        
                     </div>
                     <div class="mb-3 row">

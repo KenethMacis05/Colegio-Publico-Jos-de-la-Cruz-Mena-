@@ -56,3 +56,7 @@ hr {
     font-size: 1.25em;
     font-weight: 500;
 }
+
+.dataTables_info, .dataTables_length, .dataTables_filter {
+    color: white !important;
+}

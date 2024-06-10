@@ -27,6 +27,7 @@
 -- SP Matriculas
 -- CALL sp_create_matricula('', '', '', '', '', '', '', '');
 -- CALL sp_read_matricula();
+-- CALL sp_read_matricula_estudiante('');
 -- CALL sp_update_matricula('', '', '', '', '', '', '', '', '');
 -- CALL sp_delete_matricula('');
 -- ----------------------------------------------------------------------------------------------------------------------
@@ -275,7 +276,8 @@ BEGIN
     Tut.Pri_Nombre AS Tutor_Pri_Nombre, 
     Tut.Seg_Nombre AS Tutor_Seg_Nombre, 
     Tut.Pri_Apellido AS Tutor_Pri_Apellido, 
-    Tut.Seg_Apellido AS Tutor_Seg_Apellido
+    Tut.Seg_Apellido AS Tutor_Seg_Apellido,
+    Tut.Cedula AS Tutor_Cedula
 	FROM 
 		Matriculas M
 	INNER JOIN 
@@ -292,6 +294,61 @@ BEGIN
 		Secciones Sec ON M.FK_Seccion = Sec.ID_Seccion
 	INNER JOIN 
 		Tutores Tut ON E.FK_Tutor = Tut.ID_Tutor
+	ORDER BY M.ID_Matricula;
+END//
+DELIMITER ; 
+
+-- ----------------------------------------------------------------------------------------------------------------------
+-- Leer Matriculas por ID de la matricula
+DELIMITER //
+CREATE PROCEDURE sp_read_matricula_estudiante(IN ID INT)
+BEGIN
+	SELECT 
+    M.*,
+    E.*,
+    Tut.*,
+    E.Pri_Nombre, 
+    E.Seg_Nombre, 
+    E.Pri_Apellido, 
+    E.Seg_Apellido, 
+    E.Telefono, 
+    Gen.Genero,
+    Gr.Grado, 
+    Sec.Seccion, 
+    T.Turno, 
+    Est.Estado, 
+    E.Direccion, 
+    A.Anio, 
+    Tut.Pri_Nombre AS Tutor_Pri_Nombre, 
+    Tut.Seg_Nombre AS Tutor_Seg_Nombre, 
+    Tut.Pri_Apellido AS Tutor_Pri_Apellido, 
+    Tut.Seg_Apellido AS Tutor_Seg_Apellido,
+    Tut.Cedula AS Tutor_Cedula,
+    Tut.Telefono AS Tutor_Telefono,
+    Tut.Direccion AS Tutor_Direccion,
+    Tut.Correo_Electronico AS Tutor_Correo,
+    Paren.Parentesco
+	FROM 
+		Matriculas M
+	INNER JOIN 
+		Estudiantes E ON M.FK_Estudiante = E.ID_Estudiante
+	INNER JOIN 
+		Turnos T ON M.FK_Turno = T.ID_Turno
+	INNER JOIN 
+		Estados Est ON M.FK_Estado = Est.ID_Estado
+	INNER JOIN 
+		Anio_Lectivo A ON M.FK_Anio_Lectivo = A.ID_Anio_Lectivo
+	INNER JOIN 
+		Grados Gr ON M.FK_Grado = Gr.ID_Grado
+	INNER JOIN 
+		Secciones Sec ON M.FK_Seccion = Sec.ID_Seccion
+	INNER JOIN 
+		Tutores Tut ON E.FK_Tutor = Tut.ID_Tutor
+	INNER JOIN 
+		Generos Gen ON Gen.ID_Genero = E.ID_Estudiante
+	INNER JOIN 
+		Parentescos Paren ON Paren.ID_Parentesco = E.ID_Estudiante
+	WHERE M.ID_Matricula = ID
 	ORDER BY M.ID_Matricula;
 END//
 DELIMITER ; 
@@ -338,10 +395,10 @@ Pri_Apellido VARCHAR(20),
 Seg_Apellido VARCHAR(20),
 Telefono INT,
 Correo_Electronico VARCHAR(45),
-imagen varchar(250))
+Imagen longblob)
 BEGIN
-    INSERT INTO USERS (FK_Tipo_User, Usuario, Contrasena, Pri_Nombre, Seg_Nombre, Pri_Apellido, Seg_Apellido, Telefono, Correo_Electronico) VALUES 
-    (FK_Tipo_User, Usuario, Contrasena, Pri_Nombre, Seg_Nombre, Pri_Apellido, Seg_Apellido, Telefono, Correo_Electronico);
+    INSERT INTO USERS (FK_Tipo_User, Usuario, Contrasena, Pri_Nombre, Seg_Nombre, Pri_Apellido, Seg_Apellido, Telefono, Correo_Electronico, Imagen) VALUES 
+    (FK_Tipo_User, Usuario, Contrasena, Pri_Nombre, Seg_Nombre, Pri_Apellido, Seg_Apellido, Telefono, Correo_Electronico, Imagen);
 END//
 DELIMITER ; 
 
@@ -370,7 +427,7 @@ Pri_Apellido VARCHAR(20),
 Seg_Apellido VARCHAR(20),
 Telefono INT,
 Correo_Electronico VARCHAR(45),
-imagen varchar(250))
+Imagen longblob)
 BEGIN
 	SET sql_safe_updates = 0;
     UPDATE users SET 
@@ -383,7 +440,7 @@ BEGIN
     Seg_Apellido = Seg_Apellido,
     Telefono = Telefono,
     Correo_Electronico = Correo_Electronico,
-    imagen = imagen
+    Imagen = Imagen
     WHERE ID = ID_USER;
 END//
 DELIMITER ; 

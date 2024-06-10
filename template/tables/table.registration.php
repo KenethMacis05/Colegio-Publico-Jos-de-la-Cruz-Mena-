@@ -5,11 +5,11 @@
             <i class="bi bi-file-earmark-plus"></i>
             Nuevo
         </button>
-        <button type="button" class="btn btn-warning" style="color: white">
+        <button type="button" class="btn btn-warning" style="color: white" onclick="window.location.href='/report/reports.matriculas.pdf.php'">
             <i class="bi bi-file-earmark-pdf-fill"></i>
             PDF
         </button>
-        <button type="button" class="btn btn-secondary" style="color: white">
+        <button type="button" class="btn btn-secondary" style="color: white" onclick="window.location.href='/report/reports.matriculas.excel.php'">
         <i class="bi bi-file-spreadsheet"></i>
             Excel
         </button>
@@ -31,7 +31,7 @@
                     <th class="centered">Dirrección</th>
                     <th class="centered">Tutor</th>
                     <th class="centered">Status</th>
-                    <th class="centered">Options</th>
+                    <th class="centered">Opciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,8 +53,11 @@
                         <td><?= $matricula["Tutor_Pri_Nombre"] . ' ' . $matricula["Tutor_Pri_Apellido"] ?></td>
                         <td><?= $matricula["Estado"] == "Reingreso"  ? "R" : "N" ?></td>
                         <td>
-                            <button class="btn btn-sm btn-primary edit-button" data-bs-toggle="modal" data-bs-target="#modal_edit_matricula<?= $matricula['ID_Matricula'] ?>"><i class="fa-solid fa-pencil"></i></button>
-                            <button class="btn btn-sm btn-danger retirar-button" onclick="alertDeleteMatricula()"><i class="fa-solid fa-trash-can"></i></button>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-sm btn-success pdf-button me-1" style="color: white" onclick="window.location.href='/report/report.matricula.pdf.php?matricula=<?= $matricula['ID_Matricula'] ?>'"><i class="bi bi-file-earmark-pdf-fill"></i></button>
+                                <button class="btn btn-sm btn-primary edit-button me-1" data-bs-toggle="modal" data-bs-target="#modal_edit_matricula<?= $matricula['ID_Matricula'] ?>"><i class="fa-solid fa-pencil"></i></button>
+                                <button class="btn btn-sm btn-danger retirar-button" onclick="alertDeleteMatricula()"><i class="fa-solid fa-trash-can"></i></button>
+                            </div>
                             <?php include "../template/modals/edit_matricula_form.php" ?>
                         </td>
                     </tr>
