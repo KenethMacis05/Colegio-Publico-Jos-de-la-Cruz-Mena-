@@ -47,7 +47,7 @@ class Matricula
     public function readMatricula($ID)
     {
         try {
-            $consulta = "call sp_read_matricula_estudiante('$ID');";
+            $consulta = "call sp_read_matricula_id('$ID');";
             return $this->objetoConexion->consultar($consulta);
         } catch (Exception $e) {
             echo "Error en la cansulta: " . $e->getMessage();

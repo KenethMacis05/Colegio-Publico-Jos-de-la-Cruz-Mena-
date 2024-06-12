@@ -7,7 +7,7 @@ class PDF extends FPDF {
 
     public function __construct($orientation='P', $unit='mm', $size='A4') {
         parent::__construct($orientation, $unit, $size);
-        $this->watermarkPath = 'E:/Programas2/laragon/www/src/img/marca.png';
+        $this->watermarkPath = '../src/img/marca.png';
     }
     function Header()
     {        

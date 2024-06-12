@@ -3,12 +3,14 @@
 -- SP Tutores
 -- CALL sp_create_tutor('', '', '', '', '', '', '', '');
 -- CALL sp_read_tutor();
+-- CALL sp_read_tutor_id('')
 -- CALL sp_update_tutor('', '', '', '', '', '', '', '', '');
 -- CALL sp_delete_tutor('');
 -- ----------------------------------------------------------------------------------------------------------------------
 -- SP Estudiantes
 -- CALL sp_create_student('', '', '', '', '', '', '', '', '', '', '', '');
 -- CALL sp_read_student();
+-- CALL sp_read_student_id('');
 -- CALL sp_update_student('', '', '', '', '', '', '', '', '', '', '', '', '');
 -- CALL sp_delete_student('');
 -- ----------------------------------------------------------------------------------------------------------------------
@@ -21,6 +23,7 @@
 -- SP Calificaciones
 -- CALL sp_create_calificaciones('', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 -- CALL sp_read_calificaciones();
+-- CALL sp_read_calificaciones_id('');
 -- CALL sp_update_calificaciones('', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 -- CALL sp_delete_calificaciones('');
 -- ----------------------------------------------------------------------------------------------------------------------
@@ -62,6 +65,16 @@ BEGIN
     SELECT * FROM Tutores;
 END//
 DELIMITER ; 
+
+DELIMITER //
+CREATE PROCEDURE sp_read_tutor_id(IN ID INT)
+BEGIN
+	SELECT T.*, E.ID_Estudiante, E.Pri_Nombre AS priNombreEstu, E.Seg_Nombre AS segNombreEstu, E.Pri_Apellido AS priApellidoEstu, E.Seg_Apellido AS segApellidoEstu
+    FROM Tutores T
+    INNER JOIN Estudiantes E ON E.FK_Tutor = T.ID_Tutor
+WHERE ID_Tutor = ID;
+END//
+DELIMITER ;
 
 -- ----------------------------------------------------------------------------------------------------------------------
 -- Editar tutor
@@ -112,6 +125,24 @@ BEGIN
     INNER JOIN Generos G ON E.FK_Genero = G.ID_Genero
     INNER JOIN Parentescos P ON E.FK_Parentesco = P.ID_Parentesco
     ORDER BY E.ID_Estudiante;
+END//
+DELIMITER ; 
+
+DELIMITER //
+CREATE PROCEDURE sp_read_student_id(IN ID INT)
+BEGIN
+    SELECT E.*, G.Genero, M.Cod_Matricula, Gr.Grado, Sec.Seccion, Tur.Turno, A.Anio, T.Pri_Nombre AS priNombreTutor, T.Seg_Nombre AS segNombreTutor,  T.Pri_Apellido AS priApellidoTutor, T.Seg_Apellido AS segApellidoTutor, P.Parentesco
+    FROM Estudiantes E
+    INNER JOIN Tutores T ON E.FK_Tutor = T.ID_Tutor
+    INNER JOIN Generos G ON E.FK_Genero = G.ID_Genero
+    INNER JOIN Parentescos P ON E.FK_Parentesco = P.ID_Parentesco
+    INNER JOIN Matriculas M ON M.FK_Estudiante = E.ID_Estudiante
+    INNER JOIN Grados Gr ON M.FK_Grado = Gr.ID_Grado
+	INNER JOIN Secciones Sec ON M.FK_Seccion = Sec.ID_Seccion
+	INNER JOIN Turnos Tur ON M.FK_Turno = Tur.ID_Turno
+    INNER JOIN Anio_Lectivo A ON M.FK_Anio_Lectivo = A.ID_Anio_Lectivo
+WHERE E.ID_Estudiante = ID
+ORDER BY E.ID_Estudiante;
 END//
 DELIMITER ; 
 
@@ -301,7 +332,7 @@ DELIMITER ;
 -- ----------------------------------------------------------------------------------------------------------------------
 -- Leer Matriculas por ID de la matricula
 DELIMITER //
-CREATE PROCEDURE sp_read_matricula_estudiante(IN ID INT)
+CREATE PROCEDURE sp_read_matricula_id(IN ID INT)
 BEGIN
 	SELECT 
     M.*,

@@ -40,6 +40,16 @@ class Tutor {
         }
     }
 
+    public function readTutor($ID) {
+        try {
+            $consulta = "CALL sp_read_tutor_id('$ID');";
+            return $this->objetoConexion->consultar($consulta);
+        } catch (Exception $e) {
+            echo "Error en la cansulta: ". $e->getMessage();
+            return false;
+        }
+    }
+
     //Actualizar
     public function update($id_tutor, $pri_nombre, $seg_nombre, $pri_apellido, $seg_apellido, $cedula, $telefono, $direccion, $correo)
     {

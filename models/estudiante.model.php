@@ -49,6 +49,25 @@ class Estudiante
         }
     }
 
+    public function readID($ID)
+    {
+        try {
+            $consulta = "CALL sp_read_student_ID($ID);";
+            $resultado = $this->objetoConexion->consultar($consulta);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("No se encontraron estudiantes.");
+            }
+        } catch (Exception $e) {
+            error_log("Error en la cansulta: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    
+
     //Actualizar
     public function update($id, $priNombre, $segNombre, $priApellido, $segApellido, $fechaNacimiento, $cedula, $genero, $telefono, $direccion, $correo, $fkTutor, $fkParentesco)
     {
