@@ -54,8 +54,8 @@ include_once "../models/USERS.model.php";
 <?php include_once "../template/alerts/alert_users.php"?>
 <!-- Configure table -->
 <script src="/js/datatable.config.js"></script>
-<!-- Configure de los inputs -->
-<script src="/js/config.input.js"></script>
+<!-- Configure de los inputs 
+<script src="/js/config.input.js"></script>-->
 <!-- Bootstrap JS -->
 <script src="/js/bootstrap.bundle.min.js"></script>
 <!-- jQuery -->

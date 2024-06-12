@@ -35,7 +35,11 @@
         <hr>
         <div class="dropdown pb-4">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqKRdNTUVE6P28Z1Gjw-fwnfsE6icmFmf4eiXXEpmc4A&s" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                <?php if (!empty($_SESSION['usuarioautenticado']['Imagen'])):?>
+                    <img src="data:image/*;base64,<?= base64_encode($_SESSION['usuarioautenticado']['Imagen'])?>" alt="img-user" width="30" height="30" class="rounded-circle">                                     
+                <?php else:?>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqKRdNTUVE6P28Z1Gjw-fwnfsE6icmFmf4eiXXEpmc4A&s" alt="hugenerd" width="30" height="30" class="rounded-circle">                                    
+                <?php endif;?>  
                 <span class="d-none d-sm-inline mx-1"><?php echo $_SESSION['usuarioautenticado']['Usuario'];?></span>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">

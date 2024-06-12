@@ -1,5 +1,5 @@
 -- Codigo de los Procedimientos almacenados
-
+-- use gestion_escolar_jdlcm;
 -- SP Tutores
 -- CALL sp_create_tutor('', '', '', '', '', '', '', '');
 -- CALL sp_read_tutor();
@@ -472,6 +472,34 @@ BEGIN
     Telefono = Telefono,
     Correo_Electronico = Correo_Electronico,
     Imagen = Imagen
+    WHERE ID = ID_USER;
+END//
+DELIMITER ; 
+
+DELIMITER //
+CREATE PROCEDURE sp_update_user2(
+IN ID INT,
+FK_Tipo_User INT,
+Usuario VARCHAR(20),
+Contrasena INT,
+Pri_Nombre VARCHAR(20),
+Seg_Nombre VARCHAR(20),
+Pri_Apellido VARCHAR(20),
+Seg_Apellido VARCHAR(20),
+Telefono INT,
+Correo_Electronico VARCHAR(45))
+BEGIN
+	SET sql_safe_updates = 0;
+    UPDATE users SET 
+    FK_Tipo_User = FK_Tipo_User, 
+    Usuario = Usuario, 
+    Contrasena = Contrasena, 
+    Pri_Nombre = Pri_Nombre,
+    Seg_Nombre = Seg_Nombre,
+    Pri_Apellido = Pri_Apellido,
+    Seg_Apellido = Seg_Apellido,
+    Telefono = Telefono,
+    Correo_Electronico = Correo_Electronico    
     WHERE ID = ID_USER;
 END//
 DELIMITER ; 
