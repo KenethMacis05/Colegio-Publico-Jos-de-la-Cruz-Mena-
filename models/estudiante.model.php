@@ -37,7 +37,6 @@ class Estudiante
         try {
             $consulta = "CALL sp_read_student();";
             $resultado = $this->objetoConexion->consultar($consulta);
-
             if ($resultado) {
                 return $resultado;
             } else {
@@ -46,6 +45,8 @@ class Estudiante
         } catch (Exception $e) {
             error_log("Error en la cansulta: " . $e->getMessage());
             return false;
+        } finally {            
+            $this->objetoConexion->cerrarConexion();
         }
     }
 
@@ -54,7 +55,6 @@ class Estudiante
         try {
             $consulta = "CALL sp_read_student_ID($ID);";
             $resultado = $this->objetoConexion->consultar($consulta);
-
             if ($resultado) {
                 return $resultado;
             } else {
@@ -63,6 +63,8 @@ class Estudiante
         } catch (Exception $e) {
             error_log("Error en la cansulta: " . $e->getMessage());
             return false;
+        } finally {            
+            $this->objetoConexion->cerrarConexion();
         }
     }
 

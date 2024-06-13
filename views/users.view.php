@@ -10,24 +10,8 @@ include_once "../models/USERS.model.php";
 <head>
     <!-- Meta Data -->
     <?php include_once "../template/metadata.php" ?>
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
-    <!--Bootstrap Icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- DataTable -->
-    <link rel="stylesheet" href="/css/datatable_css/dataTables.bootstrap5.min.css" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-    <!-- Estilos por defecto -->
-    <link rel="stylesheet" href="/css/style.matricula.css">
-    <!-- Estilos de alertas -->
-    <link rel="stylesheet" href="/css/style.alert.css">
-    <!-- Estilos de fuentes -->
-    <link rel="stylesheet" href="css/style.font.css">
-    <!-- Estilos botones -->
-    <link rel="stylesheet" href="/css/style.botones.css">
-    <!-- Libreria Alert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Recursos Necesarios -->
+    <?php include_once "../template/head.php" ?>    
     <!-- Titulo de la pagina -->
     <title>Usuarios | Sistema JDLCM</title>
 </head>
@@ -39,29 +23,19 @@ include_once "../models/USERS.model.php";
             <?php include_once "../template/dashboard.permisos.php" ?>
             <!----------------------Titulo del Header--------------------->
             <div class="col py-3 header">
-                <!--<span class="title">Usuarios</span>-->
-                <?php include_once "../template/section-info-title/section-info-title.php"?>
+                <?php include_once "../template/section-info-title.php"?>
             </div>
             <!-----------------------Tabla Usuarios----------------------->
             <?php include_once "../template/tables/table.users.php" ?>
         </div>
     </div>
-    <!-- Modal nuevo periodo escolar -->
+    <!-- Modal nuevo usuario -->
     <?php include_once "../template/modals/new_user_form.php" ?>
 </body>
 
+<!-- Recursos necesarios -->
+<?php include_once "../template/footer.php" ?>
 <!-- Alertas -->
 <?php include_once "../template/alerts/alert_users.php"?>
-<!-- Configure table -->
-<script src="/js/datatable.config.js"></script>
-<!-- Configure de los inputs 
-<script src="/js/config.input.js"></script>-->
-<!-- Bootstrap JS -->
-<script src="/js/bootstrap.bundle.min.js"></script>
-<!-- jQuery -->
-<script src="datatables/jquery.min.js"></script>
-<script src="/js/jquery.min.js"></script>
-<!-- DataTable -->
-<script src="/js/datatable_js/jquery.dataTables.min.js"></script>
-<script src="/js/datatable_js/dataTables.bootstrap5.min.js"></script>
+
 </html>

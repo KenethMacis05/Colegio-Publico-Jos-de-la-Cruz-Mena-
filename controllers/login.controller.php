@@ -17,7 +17,7 @@ try {
     $objUser = new Users();
     $resultado = $objUser->login($usuario, $contrasena);
 
-    if (mysqli_num_rows($resultado) > 0) {
+    if ($resultado && mysqli_num_rows($resultado) > 0) {
         $autenticado = mysqli_fetch_array($resultado);
         $_SESSION['usuarioautenticado'] = $autenticado;
 

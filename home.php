@@ -23,7 +23,7 @@
             <?php include_once "template/dashboard.permisos.php";?>
             <!----------------------Titulo del Header--------------------->
             <div class="col py-3 header">
-                <?php include_once "template/section-info-title/section-info-title.php"?>
+                <?php include_once "template/section-info-title.php"?>
             </div>
             <!-----------------------Bienvenida----------------------->
             <div class="Contenedor-Saludo container text-white">

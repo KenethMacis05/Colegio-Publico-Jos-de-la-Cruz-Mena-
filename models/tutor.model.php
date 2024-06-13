@@ -37,6 +37,8 @@ class Tutor {
         } catch (Exception $e) {
             echo "Error en la cansulta: ". $e->getMessage();
             return false;
+        } finally {            
+            $this->objetoConexion->cerrarConexion();
         }
     }
 
@@ -47,6 +49,8 @@ class Tutor {
         } catch (Exception $e) {
             echo "Error en la cansulta: ". $e->getMessage();
             return false;
+        } finally {            
+            $this->objetoConexion->cerrarConexion();
         }
     }
 

@@ -20,6 +20,9 @@ if ($url_actual!== '/' && strpos($url_actual, 'views')!== false) {
         case 'users.view.php':
             $tituloFormSection = 'Usuarios';
             break;
+        case 'user.config.view.php':
+            $tituloFormSection = 'Configuraciones';
+            break;
         default:
             $tituloFormSection = 'Página Desconocida';
             break;

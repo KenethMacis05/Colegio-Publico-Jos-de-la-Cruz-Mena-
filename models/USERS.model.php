@@ -11,12 +11,26 @@ class Users
         $this->objetoConexion = new Conexion();
     }
 
-    //Funcion para logiarse 
+    //Login
     public function login($usuario, $contrasena)
     {
-        $consulta = "SELECT * FROM users where usuario = '$usuario' and contrasena = '$contrasena';";
-        $resultado = $this->objetoConexion->consultar($consulta);
-        return $resultado;
+        try {
+            $query = "CALL sp_login_user(?,?);";
+            $stmt = $this->objetoConexion->prepare($query);
+            $stmt->bind_param('ss', $usuario, $contrasena);
+            if ($stmt->execute()) {
+                $result = $stmt->get_result();
+                return $result;
+            } else {
+                throw new Exception("Error al ejecutar la consulta: " . $stmt->error);
+            }
+        } catch (Exception $e) {
+            error_log("Error en la consulta: " . $e->getMessage());
+            return false;
+        } finally {
+            $stmt->close();
+            $this->objetoConexion->cerrarConexion();
+        }
     }
 
     //Crear
@@ -49,6 +63,8 @@ class Users
         } catch (Exception $e) {
             echo "Error en la cansulta: " . $e->getMessage();
             return false;
+        } finally {            
+            $this->objetoConexion->cerrarConexion();
         }
     }
 
