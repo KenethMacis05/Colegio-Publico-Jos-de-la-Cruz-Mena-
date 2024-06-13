@@ -45,9 +45,7 @@ class Estudiante
         } catch (Exception $e) {
             error_log("Error en la cansulta: " . $e->getMessage());
             return false;
-        } finally {            
-            $this->objetoConexion->cerrarConexion();
-        }
+        } 
     }
 
     public function readID($ID)
@@ -63,9 +61,7 @@ class Estudiante
         } catch (Exception $e) {
             error_log("Error en la cansulta: " . $e->getMessage());
             return false;
-        } finally {            
-            $this->objetoConexion->cerrarConexion();
-        }
+        } 
     }
 
     

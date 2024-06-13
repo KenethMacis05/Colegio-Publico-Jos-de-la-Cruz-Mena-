@@ -63,9 +63,7 @@ class Users
         } catch (Exception $e) {
             echo "Error en la cansulta: " . $e->getMessage();
             return false;
-        } finally {            
-            $this->objetoConexion->cerrarConexion();
-        }
+        } 
     }
 
     //Actualizar

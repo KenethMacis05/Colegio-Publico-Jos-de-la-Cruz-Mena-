@@ -37,10 +37,7 @@ class PeriodoEscolar
         } catch (Exception $e) {
             echo "Error en la cansulta: " . $e->getMessage();
             return false;
-        } finally {            
-            $this->objetoConexion->cerrarConexion();
-        }
-        
+        } 
     }
     //Actualizar
     public function update($id, $anio, $fecha_inicial, $fecha_final, $estado) {

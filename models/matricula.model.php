@@ -41,9 +41,7 @@ class Matricula
         } catch (Exception $e) {
             echo "Error en la cansulta: " . $e->getMessage();
             return false;
-        } finally {            
-            $this->objetoConexion->cerrarConexion();
-        }
+        } 
     }
 
     public function readMatricula($ID)
@@ -54,9 +52,7 @@ class Matricula
         } catch (Exception $e) {
             echo "Error en la cansulta: " . $e->getMessage();
             return false;
-        } finally {            
-            $this->objetoConexion->cerrarConexion();
-        }
+        } 
     }
     
     //Actualizar

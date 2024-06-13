@@ -444,6 +444,17 @@ BEGIN
 END//
 DELIMITER ; 
 
+-- Login
+DELIMITER //
+CREATE PROCEDURE sp_login_user(IN usuario VARCHAR(20), contrasena INT)
+BEGIN
+    SELECT U.*, T.Tipo AS Permisos
+	FROM USERS U
+	JOIN Tipos_Users T ON U.FK_Tipo_User = T.ID_Tipo
+    WHERE usuario = usuario AND contrasena = contrasena;
+END//
+DELIMITER ; 
+
 -- ----------------------------------------------------------------------------------------------------------------------
 -- Editar usuario
 DELIMITER //
