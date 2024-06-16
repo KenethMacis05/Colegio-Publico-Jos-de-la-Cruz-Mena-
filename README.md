@@ -120,6 +120,8 @@ En la parte inferior se encuentra el nombre del usuario conectado, damos Click y
 - [SP de la base de datos](https://github.com/KenethMacis05/sistema_escolar_jdlcm/raw/main/db/sp-codigo-jdlcm.sql)
 - [VIEWS de la base de datos](https://github.com/KenethMacis05/sistema_escolar_jdlcm/raw/main/db/view-codigo-jdlcm.sql)
 - [FUNCTIONS de la base de datos](https://github.com/KenethMacis05/sistema_escolar_jdlcm/raw/main/db/function-codigo.sql)
+- [Modelo Fisico](https://github.com/KenethMacis05/sistema_escolar_jdlcm/raw/main/db/modeloFisico.sql)
+  
 
 ## Preguntas Frecuentes  
 <details>
