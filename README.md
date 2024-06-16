@@ -121,7 +121,7 @@ En la parte inferior se encuentra el nombre del usuario conectado, damos Click y
 - [VIEWS de la base de datos](https://github.com/KenethMacis05/sistema_escolar_jdlcm/raw/main/db/view-codigo-jdlcm.sql)
 - [FUNCTIONS de la base de datos](https://github.com/KenethMacis05/sistema_escolar_jdlcm/raw/main/db/function-codigo.sql)
 - [Modelo Fisico](https://github.com/KenethMacis05/sistema_escolar_jdlcm/raw/main/db/modeloFisico.sql)
-  
+- [Modelo Relacional](https://github.com/KenethMacis05/sistema_escolar_jdlcm/raw/main/db/db_import/gestion_escolar_jdlcm.mwb)
 
 ## Preguntas Frecuentes  
 <details>
