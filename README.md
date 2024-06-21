@@ -45,17 +45,16 @@
 
 ## Guía de Uso  
 ### Descarga e Instalación
-<h4>Opción 1, descargar el archivo rar:</h2>
 
-- Para descargar el sistema de matricula, [presione aquí](https://github.com/KenethMacis05/Colegio-Publico-Jos-de-la-Cruz-Mena-/archive/refs/heads/main.zip) y sigue las instrucciones de descarga.
+<h4>Descargar</h4>
+<h5>Opción 1, descargar el archivo rar:</h5>
+
+- Para descargar el sistema de matricula, [descargar](https://github.com/KenethMacis05/Colegio-Publico-Jos-de-la-Cruz-Mena-/archive/refs/heads/main.zip) y sigue las instrucciones de descarga.
 -	Descomprima el archivo rar descargado.
 -	Entre a la carpeta descomprimida y copie todos los archivos
 -	Ejecute su aplicación Laragon y de Click en Root y pegue los archivos
--	Entre a la carpeta “db” y copie el código SQL.
--	Ejecute MySQL Workbench y click en local y pega el código SQL y ejectuta
--	Por ultimo en Laragon de Click en “Iniciar Toto” y espera unos segundos y Click en “Web”
 
-<h4>Opción 2, clonar el repositorio</h2>
+<h5>Opción 2, clonar el repositorio</h5>
 
 - Ejecute su aplicación Larago y de click en "Terminal"
 - Ejectute el siguiente codigo:
@@ -63,6 +62,12 @@
 ```shell
 $ git clone https://github.com/KenethMacis05/sistema_escolar_jdlcm/tree/main
 ```
+
+<h4>Instalación</h4>
+
+-	Importe la base de datos del sistema en su aplicación MySQL Workbench o aplicación de su preferencia [descargar](https://github.com/KenethMacis05/sistema_escolar_jdlcm/raw/main/db/db_import/import_gestion_escolar_jdlcm.sql).
+-	Por ultimo en Laragon de Click en “Iniciar Toto” y espera unos segundos y Click en “Web”
+
 ### Pagína de Login  
 - Ingrese el nombre de usuario y contraseña.
 - De Click en "Ingresar".
@@ -80,10 +85,22 @@ $ git clone https://github.com/KenethMacis05/sistema_escolar_jdlcm/tree/main
   <img src="https://github.com/KenethMacis05/Colegio-Publico-Jos-de-la-Cruz-Mena-/blob/main/src/img/img-README/Dashboard.png">
 </p>
 
-### Pagina de Crear matriculas
--	Para crear una nueva matricula damos click en “Crear Matricula”
+### Pagina de Tutores
+-	Para ver los tutores de los estudiantes damos Click en “Turores” 
 <p align="center">
-  <img src="https://github.com/KenethMacis05/Colegio-Publico-Jos-de-la-Cruz-Mena-/blob/main/src/img/img-README/Matricula.png" alt="Imagen 1">
+  <img src="https://github.com/KenethMacis05/Colegio-Publico-Jos-de-la-Cruz-Mena-/blob/main/src/img/img-README/Tutores.png" alt="Imagen 1">
+</p>
+
+### Pagina de Estudiantes
+-	Para ver la lista de los estudiantes damos Click en “Estudiantes”
+<p align="center">
+  <img src="https://github.com/KenethMacis05/Colegio-Publico-Jos-de-la-Cruz-Mena-/blob/main/src/img/img-README/Estudiantes.png" alt="Imagen 1">
+</p>
+
+### Pagina de Calificaciones
+-	Para ver la lista de las calificaciones de los estudiantes damos Click en “Calificaciones”
+<p align="center">
+  <img src="https://github.com/KenethMacis05/Colegio-Publico-Jos-de-la-Cruz-Mena-/blob/main/src/img/img-README/Calificaciones.png" alt="Imagen 1">
 </p>
 
 ### Página de Matriculas
@@ -108,9 +125,12 @@ $ git clone https://github.com/KenethMacis05/sistema_escolar_jdlcm/tree/main
 ### Configuración y Cerrar Sesión 
 En la parte inferior se encuentra el nombre del usuario conectado, damos Click y nos aparecerán 2 opciones:
 - Configuración, en este apartado podemos editar nuestros datos personales
--	Cerrar Sesión, cerramos la sesión iniciada y regresamos a la pantalla de login
+<p align="center">
+  <img src="https://github.com/KenethMacis05/Colegio-Publico-Jos-de-la-Cruz-Mena-/blob/main/src/img/img-README/Configuraciones.png" alt="Imagen 1">
+</p>
 
-  <img src="https://github.com/KenethMacis05/Colegio-Publico-Jos-de-la-Cruz-Mena-/blob/main/src/img/img-README/Opciones.png" alt="Imagen 1">
+-	Cerrar Sesión, cerramos la sesión iniciada y regresamos a la pantalla de login
+<img src="https://github.com/KenethMacis05/Colegio-Publico-Jos-de-la-Cruz-Mena-/blob/main/src/img/img-README/Opciones.png" alt="Imagen 1">
 
 
 ## Link de Descargas y de Interés
