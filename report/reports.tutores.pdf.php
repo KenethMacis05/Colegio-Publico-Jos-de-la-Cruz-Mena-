@@ -10,7 +10,9 @@ class PDF extends FPDF {
         $this->watermarkPath = '../src/img/marca.png';
     }
     function Header()
-    {        
+    {
+        $header = iconv('UTF-8', 'windows-1252', 'José de la Cruz Mena');
+        
         $this->Image($this->watermarkPath, 50, 30, 250, 250, false, 'T', 45, 45, 0, false, false, false, false);
         /* Imagenes */
         $this->Image('../src/img/logo-negro.png', 10, 8, 40);
@@ -23,20 +25,20 @@ class PDF extends FPDF {
         $this->Cell(60);
         $this->SetTextColor(15, 23, 42); 
         $this->SetFont('Arial', 'B', 20);
-        $this->Cell(70, 10, utf8_decode('Colegio Publico'), 0, 1, 'C', 0);
+        $this->Cell(70, 10, 'Colegio Publico', 0, 1, 'C', 0);
         $this->Cell(60);
         $this->SetFont('Arial', 'B', 26);
-        $this->Cell(70, 10, utf8_decode('José de la Cruz Mena'), 0, 1, 'C', 0);
+        $this->Cell(70, 10, $header, 0, 1, 'C', 0);
         $this->Cell(60);
         $this->SetTextColor(219, 161, 5);
         $this->SetFont('Arial', 'BI', 14);
-        $this->Cell(70, 10, utf8_decode('Dios, Patria y Hogar'), 0, 0, 'C', 0);
+        $this->Cell(70, 10, 'DIOS, PATRIA Y HOGAR', 0, 0, 'C', 0);
         /* Titulo DE LA TABLA */
         $this->Ln(20); 
         $this->Cell(60);
         $this->SetTextColor(15, 23, 42); 
         $this->SetFont('Arial', 'B', 14);
-        $this->Cell(70, 10, utf8_decode('Reporte de Tutores'), 0, 0, 'C', 0);        
+        $this->Cell(70, 10, 'Reporte de Tutores', 0, 0, 'C', 0);        
         $this->Ln(15);         
         $this->SetFillColor(15, 23, 42);
         $this->SetTextColor(255, 255, 255); 
@@ -54,7 +56,7 @@ class PDF extends FPDF {
     {
         $this->SetY(-15);
         $this->SetFont('Arial', 'I', 8);
-        $this->Cell(0, 10, utf8_decode('Página '). $this->PageNo(). '/{nb} | Fecha: '. date('d/m/Y'), 0, 0, 'C');
+        $this->Cell(0, 10, 'Pagina '. $this->PageNo(). '/{nb} | Fecha: '. date('d/m/Y'), 0, 0, 'C');
     }
 }
 
@@ -63,20 +65,30 @@ $allTutores = $objTutor->read();
 $numRows = mysqli_num_rows($allTutores);
 
 $pdf = new PDF();
-
+$pdf->SetTitle(iconv('UTF-8', 'windows-1252', 'Reporte de Tutores'));
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Arial', '', 9);
 
 for ($i = 0; $i < $numRows; $i++) { 
-    $tutor = mysqli_fetch_assoc($allTutores);    
+    $tutor = mysqli_fetch_assoc($allTutores);
+    // Convertir campos individuales del tutor a utf-8
+    $idTutor = iconv('UTF-8', 'windows-1252', $tutor['ID_Tutor']);
+    $fullName = iconv('UTF-8', 'windows-1252', $tutor['Pri_Nombre']. ' '. $tutor['Seg_Nombre']. ' '. $tutor['Pri_Apellido']. ' '. $tutor['Seg_Apellido']);
+    $cedula = iconv('UTF-8', 'windows-1252', $tutor['Cedula']);
+    $telefono = iconv('UTF-8', 'windows-1252', $tutor['Telefono']);
+    $direccion = iconv('UTF-8', 'windows-1252', $tutor['Direccion']);
+    $correoElectronico = iconv('UTF-8', 'windows-1252', $tutor['Correo_Electronico']);
+
+    // Datos de la tabla
     $pdf->SetX(8);
-    $pdf->Cell(10, 10, $tutor['ID_Tutor'], 1, 0, 'L', 0);
-    $pdf->Cell(52, 10, $tutor['Pri_Nombre']. ' '. $tutor['Seg_Nombre']. ' '. $tutor['Pri_Apellido']. ' '. $tutor['Seg_Apellido'], 1, 0, 'L', 0);
-    $pdf->Cell(25, 10, $tutor['Cedula'], 1, 0, 'L', 0);        
-    $pdf->Cell(17, 10, $tutor['Telefono'], 1, 0, 'L', 0);    
-    $pdf->Cell(37, 10, $tutor['Direccion'], 1, 0, 'L', 0);
-    $pdf->Cell(54, 10, $tutor['Correo_Electronico'], 1, 1, 'L', 0);
+    $pdf->Cell(10, 10, $idTutor, 1, 0, 'L', 0);
+    $pdf->Cell(52, 10, $fullName, 1, 0, 'L', 0);
+    $pdf->Cell(25, 10, $cedula, 1, 0, 'L', 0);        
+    $pdf->Cell(17, 10, $telefono, 1, 0, 'L', 0);    
+    $pdf->Cell(37, 10, $direccion, 1, 0, 'L', 0);
+    $pdf->Cell(54, 10, $correoElectronico, 1, 1, 'L', 0);
 }
+
 
 $pdf->Output('ReporteTutores.pdf', 'I');

@@ -7,3 +7,5 @@
 <meta name="copyright" content="Copyright © 2023, TecChetos2.05. Todos los derechos reservados. Última actualización: 28 de Octubre de 2023.">
 <meta http-equiv="Cache-Control" content="max-age=31536000">
 <meta http-equiv="Expires" content="max-age=31536000">
+<link rel="icon" type="image/png" href="../src/img/icon.webp"/>
+    

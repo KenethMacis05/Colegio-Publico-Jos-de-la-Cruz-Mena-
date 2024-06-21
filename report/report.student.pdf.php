@@ -75,7 +75,7 @@ if (isset($_GET['estudiante'])) {
             $this->segundoApellidoTutor = $segundoApellidoTutor;
         }
         function Header()
-        {        
+        {
             $this->Image($this->watermarkPath, 50, 30, 250, 250, false, 'T', 45, 45, 0, false, false, false, false);
             /* Imagenes */
             $this->Image('../src/img/logo-negro.png', 10, 8, 40);
@@ -92,7 +92,7 @@ if (isset($_GET['estudiante'])) {
             $this->Cell(70, 10, 'Colegio Publico', 0, 1, 'C', 0);
             $this->Cell(60);
             $this->SetFont('Arial', 'B', 26);
-            $this->Cell(70, 10, utf8_decode('José de la Cruz Mena'), 0, 1, 'C', 0);
+            $this->Cell(70, 10, iconv('UTF-8', 'windows-1252', 'José de la Cruz Mena'), 0, 1, 'C', 0);
             $this->Cell(60);
             $this->SetTextColor(219, 161, 5);
             $this->SetFont('Arial', 'BI', 14);
@@ -103,46 +103,46 @@ if (isset($_GET['estudiante'])) {
             $this->Cell(60);
             $this->SetTextColor(15, 23, 42); 
             $this->SetFont('Arial', 'B', 16);
-            $this->Cell(70, 10, utf8_decode('Hoja de reporte: Estudiante ' .$this->primerNombre .' '.$this->primerApellido), 0, 0, 'C', 0);        
+            $this->Cell(70, 10, iconv('UTF-8', 'windows-1252', 'Hoja de reporte: Estudiante ' .$this->primerNombre .' '.$this->primerApellido), 0, 0, 'C', 0);        
             $this->Ln(15);
 
             /* DATOS DEL Estudiante */
             $this->SetFont('Arial', 'B', 12);
-            $this->Cell(190, 10, utf8_decode('Datos Personales del Estudiante'), 0, 0, 'L', 0);
+            $this->Cell(190, 10, iconv('UTF-8', 'windows-1252', 'Datos Personales del Estudiante'), 0, 0, 'L', 0);
             $this->Ln(10);
             $this->SetFont('Arial', '', 10);        
             $this->Cell(47, 10, 'PRIMER NOMBRE: ', 0, 0, 'L', 0);
-            $this->Cell(47, 10, utf8_decode($this->primerNombre), 0, 0, 'C', 0);
+            $this->Cell(47, 10, iconv('UTF-8', 'windows-1252', $this->primerNombre), 0, 0, 'C', 0);
             $this->Cell(47, 10, 'SEGUNDO NOMBRE: ', 0, 0, 'L', 0);
-            $this->Cell(47, 10, utf8_decode($this->segundoNombre), 0, 1, 'C', 0);
+            $this->Cell(47, 10, iconv('UTF-8', 'windows-1252', $this->segundoNombre), 0, 1, 'C', 0);
             $yCurrentPosition = $this->GetY();
             $this->Line(53, $yCurrentPosition - 3, 100, $yCurrentPosition - 3);
             $this->Line(150, $yCurrentPosition - 3, 200, $yCurrentPosition - 3);
             $this->Cell(47, 10, 'PRIMER APELLIDO: ', 0, 0, 'L', 0);
-            $this->Cell(47, 10, utf8_decode($this->primerApellido), 0, 0, 'C', 0);
+            $this->Cell(47, 10, iconv('UTF-8', 'windows-1252', $this->primerApellido), 0, 0, 'C', 0);
             $this->Cell(47, 10, 'SEGUNDO APELLIDO: ', 0, 0, 'L', 0);
-            $this->Cell(47, 10, utf8_decode($this->segundoApellido), 0, 1, 'C', 0);
+            $this->Cell(47, 10, iconv('UTF-8', 'windows-1252', $this->segundoApellido), 0, 1, 'C', 0);
             $yCurrentPosition = $this->GetY();
             $this->Line(53, $yCurrentPosition - 3, 100, $yCurrentPosition - 3);
             $this->Line(150, $yCurrentPosition - 3, 200, $yCurrentPosition - 3);
             $this->Cell(47, 10, 'FECHA DE NACIMIENTO: ', 0, 0, 'L', 0);
             $this->Cell(47, 10, $this->fechaNacimiento, 0, 0, 'C', 0);
-            $this->Cell(47, 10, 'Genero: ', 0, 0, 'L', 0);
-            $this->Cell(47, 10, utf8_decode($this->genero), 0, 1, 'C', 0);
+            $this->Cell(47, 10, 'GENERO: ', 0, 0, 'L', 0);
+            $this->Cell(47, 10, iconv('UTF-8', 'windows-1252', $this->genero), 0, 1, 'C', 0);
             $yCurrentPosition = $this->GetY();
             $this->Line(53, $yCurrentPosition - 3, 100, $yCurrentPosition - 3);
             $this->Line(150, $yCurrentPosition - 3, 200, $yCurrentPosition - 3);
             $this->Cell(47, 10, 'CEDULA: ', 0, 0, 'L', 0);
-            $this->Cell(47, 10, utf8_decode($this->cedula), 0, 0, 'C', 0);
+            $this->Cell(47, 10, iconv('UTF-8', 'windows-1252', $this->cedula), 0, 0, 'C', 0);
             $this->Cell(47, 10, 'TELEFONO CELULAR: ', 0, 0, 'L', 0);
-            $this->Cell(47, 10, utf8_decode($this->telefono), 0, 1, 'C', 0);
+            $this->Cell(47, 10, iconv('UTF-8', 'windows-1252', $this->telefono), 0, 1, 'C', 0);
             $yCurrentPosition = $this->GetY();
             $this->Line(53, $yCurrentPosition - 3, 100, $yCurrentPosition - 3);
             $this->Line(150, $yCurrentPosition - 3, 200, $yCurrentPosition - 3);
             $this->Cell(47, 10, 'DIRECCION DOMICILIAR: ', 0, 0, 'L', 0);
-            $this->Cell(47, 10, utf8_decode($this->direccion), 0, 0, 'C', 0);
+            $this->Cell(47, 10, iconv('UTF-8', 'windows-1252', $this->direccion), 0, 0, 'C', 0);
             $this->Cell(47, 10, 'CORREO ELECTRONICO: ', 0, 0, 'L', 0);
-            $this->Cell(47, 10, utf8_decode($this->correo), 0, 1, 'C', 0);
+            $this->Cell(47, 10, iconv('UTF-8', 'windows-1252', $this->correo), 0, 1, 'C', 0);
             $yCurrentPosition = $this->GetY();
             $this->Line(53, $yCurrentPosition - 3, 100, $yCurrentPosition - 3);
             $this->Line(150, $yCurrentPosition - 3, 200, $yCurrentPosition - 3);
@@ -150,20 +150,20 @@ if (isset($_GET['estudiante'])) {
             /* DATOS DEL Tutor */
             $this->Ln(5);
             $this->SetFont('Arial', 'B', 12);
-            $this->Cell(190, 10, utf8_decode('Datos Personales del Tutor'), 0, 0, 'L', 0);
+            $this->Cell(190, 10, iconv('UTF-8', 'windows-1252', 'Datos Personales del Tutor'), 0, 0, 'L', 0);
             $this->Ln(10);
             $this->SetFont('Arial', '', 10);        
             $this->Cell(47, 10, 'PRIMER NOMBRE: ', 0, 0, 'L', 0);
-            $this->Cell(47, 10, utf8_decode($this->primerNombreTutor), 0, 0, 'C', 0);
+            $this->Cell(47, 10, iconv('UTF-8', 'windows-1252', $this->primerNombreTutor), 0, 0, 'C', 0);
             $this->Cell(47, 10, 'SEGUNDO NOMBRE: ', 0, 0, 'L', 0);
-            $this->Cell(47, 10, utf8_decode($this->segundoNombreTutor), 0, 1, 'C', 0);
+            $this->Cell(47, 10, iconv('UTF-8', 'windows-1252', $this->segundoNombreTutor), 0, 1, 'C', 0);
             $yCurrentPosition = $this->GetY();
             $this->Line(53, $yCurrentPosition - 3, 100, $yCurrentPosition - 3);
             $this->Line(150, $yCurrentPosition - 3, 200, $yCurrentPosition - 3);
             $this->Cell(47, 10, 'PRIMER APELLIDO: ', 0, 0, 'L', 0);
-            $this->Cell(47, 10, utf8_decode($this->primerApellidoTutor), 0, 0, 'C', 0);
+            $this->Cell(47, 10, iconv('UTF-8', 'windows-1252', $this->primerApellidoTutor), 0, 0, 'C', 0);
             $this->Cell(47, 10, 'SEGUNDO APELLIDO: ', 0, 0, 'L', 0);
-            $this->Cell(47, 10, utf8_decode($this->segundoApellidoTutor), 0, 1, 'C', 0);
+            $this->Cell(47, 10, iconv('UTF-8', 'windows-1252', $this->segundoApellidoTutor), 0, 1, 'C', 0);
             $yCurrentPosition = $this->GetY();
             $this->Line(53, $yCurrentPosition - 3, 100, $yCurrentPosition - 3);
             $this->Line(150, $yCurrentPosition - 3, 200, $yCurrentPosition - 3);            
@@ -171,7 +171,7 @@ if (isset($_GET['estudiante'])) {
             /* DATOS DE LAS MATRICULAS */
             $this->Ln(5);
             $this->SetFont('Arial', 'B', 12);
-            $this->Cell(190, 10, utf8_decode('Matrículas del Estudiante'), 0, 0, 'L', 0);
+            $this->Cell(190, 10, iconv('UTF-8', 'windows-1252', 'Matrículas del Estudiante'), 0, 0, 'L', 0);
             $this->Ln(10);         
             $this->SetFillColor(15, 23, 42);
             $this->SetTextColor(255, 255, 255); 
@@ -180,15 +180,15 @@ if (isset($_GET['estudiante'])) {
             $this->SetX(8);            
             $this->Cell(38, 10, 'Codigo de Matricula', 1, 0, 'C', 1);
             $this->Cell(38, 10, 'Grado', 1, 0, 'C', 1);                
-            $this->Cell(38, 10, utf8_decode('Sección'), 1, 0, 'C', 1);        
+            $this->Cell(38, 10, iconv('UTF-8', 'windows-1252', 'Sección'), 1, 0, 'C', 1);        
             $this->Cell(38, 10, 'Turno', 1, 0, 'C', 1);        
-            $this->Cell(38, 10, utf8_decode('Añio'), 1, 1, 'C', 1);                    
+            $this->Cell(38, 10, iconv('UTF-8', 'windows-1252', 'Añio'), 1, 1, 'C', 1);                    
         }
         function Footer()
         {
             $this->SetY(-15);
             $this->SetFont('Arial', 'I', 8);
-            $this->Cell(0, 10, utf8_decode('Página '). $this->PageNo(). '/{nb} | Fecha: '. date('d/m/Y'), 0, 0, 'C');
+            $this->Cell(0, 10, iconv('UTF-8', 'windows-1252', 'Página '). $this->PageNo(). '/{nb} | Fecha: '. date('d/m/Y'), 0, 0, 'C');
         }
     }
     
@@ -197,7 +197,7 @@ if (isset($_GET['estudiante'])) {
     $numRows = mysqli_num_rows($allStudent);
 
     $pdf = new PDF($idEstudiante, $primerNombre, $segundoNombre, $primerApellido, $segundoApellido, $fechaNacimiento, $cedula, $genero, $telefono, $direccion, $correo, $primerNombreTutor, $segundoNombreTutor, $primerApellidoTutor, $segundoApellidoTutor);
-
+    $pdf->SetTitle(iconv('UTF-8', 'windows-1252', 'Reporte de Estudiante'));
     $pdf->AliasNbPages();
     $pdf->AddPage();
     $pdf->SetFont('Arial', '', 9);
@@ -212,7 +212,7 @@ if (isset($_GET['estudiante'])) {
         $pdf->Cell(38, 10, $student['Anio'], 1, 1, 'C', 0);
     }
 
-    $pdf->Output(utf8_decode('Hoja de Matrícula de '.$primerNombre.$primerApellido.'.pdf'), 'I');
+    $pdf->Output(iconv('UTF-8', 'windows-1252', 'Hoja de Matrícula de '.$primerNombre.$primerApellido.'.pdf'), 'I');
 
     } catch (Exception $e) {
         error_log("No se encontraron resultados ". $e->getMessage());

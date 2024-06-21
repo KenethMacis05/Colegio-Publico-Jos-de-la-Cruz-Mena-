@@ -127,27 +127,29 @@ CREATE TABLE Calificaciones (
     Sociologia INT(100),
     ECA INT(100),
     FK_Anio_Lectivo INT NOT NULL,
+    FK_Grado INT NOT NULL,
     constraint pk_Estudiante_id foreign key (FK_Estudiante) references Estudiantes(ID_Estudiante) on update cascade on delete cascade,
-    constraint pk_Anio_Lectivo_id foreign key (FK_Anio_Lectivo) references Anio_Lectivo(ID_Anio_Lectivo) on update cascade on delete cascade
+    constraint pk_Anio_Lectivo_id foreign key (FK_Anio_Lectivo) references Anio_Lectivo(ID_Anio_Lectivo) on update cascade on delete cascade,
+    constraint pk_Grado_id foreign key (FK_Grado) references Grados(ID_Grado) on update cascade on delete cascade
 );
 
 -- LLenado de la tabla calificaciones
-INSERT INTO Calificaciones (FK_Estudiante, Matematica, Lengua_Extranjera, Lengua_Literatura, Ciencias_Naturales, Educacion_Fisica, Quimica, OTV, Fisica, Biologia, Historia, Geografia, Economia, Sociologia, ECA, FK_Anio_Lectivo) VALUES 
-(1, 85, 90, 88, 92, 80, 75, 70, 78, 85, 89, 86, 83, 87, 90, 1),
-(2, 80, 82, 84, 88, 76, 71, 69, 77, 84, 88, 85, 82, 86, 89, 1),
-(3, 85, 90, 88, 92, 80, 75, 70, 78, 85, 89, 86, 83, 87, 90, 1),
-(4, 80, 82, 84, 88, 76, 71, 69, 77, 84, 88, 85, 82, 86, 89, 1),
-(5, 85, 90, 88, 92, 80, 75, 70, 78, 85, 89, 86, 83, 87, 90, 1),
-(6, 80, 82, 84, 88, 76, 71, 69, 77, 84, 88, 85, 82, 86, 89, 1),
-(7, 85, 90, 88, 92, 80, 75, 70, 78, 85, 89, 86, 83, 87, 90, 1),
-(8, 80, 82, 84, 88, 76, 71, 69, 77, 84, 88, 85, 82, 86, 89, 1),
-(9, 85, 90, 88, 92, 80, 75, 70, 78, 85, 89, 86, 83, 87, 90, 1),
-(10, 80, 82, 84, 88, 76, 71, 69, 77, 84, 88, 85, 82, 86, 89, 1),
-(11, 85, 90, 88, 92, 80, 75, 70, 78, 85, 89, 86, 83, 87, 90, 1),
-(12, 80, 82, 84, 88, 76, 71, 69, 77, 84, 88, 85, 82, 86, 89, 1),
-(13, 85, 90, 88, 92, 80, 75, 70, 78, 85, 89, 86, 83, 87, 90, 1),
-(14, 80, 82, 84, 88, 76, 71, 69, 77, 84, 88, 85, 82, 86, 89, 1),
-(15, 95, 93, 91, 96, 85, 76, 72, 79, 86, 90, 87, 84, 88, 91, 1);
+INSERT INTO Calificaciones (FK_Estudiante, Matematica, Lengua_Extranjera, Lengua_Literatura, Ciencias_Naturales, Educacion_Fisica, Quimica, OTV, Fisica, Biologia, Historia, Geografia, Economia, Sociologia, ECA, FK_Anio_Lectivo, FK_Grado) VALUES 
+(1, 85, 90, 88, 92, 80, 75, 70, 78, 85, 89, 86, 83, 87, 90, 1, 1),
+(2, 80, 82, 84, 88, 76, 71, 69, 77, 84, 88, 85, 82, 86, 89, 1, 1),
+(3, 85, 90, 88, 92, 80, 75, 70, 78, 85, 89, 86, 83, 87, 90, 1, 2),
+(4, 80, 82, 84, 88, 76, 71, 69, 77, 84, 88, 85, 82, 86, 89, 1, 3),
+(5, 85, 90, 88, 92, 80, 75, 70, 78, 85, 89, 86, 83, 87, 90, 1, 2),
+(6, 80, 82, 84, 88, 76, 71, 69, 77, 84, 88, 85, 82, 86, 89, 1, 5),
+(7, 85, 90, 88, 92, 80, 75, 70, 78, 85, 89, 86, 83, 87, 90, 1, 3),
+(8, 80, 82, 84, 88, 76, 71, 69, 77, 84, 88, 85, 82, 86, 89, 1, 1),
+(9, 85, 90, 88, 92, 80, 75, 70, 78, 85, 89, 86, 83, 87, 90, 1, 5),
+(10, 80, 82, 84, 88, 76, 71, 69, 77, 84, 88, 85, 82, 86, 89, 1, 2),
+(11, 85, 90, 88, 92, 80, 75, 70, 78, 85, 89, 86, 83, 87, 90, 1, 3),
+(12, 80, 82, 84, 88, 76, 71, 69, 77, 84, 88, 85, 82, 86, 89, 1, 2),
+(13, 85, 90, 88, 92, 80, 75, 70, 78, 85, 89, 86, 83, 87, 90, 1, 1),
+(14, 80, 82, 84, 88, 76, 71, 69, 77, 84, 88, 85, 82, 86, 89, 1, 6),
+(15, 95, 93, 91, 96, 85, 76, 72, 79, 86, 90, 87, 84, 88, 91, 1, 4);
 
 -- Creacón de la tabla Grados
 CREATE TABLE Grados (
@@ -210,7 +212,7 @@ CREATE TABLE Matriculas (
 -- LLenado de la tabla Matriculas
 INSERT INTO Matriculas (Cod_Matricula, FK_Estudiante, FK_Grado, FK_Seccion, FK_Turno, FK_Estado, FK_Anio_Lectivo, Fecha_Matricula) VALUES
 ('M001', 1, 1, 1, 1, 1, 1, '2024-01-01'),
-('M002', 2, 1, 1,1, 1, 1, '2024-01-01'),
+('M002', 2, 1, 1, 1, 1, 1, '2024-01-01'),
 ('M003', 3, 1, 1, 1, 1, 1, '2024-01-01'),
 ('M004', 4, 2, 1, 1, 2, 1, '2024-01-01'),
 ('M005', 5, 6, 1, 2, 2, 1, '2024-01-01'),

@@ -17,7 +17,7 @@ try {
     $objUser = new Users();
     $resultado = $objUser->login($usuario, $contrasena);
 
-    if ($resultado && mysqli_num_rows($resultado) > 0) {
+    if (mysqli_num_rows($resultado) > 0) {
         $autenticado = mysqli_fetch_array($resultado);
         $_SESSION['usuarioautenticado'] = $autenticado;
 
@@ -42,6 +42,6 @@ try {
         header("Location: /index.php?error=1");
     }
 } catch (Exception $e) {
-    header("Location: ../template/form_conexion.php");
+    header("Location: /500.html");
     echo "Error en la conexión: " . $e->getMessage();
 }

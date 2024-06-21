@@ -5,7 +5,7 @@
             <i class="bi bi-file-earmark-plus"></i>
             Nuevo
         </button>
-        <button type="button" class="btn btn-warning" style="color: white" onclick="window.location.href='/report/reports.matriculas.pdf.php'">
+        <button type="button" class="btn btn-warning" style="color: white" data-bs-toggle="modal" data-bs-target="#modal_report_matricula">
             <i class="bi bi-file-earmark-pdf-fill"></i>
             PDF
         </button>

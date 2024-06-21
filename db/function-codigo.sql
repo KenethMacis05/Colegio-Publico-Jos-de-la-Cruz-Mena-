@@ -38,6 +38,19 @@ BEGIN
 END//
 DELIMITER ;
 
+-- Calcular la edad por medio del ID
+DELIMITER //
+CREATE FUNCTION function_calcular_edad_id(ID INT)
+RETURNS INT DETERMINISTIC
+BEGIN
+    DECLARE edad INT;
+    SELECT TIMESTAMPDIFF(YEAR, Fecha_Nacimiento, CURDATE()) INTO edad
+    FROM Estudiantes
+    WHERE ID_Estudiante = ID;
+    RETURN edad;
+END//
+DELIMITER ;
+
 -- Calcular la edad por medio del ID o Nombre
 DELIMITER //
 CREATE FUNCTION function_calcular_edad2(ID INT, nombre VARCHAR(45))

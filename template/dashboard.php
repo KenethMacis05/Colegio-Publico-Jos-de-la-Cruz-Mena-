@@ -20,11 +20,15 @@
             </li>
             <li>
                 <a href="/views/tutor.view.php" class="nav-link px-0 align-middle text-white">
-                    <i class="fs-4 bi bi-person-badge"></i> <span class="ms-1 d-none d-sm-inline">Tutores</span></a>
+                    <i class="fs-4 bi bi-person-vcard"></i> <span class="ms-1 d-none d-sm-inline">Tutores</span></a>
             </li>
             <li>
                 <a href="/views/student.view.php" class="nav-link px-0 align-middle text-white">
-                    <i class="fs-4 bi bi-person-vcard"></i> <span class="ms-1 d-none d-sm-inline">Estudiantes</span></a>
+                    <i class="fs-4 bi bi-person-badge"></i> <span class="ms-1 d-none d-sm-inline">Estudiantes</span></a>
+            </li>
+            <li>
+                <a href="/views/calificaciones.view.php" class="nav-link px-0 align-middle text-white">
+                    <i class="fs-4 bi bi-card-heading"></i> <span class="ms-1 d-none d-sm-inline">Calificaciones</span></a>
             </li>
             <li>
                 <a href="/views/registration.view.php" class="nav-link px-0 align-middle text-white">
@@ -56,7 +60,7 @@
                 <li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="../template/cerrar_sesion.php">Cerrar session</a></li>
+                <li><a class="dropdown-item" href="/template/cerrar_sesion.php">Cerrar session</a></li>
             </ul>
         </div>
     </div>

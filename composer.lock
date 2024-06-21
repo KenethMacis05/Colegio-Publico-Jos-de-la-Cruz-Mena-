@@ -4,8 +4,71 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8fc76d4d2fd9a7199969838cb86a710",
+    "content-hash": "d461849676b12bd83f4cc523df507fee",
     "packages": [
+        {
+            "name": "faimmedia/fpdf-utf8",
+            "version": "v3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FaimMedia/fpdf-utf8.git",
+                "reference": "6f37cb6e5974d8f1ec41ebebc561637ac3f647b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FaimMedia/fpdf-utf8/zipball/6f37cb6e5974d8f1ec41ebebc561637ac3f647b8",
+                "reference": "6f37cb6e5974d8f1ec41ebebc561637ac3f647b8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">= 7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FaimMedia\\FPDF\\": "src/FPDF/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "David Wilcock",
+                    "email": "dwilcock@doc-net.com"
+                },
+                {
+                    "name": "Dave Blencowe",
+                    "email": "dblencowe@gmail.com"
+                },
+                {
+                    "name": "Ian Back",
+                    "email": "ianb@bpm1.com"
+                },
+                {
+                    "name": "Tim Peters",
+                    "email": "info@faimmedia.nl",
+                    "homepage": "https://faimmedia.nl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "tfpdf",
+            "homepage": "http://github.com/FaimMedia/tfpdf",
+            "keywords": [
+                "fpdf",
+                "pdf",
+                "utf-8"
+            ],
+            "support": {
+                "source": "https://github.com/FaimMedia/fpdf-utf8/tree/v3.0.3"
+            },
+            "time": "2021-04-05T17:44:04+00:00"
+        },
         {
             "name": "maennchen/zipstream-php",
             "version": "3.1.0",

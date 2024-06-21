@@ -23,20 +23,20 @@ class PDF extends FPDF {
         $this->Cell(60);
         $this->SetTextColor(15, 23, 42); 
         $this->SetFont('Arial', 'B', 20);
-        $this->Cell(70, 10, utf8_decode('Colegio Publico'), 0, 1, 'C', 0);
+        $this->Cell(70, 10, iconv('UTF-8', 'windows-1252', 'Colegio Publico'), 0, 1, 'C', 0);
         $this->Cell(60);
         $this->SetFont('Arial', 'B', 26);
-        $this->Cell(70, 10, utf8_decode('José de la Cruz Mena'), 0, 1, 'C', 0);
+        $this->Cell(70, 10, iconv('UTF-8', 'windows-1252', 'José de la Cruz Mena'), 0, 1, 'C', 0);
         $this->Cell(60);
         $this->SetTextColor(219, 161, 5);
         $this->SetFont('Arial', 'BI', 14);
-        $this->Cell(70, 10, utf8_decode('Dios, Patria y Hogar'), 0, 0, 'C', 0);
+        $this->Cell(70, 10, iconv('UTF-8', 'windows-1252', 'Dios, Patria y Hogar'), 0, 0, 'C', 0);
         /* Titulo DE LA TABLA */
         $this->Ln(20); 
         $this->Cell(60);
         $this->SetTextColor(15, 23, 42); 
         $this->SetFont('Arial', 'B', 14);
-        $this->Cell(70, 10, utf8_decode('Reporte de usuarios'), 0, 0, 'C', 0);        
+        $this->Cell(70, 10, iconv('UTF-8', 'windows-1252', 'Reporte de usuarios'), 0, 0, 'C', 0);        
         $this->Ln(15);         
         $this->SetFillColor(15, 23, 42);
         $this->SetTextColor(255, 255, 255); 
@@ -54,7 +54,7 @@ class PDF extends FPDF {
     {
         $this->SetY(-15);
         $this->SetFont('Arial', 'I', 8);
-        $this->Cell(0, 10, utf8_decode('Página '). $this->PageNo(). '/{nb} | Fecha: '. date('d/m/Y'), 0, 0, 'C');
+        $this->Cell(0, 10, iconv('UTF-8', 'windows-1252', 'Página '). $this->PageNo(). '/{nb} | Fecha: '. date('d/m/Y'), 0, 0, 'C');
     }
 }
 
@@ -63,7 +63,7 @@ $allUsers = $objUser->read();
 $numRows = mysqli_num_rows($allUsers);
 
 $pdf = new PDF();
-
+$pdf->SetTitle(iconv('UTF-8', 'windows-1252', 'Reporte de Usuarios'));
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Arial', '', 9);

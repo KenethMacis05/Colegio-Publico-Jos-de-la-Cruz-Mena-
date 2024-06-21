@@ -221,10 +221,10 @@ DELIMITER ;
 -- Crear calificacion 
 DELIMITER //
 CREATE PROCEDURE sp_create_calificaciones(
-IN FK_Estudiante INT, Matematica INT, Lengua_Extranjera INT, Lengua_Literatura INT, Ciencias_Naturales INT, Educacion_Fisica INT, Quimica INT, OTV INT, Fisica INT, Biologia INT, Historia INT, Geografia INT, Economia INT, Sociologia INT, ECA INT,FK_Anio_Lectivo INT)
+IN FK_Estudiante INT, Matematica INT, Lengua_Extranjera INT, Lengua_Literatura INT, Ciencias_Naturales INT, Educacion_Fisica INT, Quimica INT, OTV INT, Fisica INT, Biologia INT, Historia INT, Geografia INT, Economia INT, Sociologia INT, ECA INT,FK_Anio_Lectivo INT, FK_Grado INT)
 BEGIN
-    INSERT INTO Calificaciones (FK_Estudiante, Matematica, Lengua_Extranjera, Lengua_Literatura, Ciencias_Naturales, Educacion_Fisica, Quimica, OTV, Fisica, Biologia, Historia, Geografia, Economia, Sociologia, ECA, FK_Anio_Lectivo) VALUES 
-    (FK_Estudiante, Matematica, Lengua_Extranjera, Lengua_Literatura, Ciencias_Naturales, Educacion_Fisica, Quimica, OTV, Fisica, Biologia, Historia, Geografia, Economia, Sociologia, ECA, FK_Anio_Lectivo);
+    INSERT INTO Calificaciones (FK_Estudiante, Matematica, Lengua_Extranjera, Lengua_Literatura, Ciencias_Naturales, Educacion_Fisica, Quimica, OTV, Fisica, Biologia, Historia, Geografia, Economia, Sociologia, ECA, FK_Anio_Lectivo, FK_Grado) VALUES 
+    (FK_Estudiante, Matematica, Lengua_Extranjera, Lengua_Literatura, Ciencias_Naturales, Educacion_Fisica, Quimica, OTV, Fisica, Biologia, Historia, Geografia, Economia, Sociologia, ECA, FK_Anio_Lectivo, FK_Grado);
 END//
 DELIMITER ; 
 
@@ -233,17 +233,31 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE sp_read_calificaciones()
 BEGIN
-    SELECT CONCAT(E.Pri_Nombre, " ", E.Pri_Apellido) AS Estudiante, C.*, AL.Anio AS Anio_Lectivo
+    SELECT CONCAT(E.Pri_Nombre, " ", E.Pri_Apellido) AS Estudiante, E.Cedula, E.Telefono, G.Grado, C.*, AL.Anio AS Anio_Lectivo
 	FROM Calificaciones C
 	JOIN Estudiantes E ON C.FK_Estudiante = E.ID_Estudiante
-	JOIN Anio_Lectivo AL ON C.FK_Anio_Lectivo = AL.ID_Anio_Lectivo;
+	JOIN Anio_Lectivo AL ON C.FK_Anio_Lectivo = AL.ID_Anio_Lectivo
+    JOIN Grados G ON C.FK_Grado = G.ID_Grado
+    ORDER BY ID_Calificacion;
 END//
 DELIMITER ; 
 
+-- Leer calificación por ID
+DELIMITER //
+CREATE PROCEDURE sp_read_calificaciones_id(IN ID INT)
+BEGIN
+    SELECT CONCAT(E.Pri_Nombre, " ", E.Pri_Apellido) AS Estudiante, E.Cedula, E.Telefono, G.Grado, C.*, AL.Anio AS Anio_Lectivo
+	FROM Calificaciones C
+	JOIN Estudiantes E ON C.FK_Estudiante = E.ID_Estudiante
+	JOIN Anio_Lectivo AL ON C.FK_Anio_Lectivo = AL.ID_Anio_Lectivo
+    JOIN Grados G ON C.FK_Grado = G.ID_Grado
+    WHERE C.ID_Calificacion = ID;
+END//
+DELIMITER ;
 -- ----------------------------------------------------------------------------------------------------------------------
 -- Editar calificacion
 DELIMITER //
-CREATE PROCEDURE sp_update_calificaciones(IN ID INT, FK_Estudiante INT, Matematica INT, Lengua_Extranjera INT, Lengua_Literatura INT, Ciencias_Naturales INT, Educacion_Fisica INT, Quimica INT, OTV INT, Fisica INT, Biologia INT, Historia INT, Geografia INT, Economia INT, Sociologia INT, ECA INT, FK_Anio_Lectivo INT)
+CREATE PROCEDURE sp_update_calificaciones(IN ID INT, FK_Estudiante INT, Matematica INT, Lengua_Extranjera INT, Lengua_Literatura INT, Ciencias_Naturales INT, Educacion_Fisica INT, Quimica INT, OTV INT, Fisica INT, Biologia INT, Historia INT, Geografia INT, Economia INT, Sociologia INT, ECA INT, FK_Anio_Lectivo INT, FK_Grado INT)
 BEGIN
 	SET sql_safe_updates = 0;
     UPDATE Calificaciones SET FK_Estudiante = FK_Estudiante, 
@@ -261,7 +275,8 @@ BEGIN
         Economia = Economia,
         Sociologia = Sociologia,
         ECA = ECA,
-        FK_Anio_Lectivo = FK_Anio_Lectivo
+        FK_Anio_Lectivo = FK_Anio_Lectivo,
+        FK_Grado = FK_Grado
     WHERE ID = ID_Calificacion;
 END//
 DELIMITER ; 
@@ -384,6 +399,61 @@ BEGIN
 END//
 DELIMITER ; 
 
+-- Leer Matriculas por grado y añio de la matricula
+DELIMITER //
+CREATE PROCEDURE sp_read_matricula_grado_anio(IN Grado INT, Anio INT)
+BEGIN
+	SELECT 
+		M.*, 
+		E.*,
+        Tut.*,
+        E.Pri_Nombre, 
+		E.Seg_Nombre, 
+		E.Pri_Apellido, 
+		E.Seg_Apellido, 
+		E.Telefono, 
+        Gen.Genero, 
+        Gr.Grado,
+        Sec.Seccion, 
+        T.Turno, 
+		Est.Estado, 
+        E.Direccion, 
+		A.Anio,
+        Tut.Pri_Nombre AS Tutor_Pri_Nombre, 
+		Tut.Seg_Nombre AS Tutor_Seg_Nombre, 
+		Tut.Pri_Apellido AS Tutor_Pri_Apellido, 
+		Tut.Seg_Apellido AS Tutor_Seg_Apellido,
+		Tut.Cedula AS Tutor_Cedula,
+		Tut.Telefono AS Tutor_Telefono,
+		Tut.Direccion AS Tutor_Direccion,
+		Tut.Correo_Electronico AS Tutor_Correo,
+		Paren.Parentesco
+    FROM 
+		Matriculas M
+	INNER JOIN 
+		Estudiantes E ON M.FK_Estudiante = E.ID_Estudiante
+	LEFT JOIN 
+        Generos Gen ON E.FK_Genero = Gen.ID_Genero
+	INNER JOIN 
+		Grados Gr ON M.FK_Grado = Gr.ID_Grado
+	INNER JOIN 
+		Secciones Sec ON M.FK_Seccion = Sec.ID_Seccion
+	INNER JOIN 
+		Turnos T ON M.FK_Turno = T.ID_Turno
+	INNER JOIN 
+		Estados Est ON M.FK_Estado = Est.ID_Estado
+	INNER JOIN 
+		Anio_Lectivo A ON M.FK_Anio_Lectivo = A.ID_Anio_Lectivo
+	INNER JOIN 
+		Tutores Tut ON E.FK_Tutor = Tut.ID_Tutor
+	LEFT JOIN 
+        Parentescos Paren ON E.FK_Parentesco = Paren.ID_Parentesco
+    WHERE 
+		M.FK_Grado = Grado AND M.FK_Anio_Lectivo = AnioLectivo
+    ORDER BY C.ID_Calificacion;
+END//
+DELIMITER ; 
+
 -- ----------------------------------------------------------------------------------------------------------------------
 -- Editar Matricula
 DELIMITER //
@@ -444,6 +514,17 @@ BEGIN
 END//
 DELIMITER ; 
 
+-- Leer usuarios por id
+DELIMITER //
+CREATE PROCEDURE sp_read_user_id(IN ID INT)
+BEGIN
+    SELECT U.*, T.Tipo AS Permisos
+	FROM USERS U
+	JOIN Tipos_Users T ON U.FK_Tipo_User = T.ID_Tipo
+    WHERE U.ID_User = ID;
+END//
+DELIMITER ; 
+
 -- Login
 DELIMITER //
 CREATE PROCEDURE sp_login_user(IN usuario VARCHAR(20), contrasena INT)
@@ -455,6 +536,17 @@ BEGIN
 END//
 DELIMITER ; 
 
+-- ----------------------------------------------------------------------------------------------------------------------
+-- Editar imagen de usuario
+DELIMITER //
+CREATE PROCEDURE sp_update_user_img(IN ID INT, Imagen longblob)
+BEGIN
+	SET sql_safe_updates = 0;
+    UPDATE users SET     
+		Imagen = Imagen
+    WHERE ID = ID_USER;
+END//
+DELIMITER ; 
 -- ----------------------------------------------------------------------------------------------------------------------
 -- Editar usuario
 DELIMITER //
@@ -486,9 +578,10 @@ BEGIN
     WHERE ID = ID_USER;
 END//
 DELIMITER ; 
-
+-- ----------------------------------------------------------------------------------------------------------------------
+-- Editar usuario sin imagen
 DELIMITER //
-CREATE PROCEDURE sp_update_user2(
+CREATE PROCEDURE sp_update_user_sin_img(
 IN ID INT,
 FK_Tipo_User INT,
 Usuario VARCHAR(20),
@@ -514,7 +607,6 @@ BEGIN
     WHERE ID = ID_USER;
 END//
 DELIMITER ; 
-
 -- ----------------------------------------------------------------------------------------------------------------------
 -- Eliminar usuario
 DELIMITER //
@@ -522,4 +614,12 @@ CREATE PROCEDURE sp_delete_user(in ID int)
 BEGIN
     DELETE FROM users WHERE ID = ID_USER;
 END//
-DELIMITER ;  
+DELIMITER ;
+-- ----------------------------------------------------------------------------------------------------------------------
+-- Eliminar imagen de usuario
+DELIMITER //
+CREATE PROCEDURE sp_delete_user_img(in ID int)
+BEGIN
+    UPDATE users SET Imagen = '' WHERE ID = ID_USER;
+END//
+DELIMITER ;

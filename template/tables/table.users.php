@@ -38,14 +38,14 @@
                 $objUser = new Users();
                 $allUsers = $objUser->read();                
                 $numRows = mysqli_num_rows($allUsers);
-
+                $config = 0;
                 for ($i = 0; $i < $numRows; $i++) {
                     $user = mysqli_fetch_assoc($allUsers);
                 ?>
                     <tr>
                         <td><?= $user["ID_USER"] ?></td>
                         <td>
-                            <div style="display: flex; justify-content: start; align-items: center;">
+                            <div style="display: flex; justify-content: start; align-items: center; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modal_edit_img<?= $user["ID_USER"] ?>">
                                 <!-- Verifica si $user['Imagen'] existe -->
                                 <?php if (!empty($user['Imagen'])):?>
                                     <div style="border-radius: 50%; width: 30px; height: 30px; overflow: hidden; margin-right: 10px;">
@@ -69,6 +69,7 @@
                             <button class="btn btn-sm btn-primary edit-button" data-bs-toggle="modal" data-bs-target="#modal_edit_user<?= $user["ID_USER"];?>"><i class="fa-solid fa-pencil"></i></button>
                             <button class="btn btn-sm btn-danger retirar-button" onclick="alertDeleteUser()"><i class="fa-solid fa-trash-can"></i></button>
                             <?php include "../template/modals/edit_user_form.php" ?>
+                            <?php include "../template/modals/edit_user_img.php"; $config = 0;?>
                         </td>
                     </tr>
                 <?php } ?>

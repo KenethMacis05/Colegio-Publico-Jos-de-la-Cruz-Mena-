@@ -24,7 +24,6 @@ class Conexion{
     }
 
     public function conectar(){
-
         $this->mysqli = new mysqli($this->server,$this->user,$this->pwd,$this->bd);
 
         if($this->mysqli->connect_errno){
@@ -47,7 +46,7 @@ class Conexion{
         $this->cerrarConexion();
         return $result;
     }    
-    // Nuevo método para preparar consultas
+    
     public function prepare($query){
         $stmt = $this->conectar()->prepare($query);
         if(!$stmt){

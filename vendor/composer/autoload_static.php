@@ -22,6 +22,10 @@ class ComposerStaticInit5b6c1898d9d60c4c9036b87f639efde1
         array (
             'Matrix\\' => 7,
         ),
+        'F' => 
+        array (
+            'FaimMedia\\FPDF\\' => 15,
+        ),
         'C' => 
         array (
             'Complex\\' => 8,
@@ -39,8 +43,8 @@ class ComposerStaticInit5b6c1898d9d60c4c9036b87f639efde1
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -53,6 +57,10 @@ class ComposerStaticInit5b6c1898d9d60c4c9036b87f639efde1
         'Matrix\\' => 
         array (
             0 => __DIR__ . '/..' . '/markbaker/matrix/classes/src',
+        ),
+        'FaimMedia\\FPDF\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/faimmedia/fpdf-utf8/src/FPDF',
         ),
         'Complex\\' => 
         array (

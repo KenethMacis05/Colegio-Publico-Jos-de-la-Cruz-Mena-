@@ -11,6 +11,9 @@ if ($url_actual!== '/' && strpos($url_actual, 'views')!== false) {
         case 'student.view.php':
             $tituloFormSection = 'Estudiantes';
             break;
+        case 'calificaciones.view.php':
+            $tituloFormSection = 'Calificaciones';
+            break;
         case 'registration.view.php':
             $tituloFormSection = 'Matriculas';
             break;

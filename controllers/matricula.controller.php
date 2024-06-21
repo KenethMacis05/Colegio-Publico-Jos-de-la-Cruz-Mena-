@@ -37,3 +37,25 @@ if (isset($_GET['delete'])) {
     }
     
 }
+
+//Buscar reporte
+if (isset($_POST['reportPDF']) || isset($_POST['reportEXCEL'])) {
+    try {
+        $grado = filter_input(INPUT_POST, 'grado', FILTER_SANITIZE_NUMBER_INT);
+        $anio = filter_input(INPUT_POST, 'anio', FILTER_SANITIZE_NUMBER_INT);
+        $params = [$grado, $anio];
+        $resultado = $objMatricula->readGradoAnio($grado, $anio);
+
+        if (isset($_POST['reportPDF'])) {
+            header("Location: ../report/reports.matriculas.pdf.php?datos=$params");
+            exit;
+        } elseif (isset($_POST['reportEXCEL'])){
+            header("Location: ../report/reports.matriculas.excel.php?datos=$resultado");
+            exit;
+        }
+        
+    } catch (Exception $e) {
+        error_log("Error al realizar la consulta: ". $e->getMessage());
+        exit;
+    }
+}

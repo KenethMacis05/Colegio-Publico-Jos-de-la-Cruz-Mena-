@@ -1,6 +1,8 @@
 <?php 
     include_once "../template/zona_priv.php";
     include_once "../models/matricula.model.php";
+    include_once "../models/complementos.model.php";
+    $objComplemento = new Complemento;
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +32,8 @@
     </div>
     <!-- Modal nueva matricula -->
     <?php include_once "../template/modals/new_matricula_form.php" ?>
+    <!-- Modal buscar reporte -->
+    <?php include_once '../template/modals/modal_report_matricula.php' ?>
 </body>
 
 <!-- Recursos Necesarios -->

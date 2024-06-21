@@ -14,52 +14,86 @@
                         </div>
                         <div class="col-md-6">
                             <label for="FK_Estudiante" class="form-label">Código Estudiante</label>
-                            <input placeholder="#_Estudiante" type="number" class="form-control" id="FK_Estudiante" name="FK_Estudiante" required style="background-color: #E5E5E5;">
-                        </div>                        
+                            <select placeholder="#_Estudiante" class="form-select" id="FK_Estudiante" name="FK_Estudiante" required style="background-color: #E5E5E5;">
+                                <option value="" disabled selected>Seleccione...</option>
+                                <?php
+                                $result = $objComplemento->readEstudiantes();
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<option value='" . $row["ID_Estudiante"] . "'>" . $row["Estudiante"] . "</option>";
+                                    }
+                                } else {
+                                    echo "No results";
+                                }
+                                ?>
+                            </select>
+                        </div>
                     </div>
                     <div class="mb-3 row">
                         <div class="col-md-6">
                             <label for="FK_Grado" class="form-label">Grado</label>
                             <select class="form-select" id="FK_Grado" name="FK_Grado" required style="background-color: #E5E5E5;">
                                 <option value="" disabled selected>Seleccione...</option>
-                                <option value="1">1ro</option>
-                                <option value="2">2do</option>
-                                <option value="3">3ro</option>
-                                <option value="4">4to</option>
-                                <option value="5">5to</option>
-                                <option value="6">6to</option>
-                                <option value="7">7mo</option>
-                                <option value="8">8vo</option>
-                                <option value="9">9no</option>
-                                <option value="10">10mo</option>
-                                <option value="11">11vo</option>
+                                <?php
+                                $result = $objComplemento->readGrados();
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<option value='" . $row["ID_Grado"] . "'>" . $row["Grado"] . "</option>";
+                                    }
+                                } else {
+                                    echo "No results";
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="FK_Seccion" class="form-label">Sección</label>
                             <select class="form-select" id="FK_Seccion" name="FK_Seccion" required style="background-color: #E5E5E5;">
                                 <option value="" disabled selected>Seleccione...</option>
-                                <option value="1">A</option>
-                                <option value="2">B</option>
-                                <option value="3">C</option>
+                                <?php
+                                $result = $objComplemento->readSecciones();
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<option value='" . $row["ID_Seccion"] . "'>" . $row["Seccion"] . "</option>";
+                                    }
+                                } else {
+                                    echo "No results";
+                                }
+                                ?>
                             </select>
-                        </div>                        
+                        </div>
                     </div>
                     <div class="mb-3 row">
                         <div class="col-md-6">
                             <label for="FK_Turno" class="form-label">Turno</label>
                             <select class="form-select" id="FK_Turno" name="FK_Turno" required style="background-color: #E5E5E5;">
                                 <option value="" disabled selected>Seleccione...</option>
-                                <option value="1">Matutino</option>
-                                <option value="2">Vespertido</option>
+                                <?php
+                                $result = $objComplemento->readTurnos();
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<option value='" . $row["ID_Turno"] . "'>" . $row["Turno"] . "</option>";
+                                    }
+                                } else {
+                                    echo "No results";
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="FK_Estado" class="form-label">Estado</label>
                             <select class="form-select" id="FK_Estado" name="FK_Estado" required style="background-color: #E5E5E5;">
                                 <option value="" disabled selected>Seleccione...</option>
-                                <option value="1">Reingreso</option>
-                                <option value="2">Nuevo Ingreso</option>
+                                <?php
+                                $result = $objComplemento->readEstados();
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<option value='" . $row["ID_Estado"] . "'>" . $row["Estado"] . "</option>";
+                                    }
+                                } else {
+                                    echo "No results";
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>
@@ -67,13 +101,13 @@
                         <div class="col-md-6">
                             <label for="anio" class="form-label">Año Lectivo</label>
                             <select class="form-select" id="anio" name="anio" required style="background-color: #E5E5E5;">
-                                <option value="<?= $_SESSION['school_period']['ID_Anio_Lectivo']; ?>" ><?= $_SESSION['school_period']['Anio']; ?></option>
-                            </select>                            
+                                <option value="<?= $_SESSION['school_period']['ID_Anio_Lectivo']; ?>"><?= $_SESSION['school_period']['Anio']; ?></option>
+                            </select>
                         </div>
                         <div class="col-md-6">
                             <label for="Fecha_Matricula" class="form-label">Fecha Matricula</label>
                             <input type="date" class="form-control" id="Fecha_Matricula" name="Fecha_Matricula" required>
-                        </div>            
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
@@ -86,7 +120,7 @@
                         </button>
                     </div>
                 </form>
-            </div>            
+            </div>
         </div>
     </div>
 </div>

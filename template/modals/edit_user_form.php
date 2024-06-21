@@ -8,7 +8,7 @@
             <div class="modal-body">
                 <form action="/controllers/user.controllers.php" method="POST">
                     <input type="hidden" name="modificaUser" id="modificaUser" value="<?= $user["ID_USER"];?>">
-
+                    <input type="hidden" name="config" id="config" value="<?= $config;?>">
                     <div class="mb-3 row">
                         <div class="col-md-6">
                             <label for="edit_tipo_usuario" class="form-label">Tipo de Usuario <span class="text-danger">*</span></label>
@@ -29,9 +29,9 @@
                             <input type="password" value="<?= $user["Contrasena"];?>" class="form-control" id="contrasena" name="contrasena" required style="background-color: #E5E5E5;">
                         </div>
                         <div class="col-md-6">
-                            <label for="edit_imagen" class="form-label">Imagen</label>
+                            <label for="imagen" class="form-label">Imagen</label>
                             <input type="file" class="form-control" id="imagen" name="imagen" style="background-color: #E5E5E5;" accept="image/*">
-                        </div>                        
+                        </div>                      
                     </div>
                     <div class="mb-3 row">
                         <div class="col-md-6">

@@ -32,6 +32,7 @@ class Matricula
         }
     }
 
+
     //Leer
     public function read()
     {
@@ -44,6 +45,7 @@ class Matricula
         } 
     }
 
+    //Leer matricula por ID
     public function readMatricula($ID)
     {
         try {
@@ -55,6 +57,18 @@ class Matricula
         } 
     }
     
+    //Leer matricula por grado y año
+    public function readGradoAnio($grado, $anio)
+    {
+        try {
+            $consulta = "CALL sp_read_matriculas_grado_anio('$grado', '$anio');";
+            return $this->objetoConexion->consultar($consulta);
+        } catch (Exception $e) {
+            echo "Error en la cansulta: " . $e->getMessage();
+            return false;
+        } 
+    }
+
     //Actualizar
     public function update($id, $codMatricula, $fkEstudiante, $fkGrado, $fkSeccion, $fkTurno, $fkEstado, $fkAnioLectivo, $fechaMatricula)
     {
