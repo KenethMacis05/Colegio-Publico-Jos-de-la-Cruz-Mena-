@@ -2,6 +2,8 @@
 include_once "../template/zona_priv.php";
 include_once "../template/permisos.php";
 include_once "../models/USERS.model.php";
+include_once "../models/complementos.model.php";
+$objComplemento = new Complemento;
 ?>
 
 <!DOCTYPE html>

@@ -71,6 +71,42 @@ class Complemento
         } 
     }
 
+    //Leer Generos
+    public function readGeneros()
+    {
+        try {
+            $consulta = "SELECT * FROM Generos";
+            return $this->objetoConexion->consultar($consulta);
+        } catch (Exception $e) {
+            echo "Error en la cansulta: " . $e->getMessage();
+            return false;
+        } 
+    }
+
+    //Leer Parentescos
+    public function readParentescos()
+    {
+        try {
+            $consulta = "SELECT * FROM Parentescos";
+            return $this->objetoConexion->consultar($consulta);
+        } catch (Exception $e) {
+            echo "Error en la cansulta: " . $e->getMessage();
+            return false;
+        } 
+    }
+
+    //Leer Permisos
+    public function readPermisos()
+    {
+        try {
+            $consulta = "SELECT * FROM Tipos_Users";
+            return $this->objetoConexion->consultar($consulta);
+        } catch (Exception $e) {
+            echo "Error en la cansulta: " . $e->getMessage();
+            return false;
+        } 
+    }
+
     //Leer Estudiantes
     public function readEstudiantes()
     {

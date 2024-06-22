@@ -1,6 +1,8 @@
 <?php
 require_once "../template/zona_priv.php";
 include_once "../models/estudiante.model.php";
+include_once "../models/complementos.model.php";
+$objComplemento = new Complemento;
 ?>
 
 <!DOCTYPE html>

@@ -12,7 +12,7 @@ include_once "../models/tutor.model.php";
     <!-- Recursos Necesarios -->
     <?php include_once "../template/head.php" ?>    
     <!-- Titulo de la pagina -->
-    <title>Turores | Sistema JDLCM</title>
+    <title>Tutores | Sistema JDLCM</title>
 </head>
 
 <body class="bg-secondary">

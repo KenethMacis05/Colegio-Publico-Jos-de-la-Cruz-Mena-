@@ -42,8 +42,16 @@
                             <label for="genero" class="form-label">Género <span class="text-danger">*</span></label>
                             <select class="form-select" id="genero" name="genero" required>
                                 <option value="" disabled selected>Seleccione...</option>
-                                <option value="1">Masculino</option>
-                                <option value="2">Femenino</option>
+                                <?php
+                                $result = $objComplemento->readGeneros();
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<option value='" . $row["ID_Genero"] . "'>" . $row["Genero"] . "</option>";
+                                    }
+                                } else {
+                                    echo "No results";
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="col-md-6">
@@ -72,9 +80,16 @@
                             <label for="fkParentesco" class="form-label">Parentesco <span class="text-danger">*</span></label>
                             <select name="fkParentesco" id="fkParentesco" class="form-select" required style="background-color: #E5E5E5;">
                                 <option value="" disabled selected>Parentesco</option>
-                                <option value="1">Padre</option>
-                                <option value="2">Madre</option>
-                                <option value="3">Tutor Legal</option>
+                                <?php
+                                $result = $objComplemento->readParentescos();
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<option value='" . $row["ID_Parentesco"] . "'>" . $row["Parentesco"] . "</option>";
+                                    }
+                                } else {
+                                    echo "No results";
+                                }
+                                ?>
                             </select>                         
                         </div>
                     </div>

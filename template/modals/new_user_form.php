@@ -12,8 +12,16 @@
                             <label for="fk_tipo_usuario" class="form-label">Tipo de Usuario <span class="text-danger">*</span></label>
                             <select class="form-select" id="tipo_usuario" name="tipo_usuario" style="background-color: #E5E5E5;">
                                 <option value="" disabled selected>Seleccione...</option>
-                                <option value="1">Admin</option>
-                                <option value="2">Secretario</option>
+                                <?php
+                                $result = $objComplemento->readPermisos();
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<option value='" . $row["ID_Tipo"] . "'>" . $row["Tipo"] . "</option>";
+                                    }
+                                } else {
+                                    echo "No results";
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="col-md-6">

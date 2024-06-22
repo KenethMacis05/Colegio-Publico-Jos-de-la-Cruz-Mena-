@@ -45,6 +45,18 @@ class Matricula
         } 
     }
 
+    //Contar la cantidad de Matrículas por año
+    public function readCantidadMatriculasAnio()
+    {
+        try {
+            $consulta = "CALL sp_read_matriculas_anio();";
+            return $this->objetoConexion->consultar($consulta);
+        } catch (Exception $e) {
+            echo "Error en la cansulta: " . $e->getMessage();
+            return false;
+        } 
+    }
+
     //Leer matricula por ID
     public function readMatricula($ID)
     {

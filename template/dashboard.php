@@ -19,6 +19,11 @@
                 </a>
             </li>
             <li>
+                <a href="/views/estadisticas.view.php" class="nav-link px-0 align-middle text-white">
+                    <i class="fs-4 bi bi-bar-chart-line"></i> <span class="ms-1 d-none d-sm-inline">Estadisticas</span>
+                </a>
+            </li>
+            <li>
                 <a href="/views/tutor.view.php" class="nav-link px-0 align-middle text-white">
                     <i class="fs-4 bi bi-person-vcard"></i> <span class="ms-1 d-none d-sm-inline">Tutores</span></a>
             </li>

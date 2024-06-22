@@ -4,11 +4,11 @@ include_once "../models/calificaciones.model.php";
 
 $objCalificacion = new Calificacion();
 
-if (isset($_POST['modificaCalificacion']) || isset($_POST['FK_Estudiante']) && isset($_POST['FK_Grado']) && isset($_POST['anio']) && isset($_POST['matematica']) && isset($_POST['lenguaExtranjera']) && isset($_POST['lenguaLiteratura']) && isset($_POST['cienciasNaturales']) && isset($_POST['educacionFisica']) && isset($_POST['quimica']) && isset($_POST['otv']) && isset($_POST['fisica']) && isset($_POST['biologia']) && isset($_POST['historia']) && isset($_POST['geografia']) && isset($_POST['economia']) && isset($_POST['sociologia']) && isset($_POST['eca'])) {
+if (isset($_POST['modificaCalificacion']) || isset($_POST['FK_Estudiante']) && isset($_POST['FK_Grado']) && isset($_POST['FK_Anio']) && isset($_POST['matematica']) && isset($_POST['lenguaExtranjera']) && isset($_POST['lenguaLiteratura']) && isset($_POST['cienciasNaturales']) && isset($_POST['educacionFisica']) && isset($_POST['quimica']) && isset($_POST['otv']) && isset($_POST['fisica']) && isset($_POST['biologia']) && isset($_POST['historia']) && isset($_POST['geografia']) && isset($_POST['economia']) && isset($_POST['sociologia']) && isset($_POST['eca'])) {
     $id = filter_var(trim($_POST['modificaCalificacion']), FILTER_SANITIZE_NUMBER_INT);
     $estudiante = filter_var(trim($_POST['FK_Estudiante']), FILTER_SANITIZE_NUMBER_INT);
-    $anio = filter_var(trim($_POST['FK_Estudiante']), FILTER_SANITIZE_NUMBER_INT);
-    $grado = filter_var(trim($_POST['FK_Estudiante']), FILTER_SANITIZE_NUMBER_INT);
+    $anio = filter_var(trim($_POST['FK_Anio']), FILTER_SANITIZE_NUMBER_INT);
+    $grado = filter_var(trim($_POST['FK_Grado']), FILTER_SANITIZE_NUMBER_INT);
     $matematica =  filter_var(trim($_POST['matematica']), FILTER_SANITIZE_NUMBER_INT);
     $lenguaExtranjera = filter_var(trim($_POST['lenguaExtranjera']), FILTER_SANITIZE_NUMBER_INT);
     $lenguaLiteratura = filter_var(trim($_POST['lenguaLiteratura']), FILTER_SANITIZE_NUMBER_INT);

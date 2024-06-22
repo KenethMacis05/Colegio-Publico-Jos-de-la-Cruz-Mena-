@@ -5,6 +5,9 @@ $tituloFormSection = '';
 if ($url_actual!== '/' && strpos($url_actual, 'views')!== false) {
     $nombrePagina = substr($url_actual, strlen('views/') + 1);
     switch ($nombrePagina) {        
+        case 'estadisticas.view.php':
+            $tituloFormSection = 'Estadisticas';
+            break;
         case 'tutor.view.php':
             $tituloFormSection = 'Tutores';
             break;

@@ -10,3 +10,5 @@
 <!-- DataTable -->
 <script src="/js/datatable_js/jquery.dataTables.min.js"></script>
 <script src="/js/datatable_js/dataTables.bootstrap5.min.js"></script>
+<!-- ChartJS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

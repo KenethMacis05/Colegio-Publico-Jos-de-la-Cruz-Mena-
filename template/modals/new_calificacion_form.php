@@ -15,25 +15,33 @@
                         <div class="col-md-4">
                             <label for="FK_Grado" class="form-label">Grado</label>
                             <select class="form-select" id="FK_Grado" name="FK_Grado" required style="background-color: #E5E5E5;" placeholder="Grado" require>
-                                <option value="" >Seleccione...</option>
-                                <option value="1">1ro</option>
-                                <option value="2">2do</option>
-                                <option value="3">3ro</option>
-                                <option value="4">4to</option>
-                                <option value="5">5to</option>
-                                <option value="6">6to</option>
-                                <option value="7">7mo</option>
-                                <option value="8">8vo</option>
-                                <option value="9">9no</option>
-                                <option value="10">10mo</option>
-                                <option value="11">11vo</option>
+                                <option value="" disabled selected>Seleccione...</option>
+                                <?php
+                                $result = $objComplemento->readGrados();
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<option value='" . $row["ID_Grado"] . "'>" . $row["Grado"] . "</option>";
+                                    }
+                                } else {
+                                    echo "No results";
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="col-md-4">
                             <label for="anio" class="form-label">Año Lectivo</label>
-                            <select class="form-select" id="anio" name="anio" required style="background-color: #E5E5E5;">
-                                <option value="" >Seleccione...</option>
-                                <option value="1" >2024</option>
+                            <select class="form-select" id="FK_Anio" name="FK_Anio" required style="background-color: #E5E5E5;">
+                                <option value="" disabled selected>Seleccione...</option>
+                                <?php
+                                $result = $objComplemento->readPeriodoEscolar();
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<option value='" . $row["ID_Anio_Lectivo"] . "'>" . $row["Anio"] . "</option>";
+                                    }
+                                } else {
+                                    echo "No results";
+                                }
+                                ?>
                             </select>                            
                         </div>              
                     </div>

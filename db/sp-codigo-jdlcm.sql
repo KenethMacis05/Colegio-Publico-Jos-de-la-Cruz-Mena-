@@ -23,6 +23,7 @@
 -- SP Calificaciones
 -- CALL sp_create_calificaciones('', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 -- CALL sp_read_calificaciones();
+-- CALL sp_read_calificaciones_anio();
 -- CALL sp_read_calificaciones_id('');
 -- CALL sp_update_calificaciones('', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 -- CALL sp_delete_calificaciones('');
@@ -30,6 +31,7 @@
 -- SP Matriculas
 -- CALL sp_create_matricula('', '', '', '', '', '', '', '');
 -- CALL sp_read_matricula();
+-- CALL sp_read_matriculas_anio();
 -- CALL sp_read_matricula_estudiante('');
 -- CALL sp_update_matricula('', '', '', '', '', '', '', '', '');
 -- CALL sp_delete_matricula('');
@@ -242,6 +244,22 @@ BEGIN
 END//
 DELIMITER ; 
 
+-- Leer la cantidad de calificaciones por año
+DELIMITER //
+CREATE PROCEDURE sp_read_calificaciones_anio()
+BEGIN
+    SELECT 
+        A.Anio AS Anio,
+        COUNT(*) AS Cantidad
+    FROM 
+        Calificaciones C
+    JOIN 
+        Anio_Lectivo A ON C.FK_Anio_Lectivo = A.ID_Anio_Lectivo
+    GROUP BY 
+        A.Anio;
+END//
+DELIMITER ;
+
 -- Leer calificación por ID
 DELIMITER //
 CREATE PROCEDURE sp_read_calificaciones_id(IN ID INT)
@@ -302,6 +320,22 @@ END//
 DELIMITER
 
 -- ----------------------------------------------------------------------------------------------------------------------
+-- Contar la cantidad de Matrículas por año
+DELIMITER //
+CREATE PROCEDURE sp_read_matriculas_anio()
+BEGIN
+    SELECT 
+        a.Anio AS Anio,
+        COUNT(*) AS Cantidad
+    FROM 
+        Matriculas m
+    JOIN 
+        Anio_Lectivo a ON m.FK_Anio_Lectivo = a.ID_Anio_Lectivo
+    GROUP BY 
+        a.Anio;
+END//
+DELIMITER ;
+
 -- Leer Matriculas
 DELIMITER //
 CREATE PROCEDURE sp_read_matricula()

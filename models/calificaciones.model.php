@@ -40,6 +40,18 @@ class Calificacion {
         } 
     }
 
+    //Contar la cantidad de Matrículas por año
+    public function readCantidadCalificacionesAnio()
+    {
+        try {
+            $consulta = "CALL sp_read_calificaciones_anio();";
+            return $this->objetoConexion->consultar($consulta);
+        } catch (Exception $e) {
+            echo "Error en la cansulta: " . $e->getMessage();
+            return false;
+        } 
+    }
+
     // Leer por ID
     public function readID($ID) {
         try {
@@ -88,7 +100,7 @@ class Calificacion {
     public function delete($ID)
     {
         try {
-            $query = "CALL sp_delete_calificaciones();";
+            $query = "CALL sp_delete_calificaciones(?);";
             $stmt = $this->objetoConexion->prepare($query);
             $stmt->bind_param('s', $ID);
             if ($stmt->execute()) {
