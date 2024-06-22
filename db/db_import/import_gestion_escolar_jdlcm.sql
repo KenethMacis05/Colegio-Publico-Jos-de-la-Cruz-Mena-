@@ -112,7 +112,7 @@ CREATE TABLE `BitacoraCalificaciones` (
   `Descripcion` varchar(80) DEFAULT NULL,
   `Fecha` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID_BitacoraC`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +121,7 @@ CREATE TABLE `BitacoraCalificaciones` (
 
 LOCK TABLES `BitacoraCalificaciones` WRITE;
 /*!40000 ALTER TABLE `BitacoraCalificaciones` DISABLE KEYS */;
-INSERT INTO `BitacoraCalificaciones` VALUES (1,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:09:36'),(2,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:09:58'),(3,'root@localhost','CREATE','Se crearon las calificaciones para el estudiante: 1','2024-06-22 02:13:08'),(4,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:13:46'),(5,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:15:58'),(6,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:23:00'),(7,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:26:48'),(8,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:27:15'),(9,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:30:56'),(10,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:31:24'),(11,'root@localhost','DELETE','Se eliminaron las calificaciones para el estudiante: 1','2024-06-22 02:33:18');
+INSERT INTO `BitacoraCalificaciones` VALUES (1,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:09:36'),(2,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:09:58'),(3,'root@localhost','CREATE','Se crearon las calificaciones para el estudiante: 1','2024-06-22 02:13:08'),(4,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:13:46'),(5,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:15:58'),(6,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:23:00'),(7,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:26:48'),(8,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:27:15'),(9,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:30:56'),(10,'root@localhost','UPDATE','Se actualizaron las calificaciones para el estudiante: 1','2024-06-22 02:31:24'),(11,'root@localhost','DELETE','Se eliminaron las calificaciones para el estudiante: 1','2024-06-22 02:33:18'),(12,'root@localhost','CREATE','Se crearon las calificaciones para el estudiante: 1','2024-06-22 03:37:00');
 /*!40000 ALTER TABLE `BitacoraCalificaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -193,7 +193,7 @@ CREATE TABLE `BitacoraPeriodoEscolar` (
   `Descripcion` varchar(80) DEFAULT NULL,
   `Fecha` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID_BitacoraPE`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -202,7 +202,7 @@ CREATE TABLE `BitacoraPeriodoEscolar` (
 
 LOCK TABLES `BitacoraPeriodoEscolar` WRITE;
 /*!40000 ALTER TABLE `BitacoraPeriodoEscolar` DISABLE KEYS */;
-INSERT INTO `BitacoraPeriodoEscolar` VALUES (3,'root@localhost','UPDATE','Se actualizó el año lectivo: 2023','2024-06-22 02:11:18'),(4,'root@localhost','UPDATE','Se actualizó el año lectivo: 2023','2024-06-22 02:11:29');
+INSERT INTO `BitacoraPeriodoEscolar` VALUES (3,'root@localhost','UPDATE','Se actualizó el año lectivo: 2023','2024-06-22 02:11:18'),(4,'root@localhost','UPDATE','Se actualizó el año lectivo: 2023','2024-06-22 02:11:29'),(5,'root@localhost','UPDATE','Se actualizó el año lectivo: 2022','2024-06-22 20:48:04'),(6,'root@localhost','UPDATE','Se actualizó el año lectivo: 2022','2024-06-22 20:48:17');
 /*!40000 ALTER TABLE `BitacoraPeriodoEscolar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -246,7 +246,7 @@ CREATE TABLE `BitacoraUsuarios` (
   `Descripcion` varchar(45) DEFAULT NULL,
   `Fecha` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID_BitacoraU`)
-) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -255,7 +255,7 @@ CREATE TABLE `BitacoraUsuarios` (
 
 LOCK TABLES `BitacoraUsuarios` WRITE;
 /*!40000 ALTER TABLE `BitacoraUsuarios` DISABLE KEYS */;
-INSERT INTO `BitacoraUsuarios` VALUES (85,'root@localhost','UPDATE','Se actualizo el usuario: dcalero','2024-06-22 02:10:50'),(86,'root@localhost','UPDATE','Se actualizo el usuario: dcalero','2024-06-22 02:10:59'),(87,'root@localhost','UPDATE','Se actualizo el usuario: Aaleman','2024-06-22 02:11:07');
+INSERT INTO `BitacoraUsuarios` VALUES (85,'root@localhost','UPDATE','Se actualizo el usuario: dcalero','2024-06-22 02:10:50'),(86,'root@localhost','UPDATE','Se actualizo el usuario: dcalero','2024-06-22 02:10:59'),(87,'root@localhost','UPDATE','Se actualizo el usuario: Aaleman','2024-06-22 02:11:07'),(88,'root@localhost','UPDATE','Se actualizo el usuario: dcalero','2024-06-22 20:48:29'),(89,'root@localhost','UPDATE','Se actualizo el usuario: dcalero','2024-06-22 20:48:40');
 /*!40000 ALTER TABLE `BitacoraUsuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -292,7 +292,7 @@ CREATE TABLE `Calificaciones` (
   CONSTRAINT `pk_Anio_Lectivo_id` FOREIGN KEY (`FK_Anio_Lectivo`) REFERENCES `Anio_Lectivo` (`ID_Anio_Lectivo`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `pk_Estudiante_id` FOREIGN KEY (`FK_Estudiante`) REFERENCES `Estudiantes` (`ID_Estudiante`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `pk_Grado_id` FOREIGN KEY (`FK_Grado`) REFERENCES `Grados` (`ID_Grado`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -301,7 +301,7 @@ CREATE TABLE `Calificaciones` (
 
 LOCK TABLES `Calificaciones` WRITE;
 /*!40000 ALTER TABLE `Calificaciones` DISABLE KEYS */;
-INSERT INTO `Calificaciones` VALUES (1,1,86,90,88,92,80,75,70,78,85,89,86,83,87,90,1,1),(2,2,80,82,84,88,76,71,69,77,84,88,85,82,86,89,1,1),(3,3,85,90,88,92,80,75,70,78,85,89,86,83,87,90,1,2),(4,4,80,82,84,88,76,71,69,77,84,88,85,82,86,89,1,3),(5,5,85,90,88,92,80,75,70,78,85,89,86,83,87,90,1,2),(6,6,80,82,84,88,76,71,69,77,84,88,85,82,86,89,1,5),(7,7,85,90,88,92,80,75,70,78,85,89,86,83,87,90,1,3),(8,8,80,82,84,88,76,71,69,77,84,88,85,82,86,89,1,1),(9,9,85,90,88,92,80,75,70,78,85,89,86,83,87,90,1,5),(10,10,80,82,84,88,76,71,69,77,84,88,85,82,86,89,1,2),(11,11,85,90,88,92,80,75,70,78,85,89,86,83,87,90,1,3),(12,12,80,82,84,88,76,71,69,77,84,88,85,82,86,89,1,2),(13,13,85,90,88,92,80,75,70,78,85,89,86,83,87,90,1,1);
+INSERT INTO `Calificaciones` VALUES (1,1,86,90,88,92,80,75,70,78,85,89,86,83,87,90,1,1),(2,2,80,82,84,88,76,71,69,77,84,88,85,82,86,89,1,1),(3,3,85,90,88,92,80,75,70,78,85,89,86,83,87,90,1,2),(4,4,80,82,84,88,76,71,69,77,84,88,85,82,86,89,1,3),(5,5,85,90,88,92,80,75,70,78,85,89,86,83,87,90,1,2),(6,6,80,82,84,88,76,71,69,77,84,88,85,82,86,89,1,5),(7,7,85,90,88,92,80,75,70,78,85,89,86,83,87,90,1,3),(8,8,80,82,84,88,76,71,69,77,84,88,85,82,86,89,1,1),(9,9,85,90,88,92,80,75,70,78,85,89,86,83,87,90,1,5),(10,10,80,82,84,88,76,71,69,77,84,88,85,82,86,89,1,2),(11,11,85,90,88,92,80,75,70,78,85,89,86,83,87,90,1,3),(12,12,80,82,84,88,76,71,69,77,84,88,85,82,86,89,1,2),(13,13,85,90,88,92,80,75,70,78,85,89,86,83,87,90,1,1),(19,1,90,85,70,65,90,87,83,63,90,100,90,78,95,78,2,1);
 /*!40000 ALTER TABLE `Calificaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -2507,4 +2507,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-21 21:10:44
+-- Dump completed on 2024-06-22 14:57:30

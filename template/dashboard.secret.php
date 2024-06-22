@@ -1,6 +1,6 @@
 
 <!--Aqui comienza-->
-<div class="col-auto col-md-3 col-xl-2 px-sm-2 bg-dark p-3 text-white contenedor" style="width: 280px; height: 100%;">
+<div class="col-auto col-md-3 col-xl-2 px-sm-2 bg-dark p-3 text-white contenedor" style="width: 280px; height: 100%; background-color: rgba(33,37,41,0.9);">
 
     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
         <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -16,6 +16,11 @@
             <li>
                 <a href="../home.php" class="nav-link px-0 align-middle text-white">
                     <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="/views/estadisticas.view.php" class="nav-link px-0 align-middle text-white">
+                    <i class="fs-4 bi bi-bar-chart-line"></i> <span class="ms-1 d-none d-sm-inline">Estadisticas</span>
                 </a>
             </li>
             <li>

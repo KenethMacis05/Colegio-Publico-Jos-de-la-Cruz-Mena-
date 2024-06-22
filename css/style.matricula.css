@@ -27,7 +27,7 @@ hr {
 }
 
 .Contenedor-Saludo {
-    width: auto !important;
+    width: 73vw !important;
     margin: 0 3% 0 0;
     position: absolute;
     top: 120px;
@@ -41,7 +41,7 @@ hr {
 }
 
 .header {
-    background-color: #212529;
+    background-color: rgba(33,37,41,0.9);
     margin: 35px 3%;
     height: 50px;
     color: white;

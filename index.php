@@ -28,6 +28,7 @@ if (isset($_SESSION['usuarioautenticado'])) {
 </head>
 
 <body class="fondo" style="background-image: url(src/img/bg-school.png);">
+<?php include_once "template/loading.php"?>
 	<div class="container-fluid d-flex flex-column">
 		<div class="row align-items-center justify-content-center min-vh-100">
 			<?php include_once  "template/logger.php" ?>
